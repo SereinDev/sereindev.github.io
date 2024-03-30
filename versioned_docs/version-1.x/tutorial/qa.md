@@ -19,7 +19,7 @@ Serein没有设置重启上限次数，在投入生产环境前请确保服务�
 :::
 
 - 在基岩版1.19之后，BDS服务端控制台输入编码被改为UTF-16，但由于一些问题，无论如何修改编码都无法正常输入中文。
-  - 你可以使用LLSE插件[Unescaper for Serein.js](https://www.minebbs.com/resources/unescaper-for-serein.5441/)，并在设置中开启 使用Unicode字符 选项或使用[Unicode命令输入](../guide/command#在服务器中执行命令)将命令内的非ASCII的字符使用Unicode字符表示即可
+  - 你可以使用LLSE插件[Unescaper for Serein.js](https://www.minebbs.com/resources/unescaper-for-serein.5441/)，并在设置中开启 使用Unicode字符 选项或使用[Unicode命令输入](../guidance/command#在服务器中执行命令)将命令内的非ASCII的字符使用Unicode字符表示即可
 
 ## 输出乱码
 
@@ -31,12 +31,12 @@ Serein没有设置重启上限次数，在投入生产环境前请确保服务�
 
 - Java启动的服务端（Nukkit、PNX和大部分Java版的服务器）
   - Java默认编码为GBK
-    - ~~因为NET对该编码不完全支持~~，（**[v1.3.5](../version/v1.3.5)已支持**）所以你可以在启动的批处理文件中添加`-Dfile.encoding=utf-8`参数。
+    - ~~因为NET对该编码不完全支持~~，（**v1.3.5已支持**）所以你可以在启动的批处理文件中添加`-Dfile.encoding=utf-8`参数。
       - 举个例子
         ```bat
         java -Dfile.encoding=utf-8 -jar server.jar nogui
         ```
-    - [v1.3.5](../version/v1.3.5)中已支持使用GBK编码作为输入和输出的编码，故你可以直接在 服务器-输出编码 选择此编码
+    - v1.3.5中已支持使用GBK编码作为输入和输出的编码，故你可以直接在 服务器-输出编码 选择此编码
 
 
 - Python启动的进程（如[MCDReforged](https://github.com/Fallen-Breath/MCDReforged)）
@@ -46,7 +46,7 @@ Serein没有设置重启上限次数，在投入生产环境前请确保服务�
       set PYTHONIOENCODING=utf-8
       python start.py
       ```
-  - [v1.3.5](../version/v1.3.5)中已支持使用GBK编码作为输入和输出的编码，故你可以直接在 服务器-输出编码 选择此编码
+  - v1.3.5中已支持使用GBK编码作为输入和输出的编码，故你可以直接在 服务器-输出编码 选择此编码
 
 ## 使用批处理启动的服务器进程无法强制结束
 
@@ -106,7 +106,7 @@ Serein没有设置重启上限次数，在投入生产环境前请确保服务�
 
 ## 其他
 
-[提交ISSUE](https://github.com/Zaitonn/Serein/issues/new/choose)
+[提交ISSUE](https://github.com/SereinDev/Serein/issues/new/choose)
 
 :::tip
 记得提供具体复现步骤

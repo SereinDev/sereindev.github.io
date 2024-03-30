@@ -41,6 +41,8 @@ const config: Config = {
           lastVersion: 'current',
         },
 
+        blog: false,
+
         theme: {
           customCss: './src/css/custom.css',
         },

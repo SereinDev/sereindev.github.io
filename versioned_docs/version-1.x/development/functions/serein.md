@@ -16,7 +16,7 @@ serein.log(new System.IO.StreamWriter('log.txt')); // 甚至可以输出对象
   - 空
 
 :::tip
-个人更推荐使用[Logger](../class#logger)输出，支持多参输入，且方便区分输出等级
+个人更推荐使用[Logger](../classes#logger)输出，支持多参输入，且方便区分输出等级
 :::
 
 ## Debug输出
@@ -403,7 +403,7 @@ serein.runCommand("g|hello")
 ```
 
 - 参数
-  - `cmd` 一条[Serein命令](../../guide/command)
+  - `cmd` 一条[Serein命令](../../guidance/command)
 - 返回
   - 空
 

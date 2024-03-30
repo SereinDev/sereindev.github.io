@@ -13,7 +13,7 @@
     - 长度为4-16
     - 仅含有大小写英文字符、下划线、空格
     - 你可以在`settings/Serein.json`内[修改](./hiddenSettings#regexforcheckinggameid)
-- 通过[JavaScript插件](../development/functions/binder#👨🏻🤝👨🏻-绑定解绑)执行`serein.bindMember()`或`serein.unbindMember()`增删绑定记录
+- 通过[JavaScript插件](../development/functions/binder)执行`serein.bindMember()`或`serein.unbindMember()`增删绑定记录
 - 在列表中右键可编辑绑定的游戏ID或删除所选记录
 
 ## 文件格式

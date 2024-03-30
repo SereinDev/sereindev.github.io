@@ -109,7 +109,7 @@
 
 ### 权限优先级
 
-由[priority](#priority-int32)和权限组顺序决定，具体逻辑请看下面的例子
+由`priority`和权限组顺序决定，具体逻辑请看下面的例子
 
 <details>
   <summary>优先级主导</summary>

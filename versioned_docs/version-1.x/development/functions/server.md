@@ -98,7 +98,7 @@
 - 参数
   - 空
 - 返回
-  - [`Motdpe` | `Motdje`](../class#motdjemotdpe)
+  - [`Motdpe` | `Motdje`](../classes#motdjemotdpe)
 
 ## 获取Motd原文
 

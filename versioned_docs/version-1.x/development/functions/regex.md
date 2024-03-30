@@ -23,7 +23,7 @@ serein.removeRegex(0);
 - 返回
   - `Array<RegexItem>` 正则列表
     - `RegexItem`
-      - 结构见[正则](../../guide/regex)
+      - 结构见[正则](../../guidance/regex)
 
 ```ts
 declare type Regex = {

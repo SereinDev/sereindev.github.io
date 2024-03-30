@@ -57,7 +57,7 @@ Process.Start("cmd.exe");
 :::tip
 
 - 在[这里](https://market.serein.cc/resources/Example)你可以找到更详细的示例
-- 部分命名空间需要设置[预加载配置](development/preLoadConfig)后才能导入
+- 部分命名空间需要设置[预加载配置](preLoadConfig)后才能导入
 
 :::
 
@@ -67,7 +67,7 @@ Process.Start("cmd.exe");
 - 对于加密混淆后的代码，运行效率极其低下
   - 运行时间可能长达原来的数十倍以上
 - 初始化类时貌似未阻塞线程，导致未初始化完毕就执行剩下的语句
-  - 包括但不限于[类](development/class)和反射[程序集](development/assembly)得到的类
+  - 包括但不限于[类](classes/Logger)和反射[程序集](assembly)得到的类
   - 临时解决方案：使用`setTimeout`异步处理
 :::
 

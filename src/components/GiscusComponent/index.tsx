@@ -6,10 +6,10 @@ export default function GiscusComponent() {
 
   return (
     <Giscus
-      repo="SereinDev/sereindev.github,io"
-      repoId="R_kgDOI5X-eA"
-      category="General"
-      categoryId="DIC_kwDOI5X-eM4CVoEc"
+      repo="SereinDev/sereindev.github.io"
+      repoId="R_kgDOLnjPLA"
+      category="Giscus"
+      categoryId="DIC_kwDOLnjPLM4CeV2N"
       term="快来抢沙发！"
       strict="0"
       reactionsEnabled="1"
