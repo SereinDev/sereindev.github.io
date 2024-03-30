@@ -1,0 +1,78 @@
+{
+  "development": [
+    {
+      "type": "category",
+      "label": "插件开发",
+      "link": {
+        "type": "doc",
+        "id": "development/index"
+      },
+      "collapsible": false,
+      "items": [
+        {
+          "type": "category",
+          "label": "类",
+          "items": [
+            "development/classes/Logger",
+            "development/classes/MessageBus",
+            "development/classes/WSClient",
+            "development/classes/Motd"
+          ]
+        },
+        "development/properties",
+        {
+          "type": "category",
+          "label": "函数",
+          "items": [
+            "development/functions/serein",
+            "development/functions/regex",
+            "development/functions/system",
+            "development/functions/server",
+            "development/functions/msg",
+            "development/functions/binder",
+            "development/functions/import",
+            "development/functions/module"
+          ]
+        },
+        "development/permissionGroup",
+        "development/preLoadConfig"
+      ]
+    }
+  ],
+  "guidance": [
+    {
+      "type": "category",
+      "label": "指南",
+      "link": {
+        "type": "doc",
+        "id": "guidance/index"
+      },
+      "collapsible": false,
+      "items": [
+        "guidance/command",
+        "guidance/regex",
+        "guidance/schedule",
+        "guidance/variables",
+        "guidance/jsplugin",
+        "guidance/member",
+        "guidance/bot",
+        "guidance/event",
+        "guidance/hiddenSettings"
+      ]
+    }
+  ],
+  "tutorial": [
+    "tutorial/install",
+    "tutorial/differenceBetweenVersions",
+    "tutorial/setupArgs",
+    "tutorial/configBot",
+    "tutorial/runServer",
+    "tutorial/manageServerPlugins",
+    "tutorial/qa",
+    "tutorial/autoRunOnStarted",
+    "tutorial/customConsole",
+    "tutorial/customRegex",
+    "tutorial/matchWithMuiltLine",
+    "tutorial/debugMode"
+  ]
+}
