@@ -29,7 +29,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title="WELCOME" description={siteConfig.tagline}>
+    <Layout title="Hello" description={siteConfig.tagline}>
       <div className={styles['fisrt-container']}>
         <HomepageHeader />
         <HomepageFeatures />

@@ -1,22 +1,16 @@
 import GiscusComponent from '@site/src/components/GiscusComponent';
-
-import React from 'react';
-import clsx from 'clsx';
 import { useWindowSize } from '@docusaurus/theme-common';
-// @ts-ignore
 import { useDoc } from '@docusaurus/theme-common/internal';
-import DocItemPaginator from '@theme/DocItem/Paginator';
-import DocVersionBanner from '@theme/DocVersionBanner';
-import DocVersionBadge from '@theme/DocVersionBadge';
-import DocItemFooter from '@theme/DocItem/Footer';
-import DocItemTOCMobile from '@theme/DocItem/TOC/Mobile';
-import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
-import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
+import DocItemContent from '@theme/DocItem/Content';
+import DocItemFooter from '@theme/DocItem/Footer';
+import DocItemPaginator from '@theme/DocItem/Paginator';
+import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
+import DocItemTOCMobile from '@theme/DocItem/TOC/Mobile';
+import DocVersionBadge from '@theme/DocVersionBadge';
+import DocVersionBanner from '@theme/DocVersionBanner';
+import clsx from 'clsx';
 
-/**
- * Decide if the toc should be rendered, on mobile or desktop viewports
- */
 function useDocTOC() {
   const { frontMatter, toc } = useDoc();
   const windowSize = useWindowSize();
@@ -34,7 +28,7 @@ function useDocTOC() {
   return {
     hidden,
     mobile,
-    desktop
+    desktop,
   };
 }
 
@@ -44,7 +38,7 @@ export default function DocItemLayout({ children }): JSX.Element {
     <div className="row">
       <div className={clsx('col', !docTOC.hidden)}>
         <DocVersionBanner />
-        <div >
+        <div>
           <article>
             <DocBreadcrumbs />
             <DocVersionBadge />
@@ -54,7 +48,7 @@ export default function DocItemLayout({ children }): JSX.Element {
           </article>
           <DocItemPaginator />
         </div>
-        <div className='giscus-container'>
+        <div className="giscus-container">
           <GiscusComponent />
         </div>
       </div>

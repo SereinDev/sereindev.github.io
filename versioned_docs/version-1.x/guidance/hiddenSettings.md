@@ -19,7 +19,7 @@
 ### `noHeartbeat`
 
 - `boolean`
-- 是否禁用心跳功能（用于[在线统计](/onlineCount)）
+- ~~是否禁用心跳功能（用于[在线统计](/onlineCount)）~~
 - 此项功能会收集您的以下数据（匿名）
   - 启动时间
   - Serein版本

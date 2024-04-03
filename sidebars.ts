@@ -15,11 +15,18 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '指南',
       collapsible: false,
-      items: ['index'],
+      items: ['guidance/index'],
     },
   ],
 
-  tutorial: ['index'],
+  tutorial: [
+    {
+      type: 'category',
+      label: '教程',
+      collapsible: false,
+      items: ['index'],
+    },
+  ],
 };
 
 export default sidebars;

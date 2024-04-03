@@ -15,6 +15,7 @@ const config: Config = {
   projectName: 'Serein',
 
   onBrokenLinks: 'warn',
+  onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   markdown: {
@@ -52,11 +53,10 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      content:
-        '如果你觉得Serein好用的话，别忘了<a href="https://github.com/SereinDev/Serein" style="color: var(--ifm-link-color); text-decoration: var(--ifm-link-decoration);" id="underline-link">给个Star⭐</a> :D',
+      content: '🚧此文档尚未完工🚧',
       textColor: 'var(--ifm-color-primary-contrast-foreground)',
       backgroundColor: 'var(--ifm-background-surface-color)',
-      id: '20240330',
+      id: '20240331',
     },
 
     image: 'logo.png',
@@ -82,17 +82,16 @@ const config: Config = {
         {
           type: 'docSidebar',
           sidebarId: 'development',
-          label: '插件开发',
+          label: '开发',
         },
         {
-          label: '扩展市场',
-          to: 'https://market.serein.cc/',
+          label: '社区',
+          href: 'https://sereincommunity.github.io/',
         },
         {
           type: 'docsVersionDropdown',
           label: '版本',
           position: 'right',
-          items: [],
         },
       ],
     },
@@ -136,12 +135,12 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: [
+        'batch',
         'csharp',
-        'batch',
+        'json',
         'powershell',
-        'typescript',
         'regex',
-        'batch',
+        'typescript',
       ],
     } satisfies Preset.ThemeConfig,
 

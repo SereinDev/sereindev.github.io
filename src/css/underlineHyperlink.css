@@ -1,6 +1,4 @@
-.theme-doc-footer-edit-meta-row a,
-.markdown a:not(.card),
-a#underline-link,
+a.underline-links,
 .underline-links a {
   background: linear-gradient(var(--ifm-link-color), var(--ifm-link-color));
   background-repeat: no-repeat;
@@ -11,9 +9,7 @@ a#underline-link,
   text-decoration: none;
 }
 
-.theme-doc-footer-edit-meta-row a:hover,
-.markdown a:not(.card):hover,
-a#underline-link:hover,
+a.underline-links:hover,
 .underline-links a:hover {
   text-decoration: none;
   background-position: left bottom;
