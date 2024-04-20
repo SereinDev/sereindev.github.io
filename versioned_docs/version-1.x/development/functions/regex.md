@@ -87,7 +87,7 @@ serein.editRegex(
     - 成功为`true`，否则为`false`
 
 :::note
-若参数为null则忽略更改
+若参数为 null 则忽略更改
 :::
 
 ## 删除正则

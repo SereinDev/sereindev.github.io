@@ -1,6 +1,6 @@
 # Logger
 
-一个简简单单的Logger
+一个简简单单的 Logger
 
 ```mermaid
 classDiagram
@@ -29,7 +29,7 @@ logger.debug("这是一条信息输出");
 ## 构造函数
 
 - `Logger(title: string)`
-  - Logger名称
+  - Logger 名称
 
 ## 函数
 
@@ -41,7 +41,7 @@ logger.debug("这是一条信息输出");
   - 输出一条错误消息
 - `debug(...content: any): void`
   - 输出一条调试消息
-  - 此消息将输出到Serein的debug窗口而不是插件控制台
+  - 此消息将输出到 Serein 的 debug 窗口而不是插件控制台
 
 :::tip
 以上四个函数可以有多个参数，输出时各参数将用空格连接

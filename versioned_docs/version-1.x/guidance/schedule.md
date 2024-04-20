@@ -4,7 +4,7 @@
 
 ![定时任务](schedule.png)
 
-任务数据保存在data/schedule.json
+任务数据保存在 data/schedule.json
 
 ## 食用方法
 
@@ -15,12 +15,12 @@
 :::
 
 :::caution
-Cron表达式或命令为空或不合法时无法保存
+Cron 表达式或命令为空或不合法时无法保存
 :::
 
 ## 功能介绍
 
-### Cron表达式
+### Cron 表达式
 
 指定任务执行的时间和周期
 
@@ -35,7 +35,7 @@ Cron表达式或命令为空或不合法时无法保存
 
 ### 执行命令
 
-执行一条[Serein命令](command)，你可以在其中插入[变量](variables)
+执行一条[Serein 命令](command)，你可以在其中插入[变量](variables)
 
 ### 备注
 

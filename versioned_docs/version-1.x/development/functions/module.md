@@ -1,6 +1,6 @@
 # 从模块中加载
 
-v1.3.4 后你可以创建新的js文件，并在里面写一些基本的函数方便日常调用，如判断是否为管理、格式化自定义的时间等
+v1.3.4 后你可以创建新的 js 文件，并在里面写一些基本的函数方便日常调用，如判断是否为管理、格式化自定义的时间等
 
 参考：[export - JavaScript | MDN - Mozilla Developer](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export)
 
@@ -26,7 +26,7 @@ export function isMyGroup(groupID) {
 
 `require(file: string)`
 
-此处的`file`参数对应为你在 plugins 文件夹创建的js文件路径
+此处的`file`参数对应为你在 plugins 文件夹创建的 js 文件路径
 
 :::caution
 

@@ -99,7 +99,7 @@ const config: Config = {
       style: 'light',
       links: [
         {
-          title: '更多',
+          title: 'Serein',
           items: [
             {
               label: '仓库',
@@ -108,7 +108,7 @@ const config: Config = {
             {
               href: 'https://jq.qq.com/?_wv=1027&k=XNZqPSPv',
               label: '交流群',
-            },
+            }
           ],
         },
         {

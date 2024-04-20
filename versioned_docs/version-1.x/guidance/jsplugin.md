@@ -1,12 +1,12 @@
 # 插件
 
-通过热加载Javascript文件来极大拓展Serein的功能
+通过热加载 Javascript 文件来极大拓展 Serein 的功能
 
 ![插件](javacriptplugins.png)
 
 :::caution
 这里不是放服务器插件的地方！！！  
-这里只能加载Serein的插件！！！！
+这里只能加载 Serein 的插件！！！！
 :::
 
 ## 推荐列表
@@ -15,7 +15,7 @@
 
 ## 插件开发
 
-详见[JS文档](../development)
+详见[JS 文档](../development)
 
 ## 食用方法
 

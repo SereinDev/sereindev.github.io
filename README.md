@@ -1,4 +1,4 @@
-# Serein文档
+# Serein 文档
 
 <p align="center">
 <img src='static/logo.png' width="100"/>

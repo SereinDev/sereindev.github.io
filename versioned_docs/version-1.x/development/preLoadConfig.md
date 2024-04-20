@@ -1,10 +1,10 @@
 # 预加载配置
 
->参考代码：[jint/Options.cs](https://github.com/sebastienros/jint/blob/main/Jint/Options.cs)
+> 参考代码：[jint/Options.cs](https://github.com/sebastienros/jint/blob/main/Jint/Options.cs)
 
 ## 创建方法
 
-- 在plugins文件夹下创建与插件同名的文件夹后，重新加载插件即可自动生成该文件
+- 在 plugins 文件夹下创建与插件同名的文件夹后，重新加载插件即可自动生成该文件
 - 使用[`setPreLoadConfig()`](functions/serein#设置预加载配置)方法自动创建
 
 ```json title="PreLoadConfig.json"
@@ -25,7 +25,7 @@
 
 :::tip
 
-- 若要加载NET自带的程序集，则该文件需位于`{NET安装目录}/{运行库类型}/{版本号}`的文件夹下，如`System.Draw`、`System.Windows.Forms`
+- 若要加载 NET 自带的程序集，则该文件需位于`{NET安装目录}/{运行库类型}/{版本号}`的文件夹下，如`System.Draw`、`System.Windows.Forms`
 - 使用方法：[程序集](assembly)
 
 :::
@@ -45,16 +45,16 @@
 允许使用`System.Reflection`相关功能
 
 :::tip
-你可以通过此功能实现动态加载Dll
+你可以通过此功能实现动态加载 Dll
 :::
 
 ## allowWrite `boolean`
 
-允许对CLR的写入（建议开启，默认为`true`）
+允许对 CLR 的写入（建议开启，默认为`true`）
 
 ## strict `boolean`
 
-JS严格模式
+JS 严格模式
 
 ## stringCompilationAllowed `boolean`
 

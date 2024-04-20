@@ -1,6 +1,6 @@
 # Motdje/Motdpe
 
-~~Jvav~~版和基岩版的Motd对象
+~~Jvav~~版和基岩版的 Motd 对象
 
 ```mermaid
 classDiagram

@@ -62,7 +62,7 @@
   - `string`
     - 示例：`0.2m` `1.5h` `3.02d`
 
-## 获取服务器PID
+## 获取服务器 PID
 
 `serein.getServerPID()`
 
@@ -91,7 +91,7 @@
   - `string`
     - 示例：`bedrock_server.exe`
 
-## 获取服务器Motd
+## 获取服务器 Motd
 
 `serein.getServerMotd()`
 
@@ -100,10 +100,10 @@
 - 返回
   - [`Motdpe` | `Motdje`](../classes#motdjemotdpe)
 
-## 获取Motd原文
+## 获取 Motd 原文
 
 基岩版：`serein.getMotdpe(addr: string)`  
-Java版：`serein.getMotdje(addr: string)`
+Java 版：`serein.getMotdje(addr: string)`
 
 ```js
 var pe = serein.getMotdpe("127.0.0.1:19132");
@@ -111,9 +111,9 @@ var je = serein.getMotdje("127.0.0.1:25565");
 ```
 
 - 参数
-  - `addr` 服务器ip
+  - `addr` 服务器 ip
 - 返回
-  - `string` Motd原文
+  - `string` Motd 原文
     - 获取失败时返回空字符串
     - 基岩版为纯字符串
 
@@ -121,7 +121,7 @@ var je = serein.getMotdje("127.0.0.1:25565");
     MCPE;Dedicated Server;503;1.18.33;0;10;12578007761032183218;Bedrock level;Survival;1;19132;19133;
     ```
 
-    - Java版为Json文本
+    - Java 版为 Json 文本
 
     ```json title='返回示例'
     {
@@ -149,8 +149,8 @@ var je = serein.getMotdje("127.0.0.1:25565");
 :::note
 `addr`支持的类型
 
-1. `string` IP/域名 -> 指定服务器IP
-   - 不填端口基岩版默认`19132`，Java版默认`25565`
-2. `string` IP/域名:端口 -> 指定服务器IP和端口
+1. `string` IP/域名 -> 指定服务器 IP
+   - 不填端口基岩版默认`19132`，Java 版默认`25565`
+2. `string` IP/域名:端口 -> 指定服务器 IP 和端口
 
 :::

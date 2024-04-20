@@ -1,20 +1,20 @@
 # 属性
 
-## Serein.exe所在文件夹
+## Serein.exe 所在文件夹
 
 `serein.path`
 
 - 返回
   - `string`
 
-## Serein版本
+## Serein 版本
 
 `serein.version`
 
 - 返回
   - `string`
 
-## Serein类型
+## Serein 类型
 
 `serein.type`
 
@@ -24,7 +24,7 @@
     - 1 - winform
     - 2 - wpf
 
-## Serein类型文本
+## Serein 类型文本
 
 `serein.typeName`
 
@@ -34,14 +34,14 @@
     - winform
     - wpf
 
-## Serein启动时间
+## Serein 启动时间
 
 `serein.startTime`
 
 - 返回
   - `Date`
 
-## JS命名空间
+## JS 命名空间
 
 `serein.namespace`
 
@@ -49,7 +49,7 @@
   - `string`
 
 :::note
-JS命名空间用于内部区分JS解释器和其他属性，实例化[WebSocket](class/WSClient)等时需要提供此参数
+JS 命名空间用于内部区分 JS 解释器和其他属性，实例化[WebSocket](class/WSClient)等时需要提供此参数
 :::
 
 :::tip

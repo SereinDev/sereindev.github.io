@@ -1,12 +1,12 @@
 # 事件
 
-设定特定事件触发命令内容，例如服务器状态变更自动通知Q群
+设定特定事件触发命令内容，例如服务器状态变更自动通知 Q 群
 
 ![事件](event.png)
 
 ## 介绍
 
-根据settings/Event.json中的设置的命令响应触发的事件  
+根据 settings/Event.json 中的设置的命令响应触发的事件  
 
 在配置文件中，每个事件下有一个`JSON`数组，你可以在里面填写该事件被触发时执行的[命令](command)，并且可以在其中插入[变量](variables)
 
@@ -19,9 +19,9 @@
 | 事件名                         | 描述                         |
 | ------------------------------ | ---------------------------- |
 | BindingSucceed                 | 绑定成功                     |
-| BindingFailDueToOccupation     | 绑定失败-游戏ID占用          |
-| BindingFailDueToInvalid        | 绑定失败-该游戏ID不符合规范  |
-| BindingFailDueToAlreadyBinded  | 绑定失败-该QQ已经绑定        |
+| BindingFailDueToOccupation     | 绑定失败-游戏 ID 占用          |
+| BindingFailDueToInvalid        | 绑定失败-该游戏 ID 不符合规范  |
+| BindingFailDueToAlreadyBinded  | 绑定失败-该 QQ 已经绑定        |
 | UnbindingSucceed               | 解绑成功                     |
 | UnbindingFail                  | 解绑成功                     |
 | ServerStart                    | 服务器启动                   |
@@ -30,17 +30,17 @@
 | GroupIncrease                  | 监听群有人进群               |
 | GroupDecrease                  | 监听群有人退群               |
 | GroupPoke                      | 监听群内当前账号被他人戳一戳 |
-| RequestingMotdpeSucceed        | 命令motdpe执行成功           |
-| RequestingMotdjeSucceed        | 命令motdje执行成功           |
-| RequestingMotdFail             | 命令motdpe或motdje执行失败   |
+| RequestingMotdpeSucceed        | 命令 motdpe 执行成功           |
+| RequestingMotdjeSucceed        | 命令 motdje 执行成功           |
+| RequestingMotdFail             | 命令 motdpe 或 motdje 执行失败   |
 | PermissionDeniedFromPrivateMsg | 权限不足（私聊）             |
 | PermissionDeniedFromGroupMsg   | 权限不足（群聊）             |
-| SereinCrash                    | Serein崩溃                   |
+| SereinCrash                    | Serein 崩溃                   |
 
 ## 绑定/解绑
 
 :::note
-本节的所有事件可以使用 ID 变量获取触发这个事件的QQ
+本节的所有事件可以使用 ID 变量获取触发这个事件的 QQ
 :::
 
 ### BindingSucceed
@@ -53,7 +53,7 @@ g|[CQ:at,qq=%ID%] 绑定成功
 
 ### BindingFailDueToOccupation
 
-游戏ID占用  
+游戏 ID 占用  
 
 ```txt title="Serein命令"
 g|[CQ:at,qq=%ID%] 该游戏名称被占用
@@ -61,7 +61,7 @@ g|[CQ:at,qq=%ID%] 该游戏名称被占用
 
 ### BindingFailDueToInvalid
 
-该游戏ID不符合规范  
+该游戏 ID 不符合规范  
 
 ```txt title="Serein命令"
 g|[CQ:at,qq=%ID%] 该游戏名称无效
@@ -69,7 +69,7 @@ g|[CQ:at,qq=%ID%] 该游戏名称无效
 
 ### BindingFailDueToAlreadyBinded
 
-该QQ已经绑定  
+该 QQ 已经绑定  
 
 ```txt title="Serein命令"
 g|[CQ:at,qq=%ID%] 你已经绑定过了
@@ -117,10 +117,10 @@ g|服务器已关闭
 g|服务器异常关闭
 ```
 
-## QQ群事件
+## QQ 群事件
 
 :::note
-本节的所有事件可以使用`ID`变量获取触发这个事件的QQ
+本节的所有事件可以使用`ID`变量获取触发这个事件的 QQ
 :::
 
 ### GroupIncrease
@@ -150,7 +150,7 @@ g|别戳我……(*/ω＼*)
 ```
 
 :::tip
-以上三个事件其实很有用，可以欢迎新成员/引导玩家绑定ID/快捷获取服务器状态/提示退群消息/~~整活~~  
+以上三个事件其实很有用，可以欢迎新成员/引导玩家绑定 ID/快捷获取服务器状态/提示退群消息/~~整活~~  
 
 - 示例：
 
@@ -169,11 +169,11 @@ g|别戳我……(*/ω＼*)
 
 :::
 
-## Motd指令反馈
+## Motd 指令反馈
 
 ### RequestingMotdpeSucceed
 
-命令motdpe执行成功  
+命令 motdpe 执行成功  
 默认值：
 
 ```txt title="Serein命令"
@@ -187,7 +187,7 @@ g|
 
 ### RequestingMotdjeSucceed
 
-命令motdje执行成功  
+命令 motdje 执行成功  
 默认值：
 
 ```txt title="Serein命令"
@@ -201,7 +201,7 @@ g|
 
 ### RequestingMotdFail
 
-命令motdpe或motdje执行失败  
+命令 motdpe 或 motdje 执行失败  
 默认值：
 
 ```txt title="Serein命令"
@@ -236,7 +236,7 @@ g|[CQ:at,qq=%id%] 你没有执行这个命令的权限
 
 ### SereinCrash
 
-Serein崩溃  
+Serein 崩溃  
 默认值：
 
 ```txt title="Serein命令"

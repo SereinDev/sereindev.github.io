@@ -12,7 +12,7 @@
     - 成功为`true`，否则为`false`
 
 :::caution
-此值仅代表此消息是否成功由WebSocket发出，并不代表消息能够成功发送至聊天，以下同理
+此值仅代表此消息是否成功由 WebSocket 发出，并不代表消息能够成功发送至聊天，以下同理
 :::
 
 ## 发送私聊消息
@@ -20,7 +20,7 @@
 `serein.sendPrivate(target: number, msg: string)`
 
 - 参数
-  - `target` 对方QQ号
+  - `target` 对方 QQ 号
   - `msg` 消息内容
 - 返回
   - `boolean`
@@ -32,7 +32,7 @@
 
 - 参数
   - `group_id` 群号
-  - `user_id` 对方QQ号
+  - `user_id` 对方 QQ 号
   - `msg` 消息内容
 - 返回
   - `boolean`
@@ -62,7 +62,7 @@ serein.sendPacket(JSON.stringify({
 你可以通过此函数实现发送消息、同意好友请求、上传文件等功能
 :::
 
-## 获取ws连接状态
+## 获取 ws 连接状态
 
 `serein.getWsStatus()`
 
@@ -81,7 +81,7 @@ serein.sendPacket(JSON.stringify({
 - 返回
   - `object<string, object<string, UserInfo>>` 群成员昵称缓存字典
     - 第一个`key`为群号
-    - 第二个`key`为QQ号
+    - 第二个`key`为 QQ 号
 
 ```js
 const dict = serein.getGroupCache();
@@ -89,7 +89,7 @@ const info = dict["114514"]["1919810"];
 ```
 
 :::note
-此处的`key`必须为字符串形式的群号或QQ号，直接使用`number`类型作为`key`获取将导致Serein引发超出内存的异常
+此处的`key`必须为字符串形式的群号或 QQ 号，直接使用`number`类型作为`key`获取将导致 Serein 引发超出内存的异常
 :::
 
 ## 直接获取指定群的群成员信息
@@ -102,7 +102,7 @@ const info = serein.getUserInfo(114514, 1919810); // 与上面的函数示例等
 
 - 参数
   - `groupid` 群号
-  - `userid` QQ号
+  - `userid` QQ 号
 - 返回
   - `UserInfo` | `undefined`
 
@@ -116,7 +116,7 @@ declare interface UserInfo {
 }
 ```
 
-## 获取自身ID（使用Serein缓存）
+## 获取自身 ID（使用 Serein 缓存）
 
 `serein.getSelfID()`
 
@@ -124,9 +124,9 @@ declare interface UserInfo {
   - 无
 - 返回
   - `number?`
-    - 当未连接WS时或缓存为空时返回null
+    - 当未连接 WS 时或缓存为空时返回 null
 
-## 获取统计信息（使用Serein缓存）
+## 获取统计信息（使用 Serein 缓存）
 
 `serein.getWsStat()`
 
@@ -135,4 +135,4 @@ declare interface UserInfo {
 - 返回
   - `number?[]`
     - 其中`[0]`为发送消息数，`[1]`为接收消息数
-    - 当未连接WS时或缓存为空时返回`[null, null]`
+    - 当未连接 WS 时或缓存为空时返回`[null, null]`

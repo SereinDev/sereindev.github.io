@@ -53,7 +53,7 @@
 | [替换已编号的组](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/substitutions-in-regular-expressions#substituting-a-numbered-group) （`$1` `$114514`）                          | 可用       |
 | [条件匹配的表达式](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/alternation-constructs-in-regular-expressions#conditional-matching-with-an-expression)                        | 理论可用   |
 | [基于有效的捕获组的条件匹配](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/alternation-constructs-in-regular-expressions#conditional-matching-based-on-a-valid-captured-group) | 理论可用   |
-| [替换命名组](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/substitutions-in-regular-expressions#substituting-a-named-group)                                                    | 仅NET6.0   |
+| [替换命名组](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/substitutions-in-regular-expressions#substituting-a-named-group)                                                    | 仅 NET6.0   |
 | [替换整个匹配项](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/substitutions-in-regular-expressions#substituting-the-entire-match)                                             | *暂不可用* |
 | [替换匹配项前的文本](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/substitutions-in-regular-expressions#substituting-the-entire-match)                                         | *暂不可用* |
 | [替换匹配项后的文本](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/substitutions-in-regular-expressions#substituting-the-text-after-the-match)                                 | *暂不可用* |
@@ -66,7 +66,7 @@
 
 ### 执行命令
 
-执行一条[Serein命令](command)，你可以在其中插入[变量](variables)
+执行一条[Serein 命令](command)，你可以在其中插入[变量](variables)
 
 ### 备注
 

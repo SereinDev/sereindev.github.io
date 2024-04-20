@@ -2,7 +2,7 @@
 
 对`list`等多行反馈的命令进行匹配
 
-由于Serein中为单行匹配服务器输出，所以针对跨行输出的匹配提供了一个额外的解决方案
+由于 Serein 中为单行匹配服务器输出，所以针对跨行输出的匹配提供了一个额外的解决方案
 
 :::tip
 你可能需要一点关于[JSON](https://www.runoob.com/json/json-tutorial.html)经验
@@ -20,7 +20,7 @@
 
 1. 在 settings/Matches.json 中`MuiltLines`属性
 2. 在其中添加能够匹配第一行的正则，此处则为`players\sonline:`
-3. 在Serein的正则页面添加匹配两行的正则及命令，此处则应为`(.+?)\splayers\sonline\n.+?\](.+?)$`
+3. 在 Serein 的正则页面添加匹配两行的正则及命令，此处则应为`(.+?)\splayers\sonline\n.+?\](.+?)$`
 
 :::caution
 此处你需要注意的是，添加进去时应以`"`包裹，且文本其中的`"`应换成`\"`，`\`换成`\\`  

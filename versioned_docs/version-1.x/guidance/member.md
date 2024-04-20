@@ -1,6 +1,6 @@
 # 成员管理
 
-管理QQ号与游戏ID的绑定关系
+管理 QQ 号与游戏 ID 的绑定关系
 
 ![成员管理](members.png)
 
@@ -9,12 +9,12 @@
 ## 食用方法
 
 - 通过触发命令[bind/unbind](command#绑定游戏id)进行操作
-  - 游戏ID校验默认正则`^[a-zA-Z0-9_\s-]{3,16}$`
-    - 长度为4-16
+  - 游戏 ID 校验默认正则`^[a-zA-Z0-9_\s-]{3,16}$`
+    - 长度为 4-16
     - 仅含有大小写英文字符、下划线、空格
     - 你可以在`settings/Serein.json`内[修改](./hiddenSettings#regexforcheckinggameid)
-- 通过[JavaScript插件](../development/functions/binder)执行`serein.bindMember()`或`serein.unbindMember()`增删绑定记录
-- 在列表中右键可编辑绑定的游戏ID或删除所选记录
+- 通过[JavaScript 插件](../development/functions/binder)执行`serein.bindMember()`或`serein.unbindMember()`增删绑定记录
+- 在列表中右键可编辑绑定的游戏 ID 或删除所选记录
 
 ## 文件格式
 

@@ -1,4 +1,4 @@
-# Serein相关
+# Serein 相关
 
 ## 输出日志
 
@@ -19,7 +19,7 @@ serein.log(new System.IO.StreamWriter('log.txt')); // 甚至可以输出对象
 个人更推荐使用[Logger](../classes#logger)输出，支持多参输入，且方便区分输出等级
 :::
 
-## Debug输出
+## Debug 输出
 
 `serein.debugLog(content?: any)`
 
@@ -46,9 +46,9 @@ serein.registerPlugin("示例插件","v1.0","Zaitonn","这是一个示例插件"
   - `author` 作者或版权信息
   - `description` 介绍
 - 返回
-  - `boolean` *(v1.3.2及以前)*
+  - `boolean` *(v1.3.2 及以前)*
     - 成功为`true`，否则为`false`
-  - `string` *(v1.3.3及以后)*
+  - `string` *(v1.3.3 及以后)*
     - 当前的命名空间
 
 ## 设置监听器
@@ -74,7 +74,7 @@ serein.setListener("onGroupPoke", (group, user) => {
     - 不要包含`()`和参数
     - 对于可拦截的事件，你可以通过返回`false`进行拦截
       - 拦截后该事件便不会进行下一步处理（如正则匹配或输出到控制台）
-      - 需要注意的是，你需要在规定时间内返回，具体时间可在配置文件`Serein.json` - `Function`的`JSEventMaxWaitingTime`中修改（默认500ms）；超出时间后返回的将被忽略；
+      - 需要注意的是，你需要在规定时间内返回，具体时间可在配置文件`Serein.json` - `Function`的`JSEventMaxWaitingTime`中修改（默认 500ms）；超出时间后返回的将被忽略；
 - 返回
   - `boolean`
     - 设置监听器成功为`true`，否则为`false`
@@ -91,7 +91,7 @@ serein.setListener("onGroupPoke", (group, user) => {
 
 - **服务器关闭**
 - 监听函数原型： `function (exitCode: number) -> void`
-  - `exitCode` 退出代码（正常关闭时为0）
+  - `exitCode` 退出代码（正常关闭时为 0）
 - 不可拦截
 
 #### onServerOutput
@@ -126,7 +126,7 @@ serein.setListener("onGroupPoke", (group, user) => {
 - **监听群群成员增加**
 - 监听函数原型： `function (group_id: number, user_id: number) -> void`
   - `group_id` 群号
-  - `user_id` QQ号
+  - `user_id` QQ 号
 - 不可拦截
 
 #### onGroupDecrease
@@ -134,7 +134,7 @@ serein.setListener("onGroupPoke", (group, user) => {
 - **监听群群成员减少**
 - 监听函数原型： `function (group_id: number, user_id: number) -> void`
   - `group_id` 群号
-  - `user_id` QQ号
+  - `user_id` QQ 号
 - 不可拦截
 
 #### onGroupPoke
@@ -142,7 +142,7 @@ serein.setListener("onGroupPoke", (group, user) => {
 - **监听群戳一戳自身账号**
 - 监听函数原型： `function (group_id: number, user_id: number) -> void`
   - `group_id` 群号
-  - `user_id` QQ号
+  - `user_id` QQ 号
 - 不可拦截
 
 #### onReceiveGroupMessage
@@ -150,27 +150,27 @@ serein.setListener("onGroupPoke", (group, user) => {
 - **收到群消息**（包括设置中未监听的群聊）
 - 监听函数原型： `function (group_id: number, user_id: number, msg: string, shownName: string, message_id: number?) -> boolean`
   - `group_id` 群号
-  - `user_id` QQ号
+  - `user_id` QQ 号
   - `msg`  消息内容
   - `shownName` 显示名称
-  - `message_id` 消息ID
+  - `message_id` 消息 ID
 - 可被拦截
 
 #### onReceivePrivateMessage
 
 - **收到私聊消息**
 - 监听函数原型： `function (user_id: number, msg: string, nickName: string, message_id: number?) -> boolean`
-  - `user_id` QQ号
+  - `user_id` QQ 号
   - `msg`  消息内容
   - `nickName` 昵称
-  - `message_id` 消息ID
+  - `message_id` 消息 ID
 - 可被拦截
 
 #### onReceivePacket
 
 - **收到数据包**
 - 监听函数原型： `function (packet: string) -> boolean`
-  - `packet` 数据包UTF8文本
+  - `packet` 数据包 UTF8 文本
 - 可被拦截
 
 :::note
@@ -179,7 +179,7 @@ serein.setListener("onGroupPoke", (group, user) => {
 
 #### onSereinClose
 
-- **Serein关闭**
+- **Serein 关闭**
 - 监听函数原型： `function () -> void`
 - 不可拦截
 
@@ -221,14 +221,14 @@ serein.setPreLoadConfig(
 设置后需要重新加载插件以应用
 :::
 
-## 获取Serein设置
+## 获取 Serein 设置
 
 `serein.getSettings()`
 
 - 参数
   - 空
 - 返回
-  - `string` 设置的json文本
+  - `string` 设置的 json 文本
 
 <details>
   <summary>返回文本示例（因版本不同会有所偏差）</summary>
@@ -373,7 +373,7 @@ serein.setPreLoadConfig(
 
 </details>
 
-## 获取Serein设置对象
+## 获取 Serein 设置对象
 
 `serein.getSettingsObject()`
 
@@ -403,12 +403,12 @@ serein.runCommand("g|hello")
 ```
 
 - 参数
-  - `cmd` 一条[Serein命令](../../guidance/command)
+  - `cmd` 一条[Serein 命令](../../guidance/command)
 - 返回
   - 空
 
 :::caution
-此处无法执行绑定或解绑ID、获取motd和执行js代码的命令
+此处无法执行绑定或解绑 ID、获取 motd 和执行 js 代码的命令
 :::
 
 ## 获取插件列表
@@ -490,14 +490,14 @@ declare interface WSClient {
 
 :::note
 
-- `key`不能为空或null
+- `key`不能为空或 null
 - `key`只能包含大小写字母、数字和下划线（即需要满足正则表达式`^\w+$`）
 - `key`不需要包括两边的`%`
 - 设置重复的`key`将会被覆盖
 - 各个插件设置变量的可能存在冲突，执行时以最后设置的为准
   - 你可以使用一个相对复杂的名称避免被覆盖（如`插件名_变量名`）
-- Serein提供的变量在替换时优先级大于该变量
-  - 也就是说，只有当匹配不到Serein内的变量时才会采用以上自定义的变量
+- Serein 提供的变量在替换时优先级大于该变量
+  - 也就是说，只有当匹配不到 Serein 内的变量时才会采用以上自定义的变量
 :::
 
 ## 热重载文件

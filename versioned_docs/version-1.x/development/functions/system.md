@@ -64,7 +64,7 @@
 
 </details>
 
-## 获取CPU使用率
+## 获取 CPU 使用率
 
 `serein.getCPUUsage()`
 
@@ -73,7 +73,7 @@
 - 返回
   - `number` ∈ [0, 100]
     - 示例：`1.14514191981`
-  - `undefined` *Linux版本*
+  - `undefined` *Linux 版本*
 
 ## 获取网速
 

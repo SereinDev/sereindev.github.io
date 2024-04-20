@@ -21,7 +21,7 @@ g|现在是现在是2022/1/1 20:00:00
 
 :::
 
-## Serein变量
+## Serein 变量
 
 | 变量名        | 描述     | 例子     |
 | ------------- | -------- | -------- |
@@ -46,11 +46,11 @@ g|现在是现在是2022/1/1 20:00:00
 
 | 变量名        | 描述                            | 例子                                        |
 | ------------- | ------------------------------- | ------------------------------------------- |
-| NET           | 当前NET版本                     | `4.0.30319.42000`                           |
+| NET           | 当前 NET 版本                     | `4.0.30319.42000`                           |
 | OS            | 操作系统名称                    | `Microsoft Windows 10 家庭版`               |
-| CPUName       | CPU名称                         | `Intel(R) Core(TM) i5-1035G4 CPU @ 1.10GHz` |
-| CPUBrand      | CPU品牌                         | `GenuineIntel`                              |
-| CPUFrequency  | CPU频率 (MHz)                   | `1498`                                      |
+| CPUName       | CPU 名称                         | `Intel(R) Core(TM) i5-1035G4 CPU @ 1.10GHz` |
+| CPUBrand      | CPU 品牌                         | `GenuineIntel`                              |
+| CPUFrequency  | CPU 频率 (MHz)                   | `1498`                                      |
 | TotalRAM      | 总内存（MB）                    | `7778`                                      |
 | TotalRAMGB    | 总内存（GB）                    | `7.6`                                       |
 | UsedRAM       | 已用内存（MB)                   | `6072`                                      |
@@ -58,7 +58,7 @@ g|现在是现在是2022/1/1 20:00:00
 | FreeRAM       | 空闲内存（MB)                   | `1706`                                      |
 | UsedRAMGB     | 空闲内存（GB)                   | `1.7`                                       |
 | RAMUsage      | 内存使用率                      | `78.1`                                      |
-| CPUUsage      | CPU使用率<sup>[仅Windows]</sup> | `11.4`                                      |
+| CPUUsage      | CPU 使用率<sup>[仅 Windows]</sup> | `11.4`                                      |
 | UploadSpeed   | 上传速度                        | `11.4MB/s`                                  |
 | DownloadSpeed | 下载速度                        | `51.4GB/s`                                  |
 
@@ -79,17 +79,17 @@ g|现在是现在是2022/1/1 20:00:00
 | FileName       | 文件名              | `bedrock_server_mod.exe` |
 | Difficulty     | 难度                | `Normal`                 |
 | RunTime        | 运行时间            | `1.4m`/`2.0h`/`3.23d`    |
-| ServerCPUUsage | 服务器进程CPU使用率 | `23.4`                   |
+| ServerCPUUsage | 服务器进程 CPU 使用率 | `23.4`                   |
 
-## 服务器Motd变量
+## 服务器 Motd 变量
 
 :::caution
 
 - 使用以下变量前请确保设置中的服务器类型和本地端口与实际一致
-- `GameMode`仅适用于基岩版服务器（Java服务器无法获取游戏模式）
-- `Favicon`仅适用于Java服务器（基岩版服务器不支持设置图标）
-- Java服务器的`Original`可能很长很长，直接输出到控制台或机器人可能会导致`Serein`卡死
-- 对于本地的服务器`Delay`可以获取但是没有实际意义 ~~你搁这原地tp呢~~
+- `GameMode`仅适用于基岩版服务器（Java 服务器无法获取游戏模式）
+- `Favicon`仅适用于 Java 服务器（基岩版服务器不支持设置图标）
+- Java 服务器的`Original`可能很长很长，直接输出到控制台或机器人可能会导致`Serein`卡死
+- 对于本地的服务器`Delay`可以获取但是没有实际意义 ~~你搁这原地 tp 呢~~
 - `Delay`保留两位小数
 - 以下几种情况可能会返回`-`
   - 服务器类型设置不正确
@@ -106,8 +106,8 @@ g|现在是现在是2022/1/1 20:00:00
 | Protocol     | 协议版本                      | `527`                                                                                                                                    |
 | GameMode     | 游戏模式                      | `Survival`                                                                                                                               |
 | Delay        | 延迟(ms)                      | `20.22`                                                                                                                                  |
-| Favicon      | 图标CQ码<sup>[仅Java版]</sup> | ![favicon.png](favicon.png) ![favicon_hypixel.png](favicon_hypixel.png) ![favicon_mcol.png](favicon_mcol.png)*(仅供参考)* |
-| Origin       | Motd原文                      | `MCPE;Dedicated Server;527;1.19.1;0;10;10904212759644275432;Bedrock level;Survival;1;19132;19133;`                                       |
+| Favicon      | 图标 CQ 码<sup>[仅 Java 版]</sup> | ![favicon.png](favicon.png) ![favicon_hypixel.png](favicon_hypixel.png) ![favicon_mcol.png](favicon_mcol.png)*(仅供参考)* |
+| Origin       | Motd 原文                      | `MCPE;Dedicated Server;527;1.19.1;0;10;10904212759644275432;Bedrock level;Survival;1;19132;19133;`                                       |
 
 ## 成员管理变量
 
@@ -117,9 +117,9 @@ g|现在是现在是2022/1/1 20:00:00
 
 | 变量名        | 描述                         | 例子      |
 | ------------- | ---------------------------- | --------- |
-| ID:`<GameID>` | 获取绑定的游戏ID对应的ID     | `114514`  |
-| GameID        | 获取当前账号对应的游戏ID     | `Default` |
-| GameID:`<ID>` | 获取绑定的用户ID对应的游戏ID | `Zaitonn` |
+| ID:`<GameID>` | 获取绑定的游戏 ID 对应的 ID     | `114514`  |
+| GameID        | 获取当前账号对应的游戏 ID     | `Default` |
+| GameID:`<ID>` | 获取绑定的用户 ID 对应的游戏 ID | `Zaitonn` |
 
 ## 消息变量（私聊）
 
@@ -129,7 +129,7 @@ g|现在是现在是2022/1/1 20:00:00
 
 | 变量名   | 描述               | 例子             |
 | -------- | ------------------ | ---------------- |
-| MsgID    | 消息ID             | `-114514`        |
+| MsgID    | 消息 ID             | `-114514`        |
 | Age      | 年龄（来自资料页） | `20`             |
 | ID       | 发送者 QQ 号       | `114514`         |
 | Nickname | 昵称（来自资料页） | `我是昵称`       |
@@ -139,7 +139,7 @@ g|现在是现在是2022/1/1 20:00:00
 
 | 变量名    | 描述                           | 例子                    |
 | --------- | ------------------------------ | ----------------------- |
-| MsgID     | 消息ID                         | `-114514`               |
+| MsgID     | 消息 ID                         | `-114514`               |
 | Age       | 年龄（来自资料页）             | `20`                    |
 | ID        | 发送者 QQ 号                   | `114514`                |
 | Nickname  | 成员昵称（来自资料页）         | `我是昵称`              |
@@ -151,7 +151,7 @@ g|现在是现在是2022/1/1 20:00:00
 | Role      | 角色                           | `群主`/`管理员`/`成员`  |
 | ShownName | 显示名称（群名片若空则为昵称） | `我是群名片`/`我是昵称` |
 
->参考资料：[Post_Message_MessageSender](https://docs.go-cqhttp.org/reference/data_struct.html#post-message-messagesender)
+> 参考资料：[Post_Message_MessageSender](https://docs.go-cqhttp.org/reference/data_struct.html#post-message-messagesender)
 
 :::caution
 需要注意的是， 各字段是尽最大努力提供的， 也就是说， **不保证每个字段都一定存在**， **也不保证存在的字段都是完全正确的** ( 缓存可能过期 ) 。尤其对于匿名消息， 此字段**不具有参考价值**。

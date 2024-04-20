@@ -1,4 +1,4 @@
-# Net程序集
+# Net 程序集
 
 ## 导入
 
@@ -14,7 +14,7 @@
 
 详见[Assemblies](preLoadConfig#assemblies-string)
 
-### 使用NET的反射功能
+### 使用 NET 的反射功能
 
 需要开启`AllowSystemReflection`和`AllowGetType`选项，详见[预加载配置](preLoadConfig)
 
@@ -25,9 +25,9 @@ const Type = Assembly.GetType(/* 命名空间.类名 */);
 let obj = System.Activator.CreateInstance(Type, /* 构造函数参数 */);
 ```
 
-## 使用（系统NET程序集）
+## 使用（系统 NET 程序集）
 
-与C#中一致
+与 C#中一致
 
 <details>
   <summary>以下是个例子</summary>

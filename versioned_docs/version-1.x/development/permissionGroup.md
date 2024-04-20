@@ -83,7 +83,7 @@
 权限内容
 
 :::caution
-使用JS设置权限组时，在`permissions`内填入函数将导致无法正确保存
+使用 JS 设置权限组时，在`permissions`内填入函数将导致无法正确保存
 :::
 
 ### priority `number`
@@ -239,7 +239,7 @@
 
 - 参数
   - `group_name` 权限组名称
-  - `permission_key` 权限key
+  - `permission_key` 权限 key
   - `permission` 权限内容
 - 返回
   - `boolean`
@@ -251,7 +251,7 @@
 
 - 参数
   - `type` [匹配类型](#type-groupprivatetempunknown)
-  - `user_id` 对方QQ号
+  - `user_id` 对方 QQ 号
   - `group_id` 群号
 - 返回
   - `object<string, any>`

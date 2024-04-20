@@ -13,7 +13,7 @@
 :::caution
 
 - `key`不能为空或为`null`、`undefined`
-- `obj`可以为JS中的所有数据类型，详见[JavaScript 数据类型](https://www.runoob.com/js/js-datatypes.html)
+- `obj`可以为 JS 中的所有数据类型，详见[JavaScript 数据类型](https://www.runoob.com/js/js-datatypes.html)
   - 若导出的类型为函数，且该插件在导出函数后被禁用，则在其他插件中导入该函数并执行将引发错误
 
 :::

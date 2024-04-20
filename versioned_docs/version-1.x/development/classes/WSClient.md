@@ -1,6 +1,6 @@
-# WebSocket客户端
+# WebSocket 客户端
 
-连接Websocket
+连接 Websocket
 
 ```mermaid
 classDiagram
@@ -51,7 +51,7 @@ ws.dispose(); // 释放对象
 ## 构造函数
 
 - `WSClient(uri: string, namespace: string)`
-  - `uri` ws地址
+  - `uri` ws 地址
   - `namespace` 命名空间
 
 ## 属性
