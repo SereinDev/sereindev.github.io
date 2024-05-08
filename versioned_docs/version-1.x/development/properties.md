@@ -49,7 +49,7 @@
   - `string`
 
 :::note
-JS 命名空间用于内部区分 JS 解释器和其他属性，实例化[WebSocket](class/WSClient)等时需要提供此参数
+JS 命名空间用于内部区分 JS 解释器和其他属性，实例化[WebSocket](classes/WSClient)等时需要提供此参数
 :::
 
 :::tip

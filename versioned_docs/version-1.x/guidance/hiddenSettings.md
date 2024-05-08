@@ -36,6 +36,7 @@
 
 - 若你没有使用 JS 的需求，你可以调为`0`来加快消息处理速度
 - `jsEventMaxWaitingTime`为`0`可能导致重新加载插件时报错
+
 :::
 
 ### `jsGlobalAssemblies`
