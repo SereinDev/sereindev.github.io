@@ -16,9 +16,14 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'JS插件',
-          link: { id: 'development/js/README', type: 'doc' },
+          link: { id: 'development/js/index', type: 'doc' },
           items: [
-            'development/js/serein',
+            'development/js/net',
+            'development/js/console',
+            'development/js/app',
+            'development/js/plugins',
+            'development/js/servers',
+            'development/js/exportsAndImports',
             {
               type: 'category',
               label: '类',
@@ -32,7 +37,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'API',
-          link: { id: 'development/api/README', type: 'doc' },
+          link: { id: 'development/api/index', type: 'doc' },
           items: [
             'development/api/version',
             'development/api/sysInfo',
@@ -40,8 +45,8 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: '设置',
               items: [
-                'development/api/settings/get',
-                'development/api/settings/set',
+                'development/api/setting/get',
+                'development/api/setting/set',
               ],
             },
             {
@@ -58,9 +63,18 @@ const sidebars: SidebarsConfig = {
                 'development/api/servers/create',
                 'development/api/servers/edit',
                 'development/api/servers/delete',
+                'development/api/servers/start',
+                'development/api/servers/stop',
+                'development/api/servers/terminate',
               ],
             },
           ],
+        },
+        {
+          type: 'category',
+          label: 'WebSocket',
+          link: { type: 'doc', id: 'development/ws/index' },
+          items: ['development/ws/listen'],
         },
       ],
     },
@@ -71,7 +85,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '指南',
       collapsible: false,
-      items: ['guidance/index'],
+      items: ['index'],
     },
   ],
 
