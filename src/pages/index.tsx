@@ -20,6 +20,14 @@ function HomepageHeader() {
           <Link className="button button--secondary button--lg" to="/docs/">
             查看文档
           </Link>
+
+          <Link
+            className="button button--secondary button--lg"
+            style={{ marginLeft: '10px' }}
+            to="/docs/tutorial/rookie/get_started"
+          >
+            快速上手
+          </Link>
         </div>
       </div>
     </header>

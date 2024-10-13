@@ -52,6 +52,13 @@ const config: Config = {
   ],
 
   themeConfig: {
+    imageZoom: {
+      options: {
+        margin: 50,
+        background: 'var(--ifm-background-surface-color)',
+      },
+    },
+
     announcementBar: {
       content: '🚧此文档尚未完工🚧',
       textColor: 'var(--ifm-color-primary-contrast-foreground)',
@@ -105,10 +112,6 @@ const config: Config = {
               label: '仓库',
               to: 'https://github.com/SereinDev/Serein',
             },
-            {
-              href: 'https://jq.qq.com/?_wv=1027&k=XNZqPSPv',
-              label: '交流群',
-            }
           ],
         },
         {
@@ -122,10 +125,6 @@ const config: Config = {
               label: 'MineBBS',
               href: 'https://www.minebbs.com/resources/serein.4169/',
             },
-            {
-              label: 'MCBBS',
-              href: 'https://www.mcbbs.net/thread-1424853-1-1.html',
-            },
           ],
         },
       ],
@@ -137,8 +136,9 @@ const config: Config = {
       additionalLanguages: [
         'batch',
         'csharp',
+        'log',
+        'http',
         'json',
-        'powershell',
         'regex',
         'typescript',
       ],
@@ -168,6 +168,8 @@ const config: Config = {
       },
     ],
   ],
+
+  plugins: ['plugin-image-zoom'],
 };
 
 export default config;

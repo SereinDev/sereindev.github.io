@@ -1,0 +1,74 @@
+# 快速上手
+
+:::tip
+[如何选择Serein类型](choose)
+:::
+
+## 0. 提示
+
+如果你将要使用的是[`Lite`](choose/#lite)/[`Plus`](choose/#plus)类型的Serein，你可以跳至[2. 下载](#2-下载serein)
+
+`Lite`和`Plus`在缺少运行库时会有弹窗提示，按其提示链接下载即可
+
+## 1. 安装运行库
+
+[![dotnet](https://img.shields.io/badge/8.0-512BD4?style=for-the-badge&logo=.net)](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0)
+
+:::note
+
+>[.NET 8.0 支持的系统](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md)
+
+.NET 8.0 不支持 Windows 8 及以下的版本，但是你可以在这些系统上使用[旧版本的Serein](/docs/1.x/tutorial/install/)
+
+:::
+
+| Serein类型 | 需要的运行时类型 |
+| :--------: | :--------------: |
+|    Cli     |   .NET 运行时    |
+|    Lite    | .NET 桌面运行时  |
+|    Plus    | .NET 桌面运行时  |
+
+:::tip
+.NET 桌面运行时 包含 .NET 运行时，因此你可以选择直接下载前者
+:::
+
+## 2. 下载Serein
+
+### 发行版
+
+即稳定版，有着较少的Bug
+
+[![GitHub Release](https://img.shields.io/github/v/release/SereinDev/Serein?style=for-the-badge)](https://github.com/SereinDev/Serein/releases/latest)
+
+### 测试版
+
+包含一些前瞻性功能或Bug修复
+
+:::warning
+
+可能存在未知的漏洞，与发行版相比更不稳定，在使用测试版前务必**备份数据**
+
+:::
+
+## 3. 运行
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="windows" label="Windows" >
+
+双击运行即可
+
+</TabItem>
+<TabItem value="other" label="Linux / macOS">
+
+解压后在终端输入
+
+```sh
+cd path/to/serein # 替换为你的目录
+./Serein.Cli
+```
+
+</TabItem>
+</Tabs>

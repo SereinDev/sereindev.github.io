@@ -10,7 +10,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: '超强兼容性',
-    description: <>适配大部分的主流操作平台：Windows、Linux和MacOS</>,
+    description: <>适配主流操作平台：Windows、Linux和macOS</>,
   },
   {
     title: '高自定义度',
