@@ -52,6 +52,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+      },
+    },
+
     imageZoom: {
       options: {
         margin: 50,
@@ -102,6 +108,7 @@ const config: Config = {
         },
       ],
     },
+
     footer: {
       style: 'light',
       links: [
@@ -130,6 +137,7 @@ const config: Config = {
       ],
       copyright: 'Copyright © 2022 Zaitonn. All Rights Reserved.',
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
