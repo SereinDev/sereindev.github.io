@@ -2,10 +2,10 @@
 
 ## 日志模式
 
-```sh
-Serein.Cli --log
-Serein.Lite --log
-Serein.Plus --log
+```batch
+./Serein.Cli --log
+./Serein.Lite --log
+./Serein.Plus --log
 ```
 
 开启后将所有输出（包括调试输出）保存到`Serein/logs/app`下，通常用于向开发者反馈问题
@@ -52,8 +52,8 @@ Serein.Plus --log
 仅对于[Serein.Cli](../rookie/choose#cli)有效
 :::
 
-```sh
-Serein.Cli --debug
+```batch
+./Serein.Cli --debug
 ```
 
 开启后将会在控制台输出调试信息

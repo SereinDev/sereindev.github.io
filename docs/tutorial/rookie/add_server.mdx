@@ -5,14 +5,6 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="type">
 
-<TabItem value="cli" label="Serein.Cli" >
-
-暂无直接添加的方法，但是你可以选择以下方法间接添加
-
-- 手写服务器配置文件
-- 使用Serein.Lite/Serein.Plus创建后复制到`Serein/servers/<服务器id>.json`
-
-</TabItem>
 <TabItem value="lite" label="Serein.Lite" >
 
 点击上方的服务器菜单栏
@@ -50,11 +42,21 @@ import TabItem from '@theme/TabItem';
 ![配置](./configuration_plus.png)
 
 </TabItem>
+
+<TabItem value="cli" label="Serein.Cli" >
+
+暂无直接添加的方法，但是你可以选择以下方法间接添加
+
+- 手写服务器配置文件 **（不推荐）**
+- 使用Serein.Lite/Serein.Plus创建后复制到`Serein/servers/`文件夹下
+
+</TabItem>
+
 </Tabs>
 
 ---
 
-:::tip 如何选择启动文件
+## 如何选择启动文件
 
 - **Java**
   1. 在服务器根目录下创建一个批处理文件（`*.bat`）
@@ -65,5 +67,3 @@ import TabItem from '@theme/TabItem';
   直接选择`bedrock_server.exe`或`bedrock_server_mod.exe`
 - **其他**  
   选择软件本体或启动软件用的批处理文件
-
-:::

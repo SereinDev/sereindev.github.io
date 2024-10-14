@@ -16,7 +16,7 @@
 
 目标框架应为`net8.0`
 
-```sh
+```batch
 dotnet new classlib
 ```
 
@@ -85,7 +85,7 @@ public class MainPlugin : PluginBase
 
 ## 5. 编译
 
-```sh
+```batch
 dotnet build
 ```
 

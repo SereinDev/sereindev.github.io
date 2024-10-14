@@ -72,6 +72,13 @@ const config: Config = {
       id: '20240331',
     },
 
+    // algolia: {
+    //   apiKey: '',
+    //   appId: '',
+    //   indexName: '',
+    //   contextualSearch: true,
+    // },
+
     image: 'logo.png',
 
     navbar: {
@@ -98,6 +105,11 @@ const config: Config = {
           label: '开发',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'more',
+          label: '更多',
+        },
+        {
           label: '社区',
           href: 'https://sereincommunity.github.io/',
         },
@@ -118,6 +130,10 @@ const config: Config = {
             {
               label: '仓库',
               to: 'https://github.com/SereinDev/Serein',
+            },
+            {
+              label: '讨论区',
+              to: 'https://github.com/SereinDev/sereindev.github.io/discussions',
             },
           ],
         },
@@ -156,7 +172,7 @@ const config: Config = {
       {
         name: 'keywords',
         content:
-          '面板, 服务器, 我的世界, Minecraft, BDS, Java, 基岩版, 开服, 机器人, 简单, 易用',
+          '面板, 服务器, 我的世界, Minecraft, BDS, Java, 基岩版, 开服, 简单, 易用',
       },
     ],
   } satisfies ThemeConfig,
@@ -166,16 +182,7 @@ const config: Config = {
     locales: ['zh-Hans'],
   },
 
-  themes: [
-    '@docusaurus/theme-mermaid',
-    [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
-      {
-        hashed: true,
-        language: ['en', 'zh'],
-      },
-    ],
-  ],
+  themes: ['@docusaurus/theme-mermaid'],
 
   plugins: ['plugin-image-zoom'],
 };

@@ -31,12 +31,12 @@ Beta 版不能保证稳定性，可能存在 Bug，使用前务必自行备份
 
 [在 Linux 上安装 .NET](https://learn.microsoft.com/zh-cn/dotnet/core/install/linux)
 
-```sh
+```batch
 # 启动前准备
 sudo chmod +x ./run.sh
 ```
 
-```sh
+```batch
 # 运行启动脚本
 ./run.sh
 ```
