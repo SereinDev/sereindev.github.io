@@ -36,7 +36,7 @@ const config: Config = {
 
           versions: {
             current: {
-              label: '2.0',
+              label: '2.0+',
             },
           },
           lastVersion: 'current',
@@ -72,12 +72,12 @@ const config: Config = {
       id: '20240331',
     },
 
-    // algolia: {
-    //   apiKey: '',
-    //   appId: '',
-    //   indexName: '',
-    //   contextualSearch: true,
-    // },
+    algolia: {
+      appId: '9JV37DHKB8',
+      apiKey: '5e34f354e8d57d9a7e97e77ef0e21a8c',
+      indexName: 'sereindevio',
+      contextualSearch: true,
+    },
 
     image: 'logo.png',
 

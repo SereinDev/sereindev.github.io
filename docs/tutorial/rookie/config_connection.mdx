@@ -1,0 +1,86 @@
+# 配置连接
+
+Serein 目前仅支持[OneBot协议](https://onebot.dev/)，后续可能支持[Satori](https://satori.js.org/zh-CN/)协议（[SereinDev/Serein#83](https://github.com/SereinDev/Serein/issues/83)）
+
+:::note OneBot是什么
+
+>一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口，使开发者只需编写一次业务逻辑代码即可应用到多种机器人平台
+
+[介绍 | OneBot](https://onebot.dev/introduction.html)
+
+:::
+
+## 1. 选择一个 OneBot 实现
+
+:::note
+
+旧称 机器人框架 或 机器人
+
+:::
+
+- [LLOneBot](https://github.com/LLOneBot/LLOneBot)
+- [NapCatQQ](https://github.com/NapNeko/NapCatQQ)
+
+除此之外，你可以在[生态 | OneBot](https://onebot.dev/ecosystem)找到更多实现
+
+## 2. 配置
+
+按照所选实现的文档或教程配置好 OneBot 协议，接着在 正向WebSocket 和 反向WebSocket 中**选择其一**启用
+
+:::note
+
+[**正向WebSocket**](#正向websocket) （👍推荐）  
+**OneBot实现**启动时开启一个WebSocket服务器，监听配置文件指定的 IP 和端口，供Serein连接
+
+[**反向WebSocket**](#反向websocket)  
+**Serein**开启一个WebSocket服务器，供OneBot实现连接，多用于需要同时使用多个OneBot实现的情况
+
+:::
+
+### 正向WebSocket
+
+在OneBot实现中启用**正向WebSocket服务**，并在Serein的**设置>连接>地址**修改对应的IP和端口，确保其与 OneBot 实现的配置一致
+
+### 反向WebSocket
+
+在OneBot实现中启用**反向WebSocket服务**，并在Serein的**设置>连接>地址**修改对应的IP和端口，确保其与 OneBot 实现的配置一致，并勾选**使用反向WebSocket**
+
+:::warning
+
+当你的OneBot实现和Serein不在同一个设备上时需要将WebSocket服务器开放至公网，此时建议设置**鉴权凭证**
+
+:::
+
+## 3. 连接
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="type">
+
+<TabItem value="lite" label="Serein.Lite" >
+
+在顶部菜单栏选择**功能>连接**，点击页面左侧的连接按钮
+
+</TabItem>
+<TabItem value="plus" label="Serein.Plus">
+
+在左侧菜单栏选择**连接**，点击页面左侧的连接按钮
+
+</TabItem>
+
+<TabItem value="cli" label="Serein.Cli" >
+
+在控制台输入
+
+```txt
+connection open
+```
+
+</TabItem>
+
+</Tabs>
+
+---
+
+如果一切顺利的话，这个时候你在群聊发送一条消息，接着就可以在控制台看到相应的输出了:D

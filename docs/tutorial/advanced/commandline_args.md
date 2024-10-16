@@ -46,6 +46,18 @@
 
 </details>
 
+## 去除输出颜色
+
+:::note
+仅对于[Serein.Cli](../rookie/choose#cli)有效
+:::
+
+```batch
+./Serein.Cli --no-color
+```
+
+开启后将会禁用输入自动补全功能，并去除所有颜色代码（但是服务器输出的颜色代码不受影响）
+
 ## 调试模式
 
 :::note

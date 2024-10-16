@@ -19,6 +19,7 @@ GET /servers/{:id}/terminate HTTP/1.1
     "data": null,
     "time": "2024-10-12T20:43:40.4236248+08:00"
 }
+```
 
 ```json
 {
