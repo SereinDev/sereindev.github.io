@@ -18,6 +18,5 @@ declare enum ServerStatus {
    * 运行中
    */
   Running = 2,
-
 }
 ```

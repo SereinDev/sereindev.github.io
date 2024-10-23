@@ -10,3 +10,11 @@ Serein v2已经支持了多服务器管理，这意味着你只需要一个Serei
 相关阅读：[添加服务器](../tutorial/rookie/add_server)
 
 :::
+
+## 服务器Id
+
+用于区分服务器
+
+```regex title="校验正则"
+^\w{3,}$
+```

@@ -16,6 +16,7 @@
 {
     // highlight-start
     // 以下高亮部分为必填项
+    "id": "example-plugin",
     "name": "名称",
     "type": "js",
     "version": "1.2.3.4",
@@ -50,6 +51,23 @@
     ]
 }
 ```
+
+## id
+
+:::note
+
+此项为必填项
+
+:::
+
+用于区分插件
+
+- `id`
+  - 类型：`string`
+  - 正则表达式
+    ```regex
+    ^[a-zA-Z][a-zA-Z0-9\-]{4,25}$
+    ```
 
 ## 名称
 

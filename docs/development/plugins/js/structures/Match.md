@@ -27,11 +27,11 @@ declare type Match = {
   /**
    * 限制参数
    */
-  restrictions?: string;
+  exclusions: string;
 
   /**
    * 描述
    */
-  description?: string;
+  description: string;
 };
 ```

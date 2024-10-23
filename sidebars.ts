@@ -12,10 +12,20 @@ const development: SidebarConfig = [
         type: 'category',
         label: '插件',
         link: { type: 'doc', id: 'development/plugins/index' },
-        collapsible: false,
         items: [
           'development/plugins/plugin_info',
-          'development/plugins/net/index',
+          'development/plugins/storages',
+          {
+            type: 'category',
+            label: 'NET',
+            link: { type: 'doc', id: 'development/plugins/net/index' },
+            items: [
+              'development/plugins/net/tutorial',
+              'development/plugins/net/injection',
+              'development/plugins/net/events',
+              'development/plugins/net/packages',
+            ],
+          },
           {
             type: 'category',
             label: 'JavaScript',
@@ -145,7 +155,6 @@ const tutorial: SidebarConfig = [
       {
         type: 'category',
         label: '入门',
-        collapsible: false,
         link: { type: 'generated-index' },
         items: [
           'tutorial/rookie/get_started',
@@ -158,7 +167,6 @@ const tutorial: SidebarConfig = [
       {
         type: 'category',
         label: '进阶',
-        collapsible: false,
         link: { type: 'generated-index' },
         items: [
           'tutorial/advanced/commandline_args',

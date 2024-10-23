@@ -11,8 +11,8 @@
 ## 商用、分发
 
 - 禁止将`Serein`软件作为软件的一部分出售、用作任何相关品牌的一部分
-- 必须在明显的地方标明`Powered by Serein`或`此软件使用了Serein`等相关字样和作者信息
-- 发布包含`Serein`的整合包时，与**作者**取得联系并得到授权方可发布，且应在明显的地方标明`Powered by Serein`或`此软件使用了Serein`等相关字样和作者信息
+- 必须在明显的地方标明**Powered by Serein**或**此软件使用了Serein**等相关字样和作者信息
+- 发布包含`Serein`的整合包时，与**作者**取得联系并得到授权方可发布，且应在明显的地方标明**Powered by Serein**或**此软件使用了Serein**等相关字样和作者信息
 
 ## 免责声明
 
@@ -22,4 +22,4 @@
   - 使用本程序启动任何Minecraft服务端即代表您已阅读并同意了以下内容
     - [MINECRAFT 最终用户许可协议](https://www.minecraft.net/zh-hans/eula)
     - [MINECRAFT 商业使用准则](https://account.mojang.com/documents/commercial_guidelines)
-- **作者**不对任何`Serein`的整合包和插件负责，使用或运行后导致的一切后果由整合包或插件发布者和用户自行承担
+- **作者**不对任何一切`Serein`的整合包和插件负责，使用或运行后导致的一切后果由整合包或插件发布者和用户自行承担

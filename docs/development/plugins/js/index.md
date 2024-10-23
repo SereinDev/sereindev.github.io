@@ -2,7 +2,7 @@
 
 ## JS标准
 
-ECMAScript 2024
+ECMAScript 2024 / ES6
 
 具体特性支持列表详见[Supported features - sebastienros/jint](https://github.com/sebastienros/jint?tab=readme-ov-file#supported-features)
 
@@ -42,5 +42,4 @@ Process.Start("cmd.exe");
 
 ## 缺点
 
-- 对于加密混淆后的代码，运行效率极低，运行时间可能长达原来的数倍
-- 无法使插件在沙盒中运行，**可能会执行对系统有害的代码**
+- 加密混淆后的代码运行效率极低，运行时间可能长达原来的数倍
