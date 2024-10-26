@@ -2,7 +2,7 @@ a.underline-links:not(.alert *),
 .underline-links a:not(.alert *) {
   background: linear-gradient(var(--ifm-link-color), var(--ifm-link-color));
   background-repeat: no-repeat;
-  background-size: 0% 2px;
+  background-size: 0% 1.5px;
   background-position: right bottom;
   transition: background-size 0.3s;
   padding-bottom: 2px;
@@ -13,5 +13,5 @@ a.underline-links:not(.alert *):hover,
 .underline-links a:not(.alert *):hover {
   text-decoration: none;
   background-position: left bottom;
-  background-size: 100% 2px;
+  background-size: 100% 1.5px;
 }

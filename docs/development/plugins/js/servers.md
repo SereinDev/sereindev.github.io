@@ -2,28 +2,37 @@
 
 ## 所有服务器
 
-`serein.servers`
+```ts
+serein.servers
+```
 
 - 类型
   - `{ [id: string]: Server }`
 
 ## 服务器状态
 
-`serein.servers[id].status`
+```ts
+serein.servers[id].status
+```
 
 - 类型
   - [`ServerStatus`](./structures/ServerStatus)
 
 ## 服务器进程ID
 
-`serein.servers[id].pid`
+```ts
+serein.servers[id].pid
+```
 
 - 类型
   - `number` | `null`
+    - 服务器不在运行时为`null`
 
 ## 服务器信息
 
-`serein.servers[id].info`
+```ts
+serein.servers[id].info
+```
 
 - 类型
   - [`ServerInfo`](./structures/ServerInfo)

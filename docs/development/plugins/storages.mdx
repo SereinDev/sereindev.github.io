@@ -2,11 +2,41 @@
 
 为插件提供便捷的字符串储存功能
 
-<details>
+## 类型声明
 
-<summary>
-TypeScript类型声明
-</summary>
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+
+```cs
+namespace Serein.Core.Services.Plugins.Storages;
+
+public partial class StorageBase
+{
+    int Length { get; }
+
+    void Clear();
+
+    string? GetItem(string key);
+
+    void RemoveItem(string key);
+
+    void SetItem(string key, string value);
+
+    string? Key(int index);
+
+    string? this[string key] { get; set; }
+}
+```
+
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 /**
@@ -41,34 +71,10 @@ interface Storage {
 }
 ```
 
-</details>
 
-<details>
+</TabItem>
 
-<summary>
-C#类型声明
-</summary>
-
-```cs
-public interface IStorage
-{
-    int Length { get; }
-
-    void Clear();
-
-    string? GetItem(string key);
-
-    void RemoveItem(string key);
-
-    void SetItem(string key, string value);
-
-    string? Key(int index);
-
-    string? this[string key] { get; set; }
-}
-```
-
-</details>
+</Tabs>
 
 ## 本地储存
 
@@ -80,7 +86,17 @@ public interface IStorage
 
 :::
 
-### Js
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var localStorage = serviceProvider.GetRequiredService<LocalStorage>();
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 declare var localStorage: Storage;
@@ -88,11 +104,8 @@ declare var localStorage: Storage;
 
 与浏览器中的[`Window.localStorage`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)一致
 
-### Net
-
-```cs
-IStorage localStorage = serviceProvider.GetRequiredService<LocalStorage>();
-```
+</TabItem>
+</Tabs>
 
 ## 会话储存
 
@@ -104,7 +117,18 @@ IStorage localStorage = serviceProvider.GetRequiredService<LocalStorage>();
 
 :::
 
-### Js
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var sessionStorage = serviceProvider.GetRequiredService<SessionStorage>();
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 declare var sessionStorage: Storage;
@@ -112,8 +136,5 @@ declare var sessionStorage: Storage;
 
 与浏览器中的[`Window.sessionStorage`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage)一致
 
-### Net
-
-```cs
-IStorage sessionStorage = serviceProvider.GetRequiredService<SessionStorage>();
-```
+</TabItem>
+</Tabs>

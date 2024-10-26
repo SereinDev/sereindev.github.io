@@ -15,6 +15,7 @@ const development: SidebarConfig = [
         items: [
           'development/plugins/plugin_info',
           'development/plugins/storages',
+          'development/plugins/permission_group',
           {
             type: 'category',
             label: 'NET',
@@ -35,6 +36,8 @@ const development: SidebarConfig = [
               'development/plugins/js/console',
               'development/plugins/js/plugins',
               'development/plugins/js/servers',
+              'development/plugins/js/connection',
+              'development/plugins/js/timer',
               'development/plugins/js/exports_imports',
               'development/plugins/js/net',
               {
@@ -58,6 +61,7 @@ const development: SidebarConfig = [
         link: { id: 'development/api/index', type: 'doc' },
         items: [
           'development/api/root',
+          'development/api/metadata',
           {
             type: 'category',
             label: '连接',
@@ -114,7 +118,7 @@ const development: SidebarConfig = [
         type: 'category',
         label: 'WebSocket',
         link: { type: 'doc', id: 'development/ws/index' },
-        items: ['development/ws/listen'],
+        items: ['development/ws/data'],
       },
     ],
   },

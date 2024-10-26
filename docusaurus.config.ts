@@ -183,8 +183,6 @@ const config: Config = {
   },
 
   themes: ['@docusaurus/theme-mermaid'],
-
-  plugins: ['plugin-image-zoom'],
 };
 
 export default config;

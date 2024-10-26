@@ -4,6 +4,12 @@
 
 借助.NET的CLR可动态加载的特性实现插件的热插拔功能
 
+:::tip
+
+不知道怎么写？[参考一下源码](https://github.com/SereinDev/Serein)
+
+:::
+
 ## 优点
 
 - 运行速度快

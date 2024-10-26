@@ -1,8 +1,8 @@
 # 插件
 
-## 此插件的命名空间
+## 此插件的Id
 
-`serein.namespace`
+`serein.id`
 
 - 类型
   - `string`

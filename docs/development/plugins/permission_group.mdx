@@ -1,0 +1,281 @@
+# 权限组
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 注册节点
+
+将节点注册到Serein的权限管理器中，方便用户填写权限配置
+
+:::warning
+
+不需要在节点内添加插件Id
+
+比如一个插件Id为`id`，节点为`node`，那么注册时只需要传入`node`即可，最终注册的节点为`id.node`
+
+:::
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Permissions;
+
+public partial class PermissionManager
+{
+    public void Register(string id, string node, string? description = null);
+}
+```
+
+| 参数          | 类型      | 说明   |
+| ------------- | --------- | ------ |
+| `id`          | `string`  | 插件Id |
+| `node`        | `string`  | 节点   |
+| `description` | `string?` | 描述   |
+
+```cs title="示例"
+using Serein.Core.Services.Permissions;
+
+var permissionManager = serviceProvider.GetRequiredService<PermissionManager>();
+permissionManager.Register("id", "node", "description");
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.permissions.register(node: string, description: string = null): void
+```
+
+| 参数          | 类型               | 说明 |
+| ------------- | ------------------ | ---- |
+| `node`        | `string`           | 节点 |
+| `description` | `string` \| `null` | 描述 |
+
+</TabItem>
+</Tabs>
+
+## 注销节点
+
+将节点从Serein的权限管理器中删除
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Permissions;
+
+public partial class PermissionManager
+{
+    public void Unregister(string id, string node);
+}
+```
+
+
+| 参数   | 类型      | 说明   |
+| -------| --------- | ------ |
+| `id`   | `string`  | 插件Id |
+| `node` | `string`  | 节点   |
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.permissions.unregister(node: string): void
+```
+
+| 参数    | 类型     | 说明 |
+| ------ | -------- | ---- |
+| `node` | `string` | 节点 |
+
+</TabItem>
+</Tabs>
+
+## 添加权限组
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Models.Permissions;
+
+namespace Serein.Core.Services.Permissions;
+
+public partial class GroupManager
+{
+    public void Add(string id, Group group);
+}
+```
+
+| 参数   | 类型      | 说明   |
+| -------| --------- | ------ |
+| `id`   | `string`  | 权限组Id |
+| `group` | `Group`  | 权限组对象   |
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.permissions.groups.add(id: string, group: Group): void
+```
+
+| 参数   | 类型      | 说明   |
+| -------| --------- | ------ |
+| `id`   | `string`  | 权限组Id |
+| `group` | `Group`  | 权限组对象   |
+
+</TabItem>
+</Tabs>
+
+## 删除权限组
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Permissions;
+
+public partial class GroupManager
+{
+    public void Remove(string id);
+}
+```
+
+| 参数   | 类型      | 说明   |
+| -------| --------- | ------ |
+| `id`   | `string`  | 权限组Id |
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.permissions.groups.remove(id: string): void
+```
+
+| 参数    | 类型     | 说明 |
+| ------ | -------- | ---- |
+| `id`   | `string`  | 权限组Id |
+
+</TabItem>
+</Tabs>
+
+## 获取所有权限组Id
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Permissions;
+
+public partial class GroupManager
+{
+    public string[] Ids { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.permissions.groups.ids
+```
+
+- 类型
+  - `string[]`
+
+</TabItem>
+</Tabs>
+
+## 获取或修改权限组
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Models.Permissions;
+
+namespace Serein.Core.Services.Permissions;
+
+public partial class GroupManager
+{
+    public Group this[string id] { get; set; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.permissions.groups[id: string]: Group
+```
+
+</TabItem>
+</Tabs>
+
+## 计算指定用户的权限
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Permissions;
+
+public partial class GroupManager
+{
+    public Dictionary<string, bool?> GetAllPermissions(
+        long userId, 
+        bool ignoreWildcard = false
+    );
+}
+```
+
+| 参数     | 类型     | 说明 |
+| ------   | -------- | ---- |
+| `userId` | `long` | 用户Id |
+|`ignoreWildcard`|`bool`|是否忽略通配符|
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.permissions.groups.getAllPermissions(
+    userId: number,
+    ignoreWildcard: boolean = false
+    ): Record<string, boolean | null>
+```
+
+| 参数     | 类型     | 说明 |
+| ------   | -------- | ---- |
+| `userId` | `number` | 用户Id |
+|`ignoreWildcard`|`boolean`|是否忽略通配符|
+
+| 返回值类型 | 说明                                           |
+| ---------- | ---------------------------------------------- |
+| `Record<string, boolean \| null>`  | 包含此用户的所有权限值的字典 |
+
+</TabItem>
+</Tabs>
+
+:::note
+
+当`ignoreWildcard`为`false`时，将会计算通配符权限，具体行为如下
+
+如果用户拥有`A.*`权限，那么用户也拥有`A`节点权限和以`A.`开头的所有节点权限
+
+此处的所有节点来自于[注册的节点](#注册节点)
+
+:::

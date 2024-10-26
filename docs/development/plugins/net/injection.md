@@ -5,7 +5,7 @@
 :::note
 
 - 当有多个公开的构造函数时，将会选择第一个进行填充和调用
-- 当首选的构造函数存在无法获取的服务时 或 没有找到可用的构造函数（公开且非静态）时 将报错
+- 当首选的构造函数**存在无法获取的服务** 或 **没有找到可用的构造函数（公开且非静态）** 时 将报错
 
 :::
 
@@ -31,6 +31,7 @@ namespace MyPlugin;
 public class MainPlugin : PluginBase
 {
     private readonly IServiceProvider _serviceProvider;
+
 // highlight-start
     public MainPlugin(IServiceProvider serviceProvider)
     {
@@ -51,7 +52,6 @@ namespace MyPlugin;
 
 public class MainPlugin : PluginBase
 {
-    
 // highlight-start
     public MainPlugin(SettingProvider settingProvider)
     {

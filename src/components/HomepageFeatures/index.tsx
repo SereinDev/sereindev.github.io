@@ -9,20 +9,20 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '超强兼容性',
-    description: <>适配主流操作平台：Windows、Linux和macOS</>,
+    title: '🖥 超强兼容性',
+    description: <>适配大部分主流操作平台：Windows、Linux和macOS</>,
   },
   {
-    title: '高自定义度',
+    title: '🎨 高自定义度',
     description: (
       <>提供丰富的配置项和设置，允许您打造出一个完全适合自己的服务器面板软件</>
     ),
   },
   {
-    title: '超多扩展功能',
+    title: '🎲 超多扩展功能',
     description: (
       <>
-        你可以借助JavaScript插件无限扩展功能，将服务器面板变成得心应手的管理工具，甚至变成集多功能于一身的机器人
+        你可以借助插件无限扩展功能，将服务器面板变成得心应手的管理工具，甚至变成集多功能于一身的机器人
       </>
     ),
   },
@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--4')} style={{ marginBottom: '20px' }}>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
