@@ -1,38 +1,36 @@
 # 储存
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 为插件提供便捷的字符串储存功能
 
 ## 类型声明
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs groupId="lang">
 
 <TabItem value="cs" label="C#" >
-
 
 ```cs
 namespace Serein.Core.Services.Plugins.Storages;
 
 public partial class StorageBase
 {
-    int Length { get; }
+    public int Length { get; }
 
-    void Clear();
+    public void Clear();
 
-    string? GetItem(string key);
+    public string? GetItem(string key);
 
-    void RemoveItem(string key);
+    public void RemoveItem(string key);
 
-    void SetItem(string key, string value);
+    public void SetItem(string key, string value);
 
-    string? Key(int index);
+    public string? Key(int index);
 
-    string? this[string key] { get; set; }
+    public string? this[string key] { get; set; }
 }
 ```
-
 
 </TabItem>
 
@@ -71,7 +69,6 @@ interface Storage {
 }
 ```
 
-
 </TabItem>
 
 </Tabs>
@@ -90,8 +87,9 @@ interface Storage {
 
 <TabItem value="cs" label="C#" >
 
-```cs
+```cs title="示例"
 var localStorage = serviceProvider.GetRequiredService<LocalStorage>();
+localStorage.SetItem("key", "value");
 ```
 
 </TabItem>
@@ -117,13 +115,13 @@ declare var localStorage: Storage;
 
 :::
 
-
 <Tabs groupId="lang">
 
 <TabItem value="cs" label="C#" >
 
-```cs
+```cs title="示例"
 var sessionStorage = serviceProvider.GetRequiredService<SessionStorage>();
+sessionStorage["key"] = "value";
 ```
 
 </TabItem>

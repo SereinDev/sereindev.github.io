@@ -18,7 +18,7 @@ GET /servers HTTP/1.1
     "errorMsg": null,
     "data": {
         "server1": {
-            "status": 0,
+            "status": false,
             "pid": null,
             "info": {
                 "fileName": null,

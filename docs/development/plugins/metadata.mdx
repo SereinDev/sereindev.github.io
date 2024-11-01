@@ -1,0 +1,108 @@
+# 元数据
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 版本
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public static readonly string Version;
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.metadata.version: string
+```
+
+- 类型
+  - `string`
+
+</TabItem>
+
+</Tabs>
+
+:::note 示例
+
+`2.0.0.0`
+
+:::
+
+## 详细版本
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public static readonly string FullVersion;
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.metadata.fullVersion: string
+```
+
+- 类型
+  - `string`
+
+</TabItem>
+
+</Tabs>
+
+:::note 示例
+
+`2.0.0.0-alpha+1bfd185e1f28b86f44b4fd42463ddfa8f9e1de57`
+
+其中`1bfd18...de57`为Git提交哈希（此处对应的提交为[ci: Update](https://github.com/SereinDev/Serein/commit/1bfd185e1f28b86f44b4fd42463ddfa8f9e1de57)）
+
+:::
+
+## 类型
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public static readonly AppType Type;
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.metadata.type: AppType
+```
+
+- 类型
+  - `AppType`
+
+</TabItem>
+
+</Tabs>

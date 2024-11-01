@@ -9,6 +9,6 @@ Content-Type: application/json
 }
 ```
 
-:::info
+:::warning
 此Api尚未被实现
 :::

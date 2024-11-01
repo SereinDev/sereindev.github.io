@@ -1,6 +1,17 @@
-# 控制台
+# 输出
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## 输出信息
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 console.log(...data: any[]): void
@@ -14,7 +25,18 @@ serein.console.info(...data: any[]): void
 | ------ | ------- | ---------- |
 | `data` | `any[]` | 输出的内容 |
 
+</TabItem>
+</Tabs>
+
 ## 输出警告
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 console.warn(...data: any[]): void
@@ -25,7 +47,18 @@ serein.console.warn(...data: any[]): void
 | ------ | ------- | ---------- |
 | `data` | `any[]` | 输出的内容 |
 
+</TabItem>
+</Tabs>
+
 ## 输出错误
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 console.error(...data: any[]): void
@@ -35,3 +68,12 @@ serein.console.error(...data: any[]): void
 | 参数   | 类型    | 说明       |
 | ------ | ------- | ---------- |
 | `data` | `any[]` | 输出的内容 |
+
+</TabItem>
+</Tabs>
+
+:::warning 已知问题<sup>[仅JavaScript插件]</sup>
+
+当`data`传入一个参数且类型为`Array`时，输出的会是`Array`中的各项而不是`Array`本身
+
+:::

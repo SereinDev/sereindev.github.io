@@ -45,7 +45,7 @@
 |   `server.players.max`   | 最大玩家数    |                   |
 | `server.players.percent` | 玩家数占比    |                   |
 
-:::info
+:::note
 
 - 数值均返回整数
   - 玩家数占比、使用率∈[0,100]
@@ -77,7 +77,7 @@
 |   `sender.role`    | 角色                           | *群主 / 管理员 / 成员* |
 | `sender.shownName` | 显示名称（群名片若空则为昵称） |                        |
 
-:::info
+:::note
 
 - 根据OneBot的实现不同，部分值可能**存在差异**或为**空值**
 - 以下变量只能在群聊消息中使用
@@ -96,16 +96,16 @@
 |       `datetime`       | 日期与时间        | *2024/1/1 4:05:01*                 |
 |    `datetime.date`     | 日期              | *2024/1/1*                         |
 |    `datetime.time`     | 时间              | *4:05:01*                          |
-|    `datetime.year`     | 年                | *2024*                             |
-|    `datetime.month`    | 月                | *1*                                |
-|     `datetime.day`     | 日                | *1*                                |
-|    `datetime.hour`     | 时                | *4*                                |
-|   `datetime.minute`    | 分                | *5*                                |
-|   `datetime.second`    | 秒                | *1*                                |
-| `datetime.millisecond` | 毫秒              | *419*                              |
-| `datetime.microsecond` | 微秒              | *198*                              |
+|    `datetime.year`     | 年                | *{new Date().getFullYear()}*       |
+|    `datetime.month`    | 月                | *{new Date().getMonth()+1}*        |
+|     `datetime.day`     | 日                | *{new Date().getDate()}*           |
+|    `datetime.hour`     | 时                | *{new Date().getHours()}*          |
+|   `datetime.minute`    | 分                | *{new Date().getMinutes()}*        |
+|   `datetime.second`    | 秒                | *{new Date().getSeconds()}*        |
+| `datetime.millisecond` | 毫秒              | *{new Date().getMilliseconds()}*   |
+| `datetime.microsecond` | 微秒              | *000*                              |
 | `datetime.nanosecond`  | 纳秒              | *100*                              |
-|     `datetime.iso`     | ISO 8601 格式时间 | *2024-01-01T04:05:1.4191981+08:00* |
+|     `datetime.iso`     | ISO 8601 格式时间 | *{new Date().toISOString()}*       |
 |  `datetime.dayofweek`  | 星期              | *Sunday*                           |
 
 <details>
@@ -148,7 +148,7 @@
 | `cpu.logicalprocessors` | 逻辑处理器数 |      |
 |      `cpu.percent`      | 使用率       |      |
 
-:::info
+:::note
 
 - 若检测不到CPU则返回空
 - 数值均返回整数
@@ -168,7 +168,7 @@
 |   `ram.usedgb`    | 已用物理内存（GB） |      |
 |   `ram.percent`   | 使用率             |      |
 
-:::info
+:::note
 
 - 数值均返回整数
   - 使用率∈[0,100]

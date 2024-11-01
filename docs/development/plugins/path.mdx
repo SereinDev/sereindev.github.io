@@ -1,0 +1,104 @@
+# 路径
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 当前路径（CWD）
+
+可执行文件的所在文件夹
+
+:::warning
+
+所有相对路径均基于此路径，而不是插件所在位置
+
+你可以通过`resolve`计算正确的绝对路径
+
+:::
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+:::warning
+
+不要使用`System.IO.Directory.SetCurrentDirectory`修改当前路径，否则可能导致各种文件错位
+
+:::
+
+```cs title="示例"
+using System;
+using System.IO;
+
+var path = Directory.GetCurrentDirectory();
+
+// 或
+
+var path = AppDomain.CurrentDomain.BaseDirectory;
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.path: string
+```
+
+- 类型
+  - `string`
+
+</TabItem>
+</Tabs>
+
+
+:::note 示例
+
+`C:\GitHub\Serein\src\Serein.Lite\bin\Debug\net8.0-windows`
+
+:::
+
+## 计算绝对路径
+
+类似NodeJs中的[`path.resolve`](https://nodejs.org/api/path.html#pathresolvepaths)
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Plugins;
+
+public partial class PluginManager
+{
+    public static string Resolve(IPlugin plugin, params string[] paths);
+}
+```
+
+```cs title="示例"
+// Serein/plugins/MyPlugin/MyPlugin.dll
+using Serein.Core.Services.Plugins;
+
+var path = PluginManager.Resolve(this, "config.json");
+// C:\GitHub\Serein\src\Serein.Lite\bin\Debug\net8.0-windows
+//   \win-x64\Serein\plugins\MyPlugin\config.json
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.resolve(...paths: string[]): string;
+```
+
+| 参数    | 类型       | 说明   |
+| ------- | ---------- | ------ |
+| `paths` | `string[]` | 路径 |
+
+- 类型
+  - `string`
+
+</TabItem>
+</Tabs>
+
+- 当合并后的路径是绝对路径时会直接返回，否则返回计算后的绝对路径

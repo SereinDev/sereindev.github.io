@@ -1,4 +1,16 @@
-# 计时器
+# 定时器
+
+:::warning
+
+此节为[Js插件](./js/)独有
+
+Net插件可通过以下方法实现
+
+- `System.Timers.Timer`
+- `System.Threading.Timer`
+- `System.Threading.Tasks.Task.Delay(...).Wait()`
+
+:::
 
 ## `setTimeout`
 

@@ -23,7 +23,7 @@ GET /servers/{:id} HTTP/1.1
     "code": 200,
     "errorMsg": null,
     "data": {
-        "status": 0,
+        "status": false,
         "pid": null,
         "info": {
             "fileName": null,

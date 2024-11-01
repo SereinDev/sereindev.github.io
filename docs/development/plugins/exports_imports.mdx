@@ -1,6 +1,17 @@
 # 导入&导出
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## 导出
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 serein.exports(name: string, value?: any): boolean
@@ -19,7 +30,18 @@ serein.exports(name: string, value?: any): boolean
 - 导出项可能被其他插件覆盖
 - 导出函数可能会带来一些意想不到的的后果
 
+</TabItem>
+</Tabs>
+
 ## 导入
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
 
 ```ts
 serein.imports(name: string): any
@@ -32,3 +54,6 @@ serein.imports(name: string): any
 | 返回值类型 | 说明                                    |
 | ---------- | --------------------------------------- |
 | `any`      | 当指定的导入项不存在时将返回`undefined` |
+
+</TabItem>
+</Tabs>

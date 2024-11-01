@@ -4,6 +4,6 @@
 GET /connection HTTP/1.1
 ```
 
-:::info
+:::warning
 此Api尚未被实现
 :::
