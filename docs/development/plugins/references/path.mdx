@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 所有相对路径均基于此路径，而不是插件所在位置
 
-你可以通过`resolve`计算正确的绝对路径
+你可以通过[`resolve`](#计算绝对路径)计算正确的绝对路径
 
 :::
 
@@ -91,8 +91,8 @@ var path = PluginManager.Resolve(this, "config.json");
 serein.resolve(...paths: string[]): string;
 ```
 
-| 参数    | 类型       | 说明   |
-| ------- | ---------- | ------ |
+| 参数    | 类型       | 说明 |
+| ------- | ---------- | ---- |
 | `paths` | `string[]` | 路径 |
 
 - 类型

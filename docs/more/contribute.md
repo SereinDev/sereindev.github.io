@@ -14,6 +14,8 @@
 
 如果有好的点子，你可以先和仓库维护者取得联系后[提交PR](https://github.com/SereinDev/Serein/pulls)
 
+如果你打算重构代码或提交大范围的更改，请务必和仓库维护者联系，避免产生过大的合并冲突
+
 :::tip
 构建教程👉[自行构建](../tutorial/advanced/build)
 :::

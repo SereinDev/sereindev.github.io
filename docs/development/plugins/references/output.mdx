@@ -9,6 +9,13 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value="cs" label="C#" >
 
+```cs
+using Microsoft.Extensions.Logging;
+
+var logger = serviceProvider.GetRequiredService<IPluginLogger>>();
+logger.Log(LogLevel.Information, "<输出名称>", "文本");
+```
+
 </TabItem>
 
 <TabItem value="js" label="JavaScript" >
@@ -34,6 +41,13 @@ serein.console.info(...data: any[]): void
 
 <TabItem value="cs" label="C#" >
 
+```cs
+using Microsoft.Extensions.Logging;
+
+var logger = serviceProvider.GetRequiredService<IPluginLogger>>();
+logger.Log(LogLevel.Warning, "<输出名称>", "文本");
+```
+
 </TabItem>
 
 <TabItem value="js" label="JavaScript" >
@@ -56,6 +70,13 @@ serein.console.warn(...data: any[]): void
 
 <TabItem value="cs" label="C#" >
 
+```cs
+using Microsoft.Extensions.Logging;
+
+var logger = serviceProvider.GetRequiredService<IPluginLogger>>();
+logger.Log(LogLevel.Error, "<输出名称>", "文本");
+```
+
 </TabItem>
 
 <TabItem value="js" label="JavaScript" >
@@ -71,9 +92,3 @@ serein.console.error(...data: any[]): void
 
 </TabItem>
 </Tabs>
-
-:::warning 已知问题<sup>[仅JavaScript插件]</sup>
-
-当`data`传入一个参数且类型为`Array`时，输出的会是`Array`中的各项而不是`Array`本身
-
-:::

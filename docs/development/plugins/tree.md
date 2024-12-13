@@ -1,10 +1,4 @@
-# 插件
-
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />
-
-## 目录结构
+# 目录结构
 
 ```txt title="示例"
 Serein
@@ -22,7 +16,7 @@ Serein
    └─pluign-3.js
 ```
 
-### 单文件插件
+## 单文件插件
 
 即上面示例中的`pluign-3.js`，只由一个Js插件组成，适用于功能极少的插件
 
@@ -35,6 +29,6 @@ Serein
 
 :::
 
-### 多文件插件
+## 多文件插件
 
 即上面示例中的`pluign-1`和`pluign-2`，由一个或多个文件组成，放在以插件Id为名的文件夹下，且文件夹中必须有一个`plugin-info.json`文件（内容和格式详见[插件信息](./plugin_info)）

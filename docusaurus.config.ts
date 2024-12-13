@@ -36,7 +36,7 @@ const config: Config = {
 
           versions: {
             current: {
-              label: '2.0+',
+              label: '2.x',
             },
           },
           lastVersion: 'current',
@@ -66,10 +66,10 @@ const config: Config = {
     },
 
     announcementBar: {
-      content: '🚧此文档尚未完工🚧',
+      content: 'v2.0即将发布✨',
       textColor: 'var(--ifm-color-primary-contrast-foreground)',
       backgroundColor: 'var(--ifm-background-surface-color)',
-      id: '20240331',
+      id: '20241213',
     },
 
     algolia: {
@@ -133,7 +133,11 @@ const config: Config = {
             },
             {
               label: '讨论区',
-              to: 'https://github.com/SereinDev/sereindev.github.io/discussions',
+              to: 'https://github.com/orgs/SereinDev/discussions',
+            },
+            {
+              label: 'Codacy',
+              to: 'https://app.codacy.com/gh/SereinDev/Serein/dashboard',
             },
           ],
         },
