@@ -1,0 +1,49 @@
+# 虚拟终端
+
+:::warning
+
+这是一个实验性功能，暂不能保证其稳定性，且后续版本可能发生变更
+
+:::
+
+用于解决一些无法输入或无法通过更改编码解决的输入乱码问题
+
+例如：
+
+- 基岩版服务器输入中文总是乱码
+- 基岩版服务器+[Endstone插件加载器](https://github.com/EndstoneMC/endstone)无法输入
+
+## 启用方法
+
+:::note
+
+启用和禁用虚拟终端都需要重启Serein方可生效
+
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="type">
+
+<TabItem value="lite" label="Serein.Lite" >
+
+1. 在服务器配置编辑器中勾选 使用虚拟终端
+2. 重启Serein
+
+</TabItem>
+<TabItem value="plus" label="Serein.Plus">
+
+1. 在服务器配置编辑器中勾选 使用虚拟终端
+2. 重启Serein
+
+</TabItem>
+
+<TabItem value="cli" label="Serein.Cli" >
+
+1. 修改服务器配置文件中的`data.pty.isEnabled`为`true`
+2. 重启Serein
+
+</TabItem>
+
+</Tabs>

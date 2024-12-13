@@ -1,0 +1,9 @@
+#input-container {
+  margin-bottom: 20px;
+}
+
+#converter-container {
+  padding: 20px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-pagination-nav-border-radius);
+}

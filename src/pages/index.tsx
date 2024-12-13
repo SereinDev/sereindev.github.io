@@ -3,6 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
+import Tips from '../components/Tips';
 
 function FirstSection() {
   const { siteConfig } = useDocusaurusContext();
@@ -24,6 +25,7 @@ function FirstSection() {
           快速上手
         </Link>
       </div>
+      <Tips />
       <div className={styles['fisrt-container-background']}></div>
     </section>
   );

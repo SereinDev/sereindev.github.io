@@ -4,5 +4,11 @@
 
 ## 迁移步骤
 
-1. [下载](../rookie/get_started)
+1. 按[教程](../rookie/get_started)下载v2版本的Serein
 2. [添加服务器](../rookie/add_server)
+3. 使用下面的[迁移工具](#迁移工具)转换文件格式
+
+## 迁移工具
+
+- [匹配转换器](./v2/match)
+- [定时任务转换器](./v2/schedule)

@@ -1,0 +1,21 @@
+# 定时任务转换器
+
+将v1的定时任务文件转换为v2的定时任务文件
+
+import ScheduleConverter from "@site/src/components/ScheduleConverter";
+
+<ScheduleConverter />
+
+## 使用方法
+
+1. 选择`datas/schdule.json`
+2. 点击转换按钮
+3. 将生成的文件复制到`Serein`文件夹下替换原有文件
+4. 重新启动Serein
+
+:::warning
+
+- [命令](../../../guidance/command)和[变量](../../../guidance/variables)在v2版本中有破坏性更改，无法直接转换，你需要参照相关文档手动修改
+- 此工具只转换文件结构，不能100%保证转换后的文件能正常使用
+
+:::

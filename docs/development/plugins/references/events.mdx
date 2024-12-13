@@ -1,0 +1,290 @@
+# 事件监听
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 监听
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+代码参考：[src/Serein.Core/Models/Plugins/Net/PluginBase.Events.cs](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Plugins/Net/PluginBase.Events.cs)
+
+在插件类内重载虚方法即可
+
+```cs title="示例"
+using Serein.Core.Models.Plugins.Net;
+using System;
+using System.Threading.Tasks;
+
+namespace MyPlugin;
+
+public class MainPlugin : PluginBase
+{
+    public override void Dispose() { }
+    
+// highlight-start
+    protected override Task OnPluginsLoaded()
+    {
+        Console.WriteLine("Loaded!");
+        return Task.CompletedTask;
+    }
+// highlight-end
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.setListener(event: string, callback: Function): void
+```
+
+| 参数       | 类型       | 说明             |
+| ---------- | ---------- | ---------------- |
+| `event`    | `string`   | 事件名称（见下） |
+| `callback` | `Function` | 回调函数         |
+
+```ts title="示例"
+serein.setListener('PluginsLoaded', () => {
+    console.log(`I'm loaded!`);
+});
+```
+
+</TabItem>
+
+</Tabs>
+
+## 拦截
+
+对于可被拦截的事件，可以通过返回`false`来拦截事件，阻止其继续传递
+
+例如，拦截`ServerStarting`将阻止服务器启动并阻止下一个事件`ServerStarted`的触发
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Models.Plugins.Net;
+using Serein.Core.Services.Servers;
+using System;
+using System.Threading.Tasks;
+
+namespace MyPlugin;
+
+public partial class MainPlugin : PluginBase
+{
+// highlight-start
+    protected override Task<bool> OnServerStarting(ServerBase server)
+    {
+        Console.WriteLine("Intercepted!");
+        return Task.FromResult(false);
+    }
+// highlight-end
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.setListener('ServerStarting', (_) => {
+    console.log('Intercepted!');
+    return false;
+});
+```
+
+</TabItem>
+
+</Tabs>
+
+:::tip
+当拦截事件时，你或许应该根据实际情况以合理的方式告诉用户，避免造成不必要的困扰
+:::
+
+## 事件一览
+
+| 事件名称                 | 是否可被拦截 |
+| ------------------------ | :----------: |
+| `ServerStarting`         |      是      |
+| `ServerStarted`          |      否      |
+| `ServerStopping`         |      是      |
+| `ServerExited`           |      否      |
+| `ServerRawOutput`        |      是      |
+| `ServerOutput`           |      是      |
+| `ServerInput`            |      否      |
+| `GroupMessageReceived`   |      是      |
+| `PrivateMessageReceived` |      是      |
+| `WsDataReceived`         |      是      |
+| `PacketReceived`         |      是      |
+| `SereinClosed`           |      否      |
+| `SereinCrashed`          |      否      |
+| `PluginsLoaded`          |      否      |
+| `PluginsUnloading`       |      否      |
+
+### `ServerStarting`
+
+- 触发时机：服务器启动前
+- 可被拦截：是
+- 函数参数：
+
+| 参数     | 类型                                                                                                         | 说明       |
+| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+
+### `ServerStarted`
+
+- 触发时机：服务器启动后
+- 可被拦截：否
+- 函数参数：
+
+| 参数     | 类型                                                                                                         | 说明       |
+| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+
+### `ServerStopping`
+
+- 触发时机：用户尝试手动停止服务器时
+- 可被拦截：是
+- 函数参数：
+
+| 参数     | 类型                                                                                                         | 说明       |
+| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+
+### `ServerExited`
+
+- 触发时机：服务器进程退出后
+- 可被拦截：否
+- 函数参数：
+
+| 参数       | 类型                                                                                                         | 说明       |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| `server`   | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+| `exitCode` | `int`/`number`                                                                                               | 退出代码   |
+| `exitTime` | `DateTime`/`Date`                                                                                            | 退出时间   |
+
+### `ServerRawOutput`
+
+:::note 和`ServerOutput`的区别
+
+`ServerRawOutput`会在`ServerOutput`之前触发，且可能包含ANSI转义序列等特殊字符
+
+:::
+
+- 触发时机：服务器输出
+- 可被拦截：是
+- 函数参数：
+
+| 参数     | 类型                                                                                                         | 说明       |
+| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+| `line`   | `string`                                                                                                     | 输出行     |
+
+### `ServerOutput`
+
+- 触发时机：服务器输出
+- 可被拦截：是
+- 函数参数：
+
+| 参数     | 类型                                                                                                         | 说明       |
+| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+| `line`   | `string`                                                                                                     | 输出行     |
+
+### `ServerInput`
+
+- 触发时机：服务器输入
+- 可被拦截：否
+- 函数参数：
+
+| 参数     | 类型                                                                                                         | 说明       |
+| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+| `line`   | `string`                                                                                                     | 输入行     |
+
+### `GroupMessageReceived`
+
+- 触发时机：收到群聊消息
+- 可被拦截：是
+- 函数参数：
+
+| 参数            | 类型                                                                                                                                       | 说明       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| `messagePacket` | [`MessagePacket`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/OneBot/Packets/MessagePacket.cs) | 消息数据包 |
+
+### `PrivateMessageReceived`
+
+- 触发时机：收到私聊消息
+- 可被拦截：是
+- 函数参数：
+
+| 参数            | 类型                                                                                                                                       | 说明       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| `messagePacket` | [`MessagePacket`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/OneBot/Packets/MessagePacket.cs) | 消息数据包 |
+
+### `WsDataReceived`
+
+:::note 触发顺序
+
+`WsDataReceived`> `PacketReceived`>`GroupMessageReceived`/`PrivateMessageReceived`
+
+:::
+
+- 触发时机：收到WebSocket连接的数据文本
+- 可被拦截：是
+- 函数参数：
+
+| 参数   | 类型     | 说明     |
+| ------ | -------- | -------- |
+| `data` | `string` | 数据文本 |
+
+### `PacketReceived`
+
+- 触发时机：收到WebSocket连接的数据包
+- 可被拦截：是
+- 函数参数：
+
+| 参数     | 类型                                                                                                        | 说明   |
+| -------- | ----------------------------------------------------------------------------------------------------------- | ------ |
+| `packet` | [`JsonObject`](https://learn.microsoft.com/zh-cn/dotnet/api/system.text.json.nodes.jsonobject?view=net-8.0) | 数据包 |
+
+### `SereinClosed`
+
+:::note
+
+通常用于释放数据库连接等资源
+
+:::
+
+- 触发时机：程序即将退出前
+- 可被拦截：否
+- 函数参数：无
+
+### `SereinCrashed`
+
+:::note
+
+在程序崩溃时不能保证总是能触发成功
+
+:::
+
+- 触发时机：程序崩溃后
+- 可被拦截：否
+- 函数参数：无
+
+### `PluginsLoaded`
+
+- 触发时机：插件加载完成后
+- 可被拦截：否
+- 函数参数：无
+
+### `PluginsUnloading`
+
+- 触发时机：插件卸载前
+- 可被拦截：否
+- 函数参数：无

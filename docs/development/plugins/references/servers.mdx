@@ -14,7 +14,7 @@ namespace Serein.Core.Services.Servers;
 
 public partial class ServerManager
 {
-    public IReadOnlyDictionary<string, Server> Servers
+    public IReadOnlyDictionary<string, ServerBase> Servers
 }
 ```
 
@@ -27,7 +27,7 @@ serein.servers
 ```
 
 - 类型
-  - `{ [id: string]: Server }`
+  - `{ [id: string]: ServerBase }`
 
 </TabItem>
 
@@ -46,7 +46,7 @@ namespace Serein.Core.Services.Servers;
 
 public partial class ServerManager
 {
-    public Server Add(string id, Configuration configuration);
+    public ServerBase Add(string id, Configuration configuration);
 }
 ```
 
@@ -55,17 +55,17 @@ public partial class ServerManager
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.servers.add(id: string, configuration: Configuration): void
+serein.servers.add(id: string, configuration: Configuration): ServerBase
 ```
 
 </TabItem>
 
 </Tabs>
 
-| 参数    | 类型       | 说明   |
-| ------- | ---------- | ------ |
-| `id` | `string` | 服务器Id |
-| `configuration` | `Configuration` | 配置 |
+| 参数            | 类型            | 说明     |
+| --------------- | --------------- | -------- |
+| `id`            | `string`        | 服务器Id |
+| `configuration` | `Configuration` | 配置     |
 
 ## 删除服务器配置
 
@@ -82,8 +82,8 @@ public partial class ServerManager
 }
 ```
 
-| 参数    | 类型       | 说明   |
-| ------- | ---------- | ------ |
+| 参数 | 类型     | 说明     |
+| ---- | -------- | -------- |
 | `id` | `string` | 服务器Id |
 
 - 类型
@@ -98,8 +98,8 @@ public partial class ServerManager
 serein.servers.remove(id: string): boolean
 ```
 
-| 参数    | 类型       | 说明   |
-| ------- | ---------- | ------ |
+| 参数 | 类型     | 说明     |
+| ---- | -------- | -------- |
 | `id` | `string` | 服务器Id |
 
 - 类型
@@ -112,7 +112,7 @@ serein.servers.remove(id: string): boolean
 
 :::warning
 
-尝试删除正在运行的服务器时会报错
+尝试删除正在运行的服务器时会抛出异常
 
 :::
 
@@ -131,7 +131,7 @@ var server = serverManager.Servers["bds"];
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.servers[id]: Server
+serein.servers[id]: ServerBase
 ```
 
 ```ts title="示例"
@@ -151,7 +151,7 @@ const server = serein.servers['bds'];
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class Server
+public partial class ServerBase
 {
     public bool Status { get; }
 }
@@ -181,7 +181,7 @@ serein.servers[id].status
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class Server
+public partial class ServerBase
 {
     public int? Pid { get; }
 }
@@ -214,7 +214,7 @@ using Serein.Core.Models.Server;
 
 namespace Serein.Core.Services.Servers;
 
-public partial class Server
+public partial class ServerBase
 {
     public IServerInfo Info { get; }
 }
@@ -247,7 +247,7 @@ serein.servers[id].info
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class Server
+public partial class ServerBase
 {
     public void Start();
 }
@@ -276,7 +276,7 @@ serein.servers[id].start(): void
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class Server
+public partial class ServerBase
 {
     public void Stop();
 }
@@ -307,7 +307,7 @@ serein.servers[id].stop(): void
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class Server
+public partial class ServerBase
 {
     public void Terminate();
 }
@@ -338,7 +338,7 @@ using Serein.Core.Utils;
 
 namespace Serein.Core.Services.Servers;
 
-public partial class Server
+public partial class ServerBase
 {
     public void Input(string command);
 }
@@ -352,8 +352,8 @@ public partial class Server
 serein.servers[id].input(line: string): void
 ```
 
-| 参数    | 类型       | 说明   |
-| ------- | ---------- | ------ |
+| 参数   | 类型     | 说明   |
+| ------ | -------- | ------ |
 | `line` | `string` | 输入行 |
 
 ```ts title="示例"

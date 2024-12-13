@@ -1,0 +1,24 @@
+#tips-container {
+  padding: 20px;
+  margin-top: 40px;
+  color: gray;
+  transition: color 0.3s;
+  font-size: smaller;
+  max-width: 500px;
+  background: #ffffff20;
+  border-radius: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#tips-container:hover {
+  color: initial;
+}
+
+#tip-title {
+  font-weight: bold;
+}
+
+#tip-content {
+  margin-top: 10px;
+}

@@ -73,10 +73,10 @@ public partial class PermissionManager
 ```
 
 
-| 参数   | 类型      | 说明   |
-| -------| --------- | ------ |
-| `id`   | `string`  | 插件Id |
-| `node` | `string`  | 节点   |
+| 参数   | 类型     | 说明   |
+| ------ | -------- | ------ |
+| `id`   | `string` | 插件Id |
+| `node` | `string` | 节点   |
 
 </TabItem>
 
@@ -86,7 +86,7 @@ public partial class PermissionManager
 serein.permissions.unregister(node: string): void
 ```
 
-| 参数    | 类型     | 说明 |
+| 参数   | 类型     | 说明 |
 | ------ | -------- | ---- |
 | `node` | `string` | 节点 |
 
@@ -110,10 +110,10 @@ public partial class GroupManager
 }
 ```
 
-| 参数   | 类型      | 说明   |
-| -------| --------- | ------ |
-| `id`   | `string`  | 权限组Id |
-| `group` | `Group`  | 权限组对象   |
+| 参数    | 类型     | 说明       |
+| ------- | -------- | ---------- |
+| `id`    | `string` | 权限组Id   |
+| `group` | `Group`  | 权限组对象 |
 
 </TabItem>
 
@@ -123,10 +123,10 @@ public partial class GroupManager
 serein.permissions.groups.add(id: string, group: Group): void
 ```
 
-| 参数   | 类型      | 说明   |
-| -------| --------- | ------ |
-| `id`   | `string`  | 权限组Id |
-| `group` | `Group`  | 权限组对象   |
+| 参数    | 类型     | 说明       |
+| ------- | -------- | ---------- |
+| `id`    | `string` | 权限组Id   |
+| `group` | `Group`  | 权限组对象 |
 
 </TabItem>
 </Tabs>
@@ -146,9 +146,9 @@ public partial class GroupManager
 }
 ```
 
-| 参数   | 类型      | 说明   |
-| -------| --------- | ------ |
-| `id`   | `string`  | 权限组Id |
+| 参数 | 类型     | 说明     |
+| ---- | -------- | -------- |
+| `id` | `string` | 权限组Id |
 
 </TabItem>
 
@@ -158,9 +158,9 @@ public partial class GroupManager
 serein.permissions.groups.remove(id: string): void
 ```
 
-| 参数    | 类型     | 说明 |
-| ------ | -------- | ---- |
-| `id`   | `string`  | 权限组Id |
+| 参数 | 类型     | 说明     |
+| ---- | -------- | -------- |
+| `id` | `string` | 权限组Id |
 
 </TabItem>
 </Tabs>
@@ -240,10 +240,10 @@ public partial class GroupManager
 }
 ```
 
-| 参数     | 类型     | 说明 |
-| ------   | -------- | ---- |
-| `userId` | `long` | 用户Id |
-|`ignoreWildcard`|`bool`|是否忽略通配符|
+| 参数             | 类型   | 说明           |
+| ---------------- | ------ | -------------- |
+| `userId`         | `long` | 用户Id         |
+| `ignoreWildcard` | `bool` | 是否忽略通配符 |
 
 </TabItem>
 
@@ -256,14 +256,14 @@ serein.permissions.groups.getAllPermissions(
     ): Record<string, boolean | null>
 ```
 
-| 参数     | 类型     | 说明 |
-| ------   | -------- | ---- |
-| `userId` | `number` | 用户Id |
-|`ignoreWildcard`|`boolean`|是否忽略通配符|
+| 参数             | 类型      | 说明           |
+| ---------------- | --------- | -------------- |
+| `userId`         | `number`  | 用户Id         |
+| `ignoreWildcard` | `boolean` | 是否忽略通配符 |
 
-| 返回值类型 | 说明                                           |
-| ---------- | ---------------------------------------------- |
-| `Record<string, boolean \| null>`  | 包含此用户的所有权限值的字典 |
+| 返回值类型                        | 说明                         |
+| --------------------------------- | ---------------------------- |
+| `Record<string, boolean \| null>` | 包含此用户的所有权限值的字典 |
 
 </TabItem>
 </Tabs>
