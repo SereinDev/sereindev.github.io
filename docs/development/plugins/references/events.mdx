@@ -231,7 +231,7 @@ serein.setListener('ServerStarting', (_) => {
 
 :::note 触发顺序
 
-`WsDataReceived`> `PacketReceived`>`GroupMessageReceived`/`PrivateMessageReceived`
+`WsDataReceived`>`PacketReceived`>`GroupMessageReceived`/`PrivateMessageReceived`
 
 :::
 
@@ -255,9 +255,9 @@ serein.setListener('ServerStarting', (_) => {
 
 ### `SereinClosed`
 
-:::note
+:::tip
 
-通常用于释放数据库连接等资源
+你可以通过此事件和`PluginsUnloading`事件来释放插件占用的资源，例如数据库连接、文件流等
 
 :::
 
@@ -269,7 +269,7 @@ serein.setListener('ServerStarting', (_) => {
 
 :::note
 
-在程序崩溃时不能保证总是能触发成功
+不能保证总是能触发成功
 
 :::
 
