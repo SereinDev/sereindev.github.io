@@ -59,7 +59,7 @@ fs.copyFileSync("1.txt", "2.txt");
 ## `process`
 
 - `arch: string`
-  - 实际上只会返回"x64"或"arm64"，这是因为Serein的发行版没有x86的构建（
+  - 实际上只会返回`"x64"`或`"arm64"`，这是因为Serein的发行版没有x86的构建（
 - `argv: string[]`
 - `argv0: string`
   - 即`argv[0]`
@@ -74,6 +74,6 @@ fs.copyFileSync("1.txt", "2.txt");
 - `kill(pid: integer)`
 - `pid: integer`
 - `platform: string`
-  - 实际上仅会返回`win32nt`、`unix`或`other`
+  - 实际上仅会返回`"win32nt"`、`"unix"`或`"other"`
 - `version: string`
   - 返回的是.NET运行时版本

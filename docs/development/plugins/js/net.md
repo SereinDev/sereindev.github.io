@@ -8,10 +8,10 @@
 ## 使用函数
 
 ```ts
-declare function importNamespace(name: string): AssemblyObject;
+declare function importNamespace(name: string): ClrType;
 
-declare type AssemblyObject = {
-  [key: string]: AssemblyObject | any;
+declare type ClrType = {
+  [key: string]: ClrType | any;
 };
 ```
 

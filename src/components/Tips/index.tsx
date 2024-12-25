@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 
+const history: number[] = [];
 const tips: JSX.Element[] = [
   <>Serein, Yes!</>,
   <>v1版本的代码其实是屎山。</>,
@@ -18,6 +19,7 @@ const tips: JSX.Element[] = [
   <>Serein发行版总下载量已经超过了五千次。</>,
   <>Serein的大部分配置文件都是JSON格式的。</>,
   <>Serein在开发过程中参考借鉴了其他许多面板软件。</>,
+  <>如果遇到了Bug或者问题欢迎进交流群或在GitHub上反馈。</>,
   <>
     Serein匹配页面支持正则表达式，你可以使用复杂的正则表达式来进行更加精确的匹配。
   </>,
@@ -32,6 +34,8 @@ const tips: JSX.Element[] = [
   <>null</>,
   <>1+1=2.</>,
   <>Creeper?</>,
+  <>那很好了。</>,
+  <>你不知道。</>,
   <>我不知道。</>,
   <>这里有彩蛋。</>,
   <>这里没有彩蛋。</>,
@@ -59,10 +63,9 @@ tips.push(<>这里一共有{tips.length + 2}条文本。</>);
 tips.sort(() => Math.random() - 0.5);
 
 let count = 0;
-let index = Math.floor(Math.random() * tips.length);
 
 export default function (): JSX.Element {
-  const [tip, useTip] = useState(tips[index]);
+  const [tip, useTip] = useState(tips[Math.floor(Math.random() * tips.length)]);
   const func = () => {
     count += 1;
 
@@ -72,12 +75,17 @@ export default function (): JSX.Element {
     }
 
     var i = Math.floor(Math.random() * tips.length);
-    while (i === index) {
+
+    while (history.includes(i)) {
       i = Math.floor(Math.random() * tips.length);
     }
 
-    index = i;
-    useTip(tips[index]);
+    history.push(i);
+    while (history.length > tips.length / 3) {
+      history.shift();
+    }
+
+    useTip(tips[i]);
   };
 
   return (

@@ -4,9 +4,16 @@
 
 ![Serein](https://socialify.git.ci/SereinDev/Serein/image?font=KoHo&forks=1&issues=1&language=1&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIABAMAAAAGVsnJAAAABGdBTUEAALGPC%2FxhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAJFBMVEUAAABLzDoklCEAAAA8tSxCxTEYTREHNQMIPQMBIwACLgH%2F%2F%2F9EIbNrAAAAAXRSTlMAQObYZgAAAAFiS0dECx%2FXxMAAAAAHdElNRQfoBAUCJBr7k6kPAAACqElEQVR42u3cQRXCMBBF0ViohVqIBSxgAQtYqAUsoJJNt5yZHqalhPvWk8W%2FAtJasunLzRtr1QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAvSgaNDW9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAeoDqgcP9IAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMCNA%2FDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwPoDqewAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADA%2FgBR88G1swUAAAAAAAAAAAAAAAAAAAD8IcClOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA3DXZlCwaeAs6HAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AYB7siXZY%2B3dgB70XAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhL0AiB0RKxum4ykAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjQtMDQtMDVUMDI6MzY6MjQrMDA6MDCBxqVlAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI0LTA0LTA1VDAyOjM2OjI0KzAwOjAw8Jsd2QAAAABJRU5ErkJggg%3D%3D&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark#dark)
 
-## 何为 Serein
+**Serein**，一款多功能、多拓展的极简多服务器管理软件
 
-一款多功能、多拓展的极简多服务器管理软件
+---
+
+:::tip
+
+- 第一次见面打算上手试试？👉[快速上手](./tutorial/rookie/get_started)
+- 曾经使用过旧版本并打算更新到v2.x？👉[迁移教程](./tutorial/migration/from_v1)
+
+:::
 
 ## 特点
 
@@ -14,8 +21,52 @@
 
 🎨**多样性** 有[多种类型](./tutorial/rookie/choose)的软件可供选择，满足不同用户需求
 
-🧩**高扩展性** 你可以编写你自己的[插件](./guidance/plugins)或使用 [Api](./development/api/) 扩展 Serein 的多方面的功能
+🧩**高扩展性** 你可以编写你自己的[插件](./guidance/plugins)或使用 [Api](./development/webapi/) 扩展 Serein 的多方面的功能
 
 🛠**开源透明** 所有源代码都在 [GitHub](https://github.com/SereinDev) 上开源
 
-⌚**长期维护** 此项目会一直保持更新维护状态，坚决不咕
+⌚**长期维护** 此项目会一直保持更新维护状态，坚决不咕~~🕊🕊🕊~~
+
+## 功能
+
+### [多服务器管理](./guidance/servers)
+
+![服务器管理](./guidance/servers.png#light)
+
+![服务器管理](./guidance/servers_dark.png#dark)
+
+提供便捷的多服务器管理，不论是单个服务器还是群组服都能轻松驾驭
+
+### [匹配响应](./guidance/match)
+
+![匹配](./guidance/match.png#light)
+
+![匹配](./guidance/match_dark.png#dark)
+
+使用正则表达式检测服务器的输入、输出和群聊、私聊消息，并通过简单易懂的[命令](./guidance/command)做出响应，可以实现自动回复、群服消息互通 *（游戏内消息转发到群聊、群聊消息转发到游戏）* 等功能
+
+### [定时任务](./guidance/schedule)
+
+![定时任务](./guidance/schedule.png#light)
+
+![定时任务](./guidance/schedule_dark.png#dark)
+
+使用标准的 Cron 表达式设定[命令](./guidance/command)触发的时间，快捷实现定时备份[^1]、公告栏滚动等功能
+
+### [插件](./guidance/plugins)
+
+![插件](./guidance/plugins.png)
+
+- 同时支持 JavaScript 和 .NET 插件，即使是代码小白也能轻松上手
+- 提供超全的 API 接口，只有你想不到，没有你做不到
+- 内置高仿 Java 服的权限组功能，用户可以快速修改群成员的权限
+
+---
+
+出于篇幅限制，Serein 的功能当然并不只限于此。
+
+我们期待你能自行探索 Serein 的更多丰富功能，创造出更精彩的故事和辉煌。
+
+还在等什么呢？快[上手试试](./tutorial/rookie/get_started)吧:D
+
+[^1]: 可能需要服务器备份插件支持

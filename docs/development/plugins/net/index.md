@@ -1,4 +1,4 @@
-# NET 插件开发
+# .NET 插件开发
 
 [![dotnet](https://img.shields.io/badge/8.0-512BD4?style=for-the-badge&logo=.net)](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0)
 

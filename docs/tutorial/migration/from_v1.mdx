@@ -1,0 +1,36 @@
+# 从v1.x迁移
+
+由于v2为v1的重构版，数据文件结构发生了极大的变化，因此**二者配置不通用**
+
+## 主要差异
+
+:::note
+
+此处仅列出主要差异，具体差异请参考相应文档介绍
+
+:::
+
+- 支持多个服务器配置，同时启动多个服务器
+- [命令](../../guidance/command)格式更改
+  - v1：`g|一条消息` 
+  - v2：`[g]一条消息`
+- [变量](../../guidance/variables)格式和内容更改
+  - v1：`%datetime%`
+  - v2：`{datetime}`
+- 正则功能改名为[匹配](../../guidance/match)，并加入了 服务器输入 新的匹配域和其他新功能
+- 插件系统发生了较大变化
+  - v1的Js插件可能无法在v2下运行，详见[Js插件](../../development/plugins/js)
+  - v2加入了对[.NET插件](../../development/plugins/net)的支持
+  - v2插件分为[单文件插件和多文件插件](../../development/plugins/tree)
+
+## 迁移步骤
+
+1. 按[教程](../rookie/get_started)下载v2版本的Serein
+2. [添加服务器](../rookie/add_server)
+3. 使用下面的[迁移工具](#迁移工具)转换文件格式
+
+## 迁移工具
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

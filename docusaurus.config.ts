@@ -66,10 +66,10 @@ const config: Config = {
     },
 
     announcementBar: {
-      content: 'v2.0即将发布✨',
+      content: 'v2.0正式版即将发布✨',
       textColor: 'var(--ifm-color-primary-contrast-foreground)',
       backgroundColor: 'var(--ifm-background-surface-color)',
-      id: '20241213',
+      id: '202412125',
     },
 
     algolia: {
