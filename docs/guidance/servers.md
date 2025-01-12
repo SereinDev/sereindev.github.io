@@ -5,9 +5,10 @@ Serein v2已经支持了多服务器管理，这意味着你只需要一个Serei
 ![服务器管理](./servers.png#light)
 ![服务器管理](./servers_dark.png#dark)
 
-:::info
+:::info 相关阅读
 
-相关阅读：[添加服务器](../tutorial/rookie/add_server)
+- [添加服务器](../tutorial/rookie/add_server)
+- [使用虚拟终端](../tutorial/advanced/pty)
 
 :::
 

@@ -66,10 +66,11 @@ const config: Config = {
     },
 
     announcementBar: {
-      content: 'v2.0正式版即将发布✨',
+      content:
+        'v2.0正式版已发布✨ <a href="https://github.com/SereinDev/Serein/releases/latest">点我下载</a>',
       textColor: 'var(--ifm-color-primary-contrast-foreground)',
       backgroundColor: 'var(--ifm-background-surface-color)',
-      id: '202412125',
+      id: '202501',
     },
 
     algolia: {

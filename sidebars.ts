@@ -128,12 +128,12 @@ export default {
       label: '指南',
       collapsible: false,
       items: [
-        'guidance/command',
-        'guidance/variables',
+        'guidance/servers',
         'guidance/match',
         'guidance/schedule',
-        'guidance/servers',
         'guidance/plugins',
+        'guidance/command',
+        'guidance/variables',
         'guidance/permission_group',
       ],
     },
@@ -155,6 +155,7 @@ export default {
             'tutorial/rookie/add_server',
             'tutorial/rookie/edit_server',
             'tutorial/rookie/config_connection',
+            'tutorial/rookie/uninstall',
           ],
         },
         {

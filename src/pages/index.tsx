@@ -15,7 +15,7 @@ function FirstSection() {
       <div className={styles['description']}>{siteConfig.tagline}</div>
       <div className={styles['button-container']}>
         <Link className="button button--secondary button--lg" to="/docs/">
-          查看文档
+          查看介绍
         </Link>
 
         <Link
