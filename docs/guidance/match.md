@@ -18,6 +18,7 @@
 - [AI 驱动的正则表达式求解器 - regex.ai](https://regex.ai/)  
 - [正则可视化 - ihateregex.io](https://ihateregex.io/playground)  
 - [fast-regexp - @adams549659584](https://adams549659584.github.io/fast-regexp/)  
+- [可视化和测试正则表达式 - pyrexp](https://pythonium.net/regex)  
 
 你可以在[命令](./command)中使用`$n`来获取第n个匹配项（n为正整数）
 
