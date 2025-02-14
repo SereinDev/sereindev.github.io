@@ -35,7 +35,7 @@ serein.servers
 
 ## 添加服务器配置
 
-效果与[添加服务器](../../tutorial/rookie/add_server)相同
+效果与[添加服务器](../../../tutorial/rookie/add_server)相同
 
 <Tabs groupId="lang">
 
@@ -232,7 +232,7 @@ serein.servers[id].info
 ```
 
 - 类型
-  - [`ServerInfo`](./structures/ServerInfo)
+  - [`ServerInfo`](https://github.com/SereinDev/HelperLib/blob/main/src/server.d.ts)
 
 </TabItem>
 
@@ -296,7 +296,7 @@ serein.servers[id].stop(): void
 
 - 若服务器已关闭则会报错，可用`try...catch`捕获
 - 实质上是向服务器发送关闭命令（默认为`stop`）
-- 当配置中的关服命令项为空时会尝试发送`^C` <sup>[仅Windows平台] [除[Serein.Cli](../../tutorial/rookie/choose#cli)外]</sup>
+- 当配置中的关服命令项为空时会尝试发送`^C` <sup>[仅Windows平台] [除[Serein.Cli](../../../tutorial/rookie/choose#cli)外]</sup>
 
 ## 强制关闭服务器
 

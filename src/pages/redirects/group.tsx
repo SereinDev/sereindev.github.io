@@ -1,3 +1,7 @@
+import useIsBrowser from '@docusaurus/useIsBrowser';
+
 export default function () {
-  window.location.href = 'https://jq.qq.com/?_wv=1027&k=XNZqPSPv';
+  if (useIsBrowser()) {
+    window.location.href = 'https://jq.qq.com/?_wv=1027&k=XNZqPSPv';
+  }
 }
