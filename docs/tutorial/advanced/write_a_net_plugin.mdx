@@ -1,10 +1,10 @@
-# 从头写一个.NET插件
+# 从头写一个.NET 插件
 
 :::info
-考虑到此页篇幅有限，故假设你已有一定.NET开发基础，关于类的结构和方法的调用不在此处赘述
+考虑到此页篇幅有限，故假设你已有一定.NET 开发基础，关于类的结构和方法的调用不在此处赘述
 :::
 
-## 准备
+## 0. 准备
 
 - 一个好用的脑子
 - 安装.NET SDK (>=8.0)
@@ -19,7 +19,7 @@
 
 目标框架应为`net8.0`
 
-```batch
+```sh
 dotnet new classlib -f net8.0 -n MyPlugin
 ```
 
@@ -29,9 +29,9 @@ dotnet new classlib -f net8.0 -n MyPlugin
 
 :::
 
-## 2. 拉取Serein代码
+## 2. 拉取 Serein 代码
 
-克隆Serein仓库
+克隆 Serein 仓库
 
 ```sh
 git clone https://github.com/SereinDev/Serein.git
@@ -39,7 +39,7 @@ git clone https://github.com/SereinDev/Serein.git
 
 或
 
-添加为Submodule
+添加为 Submodule
 
 ```sh
 git submodule add https://github.com/SereinDev/Serein.git
@@ -49,9 +49,15 @@ git submodule add https://github.com/SereinDev/Serein.git
 
 将`Serein.Core.csproj`添加到项目引用
 
-按如下高亮部分修改项目文件（`MyPlugin.csproj`）
+:::note
 
-```xml
+你也可以将 `Serein.Cli`/`Serein.Lite`/`Serein.Plus` 作为项目引用，这在需要添加 UI 或操作窗口时会很方便，但是需要注意的是编译后的插件**只能被[指定类型的 Serein](../rookie/choose)运行**
+
+:::
+
+按如下高亮部分修改 .NET 项目文件
+
+```xml title='MyPlugin.csproj'
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
@@ -75,23 +81,15 @@ git submodule add https://github.com/SereinDev/Serein.git
 
 ## 4. 编写插件信息文件
 
-在项目文件的同目录下创建一个新的`plugin-info.json`文件，并按照[插件信息页](../../development/plugins/plugin_info)修改
+在项目文件的同目录下创建一个新的 `plugin-info.json` 文件，并按照[此页](../../development/plugins/plugin_info)修改
 
-按如下高亮部分修改项目文件，使得在编译时自动复制插件信息文件
+按如下高亮部分修改项目文件，使得在编译时自动更新输出目录中的插件信息文件
 
-```xml
+```xml title='MyPlugin.csproj'
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <EnableDynamicLoading>true</EnableDynamicLoading>
-    </PropertyGroup>
-
+    <!-- ... -->
     <ItemGroup>
-        <ProjectReference Include="../Serein/src/Serein.Core/Serein.Core.csproj">
-            <Private>false</Private>
-            <ExcludeAssets>all</ExcludeAssets>
-        </ProjectReference>
+        <!-- ... -->
 
 <!-- highlight-start -->
         <None Include="plugin-info.json" CopyToOutputDirectory="Always" />
@@ -103,18 +101,24 @@ git submodule add https://github.com/SereinDev/Serein.git
 
 ## 5. 实现抽象类
 
-你的插件类必须以[`Serein.Core.Models.Plugins.Net.PluginBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Plugins/Net/PluginBase.cs)为基类
+在 <Badge>v2.1.x+</Badge> 中，你的插件类必须以 [`Serein.Core.Services.Plugins.Net.PluginBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Plugins/Net/PluginBase.cs) 为基类
+
+:::note
+
+在 <Badge color="secondary">v2.0.x</Badge> 中，这个类为 [`Serein.Core.Models.Plugins.Net.PluginBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Plugins/Net/PluginBase.cs)
+
+:::
 
 :::warning
 
-- 在构造函数`.ctor()`内时，`FileName`、`Info`等属性为空
-- 不能在一个程序集内实现两个抽象类，这会导致无法判断加载哪一个类而抛出异常而使插件加载失败
+- 在构造函数`.ctor()`内，`FileName`、`Info`等属性为空
+- 不能在一个程序集内实现两个抽象类，这会导致无法判断加载哪一个类而**抛出异常而使插件加载失败**
 
 :::
 
 :::tip
 
-你可以使用[依赖注入](../../development/plugins/net/injection)获取Serein服务
+你可以使用[依赖注入](../../development/plugins/net/injection)获取 Serein 服务
 
 :::
 
@@ -146,4 +150,4 @@ dotnet build
 
 ## 7. 复制到插件目录下
 
-将输出目录下的所有文件复制到`Serein/plugins/MyPlugin`下
+将输出目录下的所有文件复制到 `Serein/plugins/MyPlugin` 下，重新加载所有插件你就可以看到控制台中的 `Loaded!` 输出了

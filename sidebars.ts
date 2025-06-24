@@ -30,8 +30,10 @@ export default {
               label: 'JavaScript',
               link: { id: 'development/plugins/js/index', type: 'doc' },
               items: [
-                'development/plugins/js/net',
+                'development/plugins/js/helper_lib',
+                'development/plugins/js/clr',
                 'development/plugins/js/modules',
+                'development/plugins/js/built_in_modules',
               ],
             },
             {
@@ -39,7 +41,7 @@ export default {
               label: 'References',
               items: [
                 'development/plugins/references/events',
-                'development/plugins/references/metadata',
+                'development/plugins/references/app',
                 'development/plugins/references/output',
                 'development/plugins/references/path',
                 'development/plugins/references/servers',
@@ -181,9 +183,10 @@ export default {
           type: 'category',
           label: '迁移',
           items: [
+            'tutorial/migration/from_v2.0',
             {
               type: 'category',
-              label: '从v1.x迁移',
+              label: '从 v1.x 迁移',
               link: { type: 'doc', id: 'tutorial/migration/from_v1' },
               items: [
                 {

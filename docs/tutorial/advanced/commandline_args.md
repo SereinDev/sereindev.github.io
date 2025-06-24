@@ -2,7 +2,7 @@
 
 ## 日志模式
 
-```batch
+```sh
 ./Serein.Cli --log
 ./Serein.Lite --log
 ./Serein.Plus --log
@@ -52,7 +52,7 @@
 仅对于[Serein.Cli](../rookie/choose#cli)有效
 :::
 
-```batch
+```sh
 ./Serein.Cli --no-color
 ```
 
@@ -64,7 +64,7 @@
 仅对于[Serein.Cli](../rookie/choose#cli)有效
 :::
 
-```batch
+```sh
 ./Serein.Cli --debug
 ```
 

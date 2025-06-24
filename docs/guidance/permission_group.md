@@ -2,7 +2,7 @@
 
 ![权限组](permission_group.png)
 
-灵感来源于Java版的权限组插件（如[LuckPerms](https://luckperms.net/)、[GroupManager](https://www.spigotmc.org/resources/groupmanager.38875/)），旨在快捷设定用户在插件功能中的权限
+灵感来源于 Java 版的权限组插件（如[LuckPerms](https://luckperms.net/)、[GroupManager](https://www.spigotmc.org/resources/groupmanager.38875/)），旨在快捷设定用户在插件功能中的权限
 
 ## 权限节点
 

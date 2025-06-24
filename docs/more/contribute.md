@@ -6,13 +6,13 @@
 
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-raw/SereinDev/Serein?style=for-the-badge)](https://github.com/SereinDev/Serein/issues/new)
 
-你可以在这里提交Bug、提建议或想法
+你可以在这里提交 Bug、提建议或想法
 
 ## Pull Request
 
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr-raw/SereinDev/Serein?style=for-the-badge)](https://github.com/SereinDev/Serein/pulls)
 
-如果有好的点子，你可以先和仓库维护者取得联系后[提交PR](https://github.com/SereinDev/Serein/pulls)
+如果有好的点子，你可以先和仓库维护者取得联系后[提交 PR](https://github.com/SereinDev/Serein/pulls)
 
 如果你打算重构代码或提交大范围的更改，请务必和仓库维护者联系，避免产生过大的合并冲突
 
@@ -33,5 +33,5 @@
 ![starchart](https://starchart.cc/SereinDev/Serein.svg#no-zoom)
 
 :::tip
-如果你是富哥or富姐的话，你也可以选择向我们[捐赠](donate)，激励我们更好地开发❤
+如果你是富哥 or 富姐的话，你也可以选择向我们[捐赠](donate)，激励我们更好地开发❤
 :::

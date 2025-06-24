@@ -9,7 +9,7 @@
 
 :::tip
 
-为什么不试试Serein v2.0呢
+为什么不试试 Serein v2.0 呢
 
 👉[从v1迁移](/docs/tutorial/migration/from_v1)
 

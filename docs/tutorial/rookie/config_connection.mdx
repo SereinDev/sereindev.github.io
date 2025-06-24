@@ -1,16 +1,37 @@
 # 配置连接
 
-Serein 目前仅支持[OneBot协议](https://onebot.dev/)，后续可能支持[Satori](https://satori.js.org/zh-CN/)协议（进展见[SereinDev/Serein#83](https://github.com/SereinDev/Serein/issues/83)）
+连接功能是 Serein 的核心功能之一，它允许 Serein 与聊天平台的机器人应用进行通信。通过连接，Serein 可以接收来自聊天平台的消息，并将其转发到相应的插件或处理逻辑中。同时，Serein 也可以向聊天平台发送消息
 
-:::note OneBot是什么
+Serein 目前支持[OneBot 协议](https://onebot.dev/)（[V11](https://github.com/botuniverse/onebot-11)、[V12](https://12.onebot.dev/)）和 [Satori 协议](https://satori.js.org/)
+
+## 0. 这是什么
+
+<Tabs groupId="adapter">
+
+<TabItem value="onebot" label="OneBot">
 
 >一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口，使开发者只需编写一次业务逻辑代码即可应用到多种机器人平台
 
-[介绍 | OneBot](https://onebot.dev/introduction.html)
+<p align="right">
+—— [介绍 | OneBot](https://onebot.dev/introduction.html)
+</p>
 
-:::
+</TabItem>
 
-## 1. 选择一个 OneBot 实现
+<TabItem value="satori" label="Satori">
+>Satori 是一个通用的聊天协议。我们希望 Satori 能够抹平不同聊天平台之间的差异，让开发者以更低的成本开发出跨平台、可扩展、高性能的聊天应用。
+>
+>经过长达 4 年的发展，Satori 有了健全的设计和完善的实现。目前，Satori 官方提供了超过 15 个聊天平台的适配器，完全覆盖了世界上主流的聊天平台
+
+<p align="right">
+—— [介绍 | Satori](https://satori.js.org/zh-CN/introduction.html)
+</p>
+
+</TabItem>
+
+</Tabs>
+
+## 1. 选择一个客户端
 
 :::note
 
@@ -18,43 +39,63 @@ Serein 目前仅支持[OneBot协议](https://onebot.dev/)，后续可能支持[S
 
 :::
 
-- [NapCatQQ](https://github.com/NapNeko/NapCatQQ)（👍推荐）
-- [LLOneBot](https://github.com/LLOneBot/LLOneBot)
+<Tabs groupId="adapter">
 
-除此之外，你可以在[生态 | OneBot](https://onebot.dev/ecosystem)找到更多实现
+<TabItem value="onebot" label="OneBot 实现" >
+
+- [NapCatQQ](https://github.com/NapNeko/NapCatQQ) <Badge>👍推荐</Badge>
+- [Lagrange.Core](https://github.com/LagrangeDev/Lagrange.Core) <Badge>👍推荐</Badge>
+- [LLOneBot](https://github.com/LLOneBot/LLOneBot)
+- [OpenShamrock](https://github.com/whitechi73/OpenShamrock)
+
+除此之外，你可以在[生态 | OneBot](https://onebot.dev/ecosystem)找到更多 OneBot 实现
+
+</TabItem>
+
+<TabItem value="satori" label="Satori SDK" >
+
+- [Koishi](https://koishi.chat/) <Badge>👍推荐</Badge>
+- [chronocat](https://github.com/chrononeko/chronocat)
+
+</TabItem>
+
+</Tabs>
 
 ## 2. 配置
 
-按照所选实现的文档或教程配置好 OneBot 协议，接着在 正向WebSocket 和 反向WebSocket 中**选择其一**启用
+<Tabs groupId="adapter">
 
-:::note
+<TabItem value="onebot" label="OneBot" >
 
-[**正向WebSocket**](#正向websocket) （👍推荐）  
-· **OneBot实现**启动时开启一个WebSocket服务器，监听配置文件指定的 IP 和端口，供Serein连接
-
-[**反向WebSocket**](#反向websocket)  
-· **Serein**开启一个WebSocket服务器，供OneBot实现连接，多用于需要同时使用多个OneBot实现的情况
-
-:::
+按照所选实现的文档或教程配置好 OneBot **协议，接着在 设置>连接>通用>适配器 中选择** `正向WebSocket` 或 `反向WebSocket`
 
 ### 正向WebSocket
 
-在OneBot实现中启用**正向WebSocket服务**，并在Serein的**设置>连接>地址**修改对应的IP和端口，确保其与 OneBot 实现的配置一致
+*OneBot 实现* 启动时会根据配置文件指定的 IP 和端口开启一个 WebSocket 服务器，供 *Serein* 连接
+
 
 ### 反向WebSocket
 
-在OneBot实现中启用**反向WebSocket服务**，并在Serein的**设置>连接>地址**修改对应的IP和端口，确保其与 OneBot 实现的配置一致，并勾选**使用反向WebSocket**
+*Serein* 开启一个 WebSocket 服务器，供 *OneBot实现* 连接，多用于需要同时使用多个 *OneBot实现* 的情况
 
 :::warning
 
-当你的OneBot实现和Serein不在同一个设备上时需要将WebSocket服务器开放至公网，此时建议设置**鉴权凭证**
+当你的 *OneBot 实现* 和 *Serein* 不在同一个设备上时需要将 WebSocket 服务器开放至公网，此时建议设置**鉴权凭证**
 
 :::
 
-## 3. 连接
+</TabItem>
+<TabItem value="satori" label="Satori SDK" >
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+按照所选实现的文档或教程配置好 Satori 协议，接着在 **设置>连接>通用>适配器** 中选择 `Satori`
+
+除此之外你还需要在 **设置>连接>通用>默认发送者** 中填写当前的发送者信息，Satori 协议需要该信息来发送消息
+
+</TabItem>
+
+</Tabs>
+
+## 3. 连接
 
 <Tabs groupId="type">
 
@@ -73,14 +114,12 @@ import TabItem from '@theme/TabItem';
 
 在控制台输入
 
-```txt
+```batch
 connection open
 ```
 
 </TabItem>
 
 </Tabs>
-
----
 
 如果一切顺利的话，这个时候你在群聊发送一条消息，接着就可以在控制台看到相应的输出了:D

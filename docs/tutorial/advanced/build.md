@@ -13,7 +13,7 @@ dotnet build
 ## 一键发布单文件版本
 
 ```batch
-# 仅Windows
+:: 仅Windows
 ./src/Scripts/publish.bat
 ```
 

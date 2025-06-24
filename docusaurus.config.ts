@@ -130,15 +130,15 @@ const config: Config = {
           items: [
             {
               label: '仓库',
-              to: 'https://github.com/SereinDev/Serein',
+              href: 'https://github.com/SereinDev/Serein',
             },
             {
               label: '讨论区',
-              to: 'https://github.com/orgs/SereinDev/discussions',
+              href: 'https://github.com/orgs/SereinDev/discussions',
             },
             {
               label: 'Codacy',
-              to: 'https://app.codacy.com/gh/SereinDev/Serein/dashboard',
+              href: 'https://app.codacy.com/gh/SereinDev/Serein/dashboard',
             },
           ],
         },
@@ -147,7 +147,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              to: 'https://github.com/SereinDev/Serein/releases/latest',
+              href: 'https://github.com/SereinDev/Serein/releases/latest',
             },
             {
               label: 'MineBBS',
@@ -170,6 +170,7 @@ const config: Config = {
         'json',
         'regex',
         'typescript',
+        'bash'
       ],
     } satisfies Preset.ThemeConfig,
 

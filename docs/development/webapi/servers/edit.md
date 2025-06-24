@@ -10,11 +10,11 @@ Content-Type: application/json
 ```
 
 :::warning
-此Api尚未被实现
+此 Api 尚未被实现
 :::
 
 ## 路径参数
 
 | 参数名 | 说明     |
 | ------ | -------- |
-| `id`   | 服务器Id |
+| `id`   | 服务器 Id |

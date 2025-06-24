@@ -1,4 +1,4 @@
-# 添加NuGet包或项目引用
+# 添加 NuGet 包或项目引用
 
 和普通项目添加方法相同
 
@@ -10,7 +10,7 @@
 
 ## 示例
 
-假设一个项目添加了`Newtonsoft.Json`的NuGet包引用，则在发布时需同时携带`Newtonsoft.Json.dll`
+假设一个项目添加了`Newtonsoft.Json`的 NuGet 包引用，则在发布时需同时携带`Newtonsoft.Json.dll`
 
 ```txt title="文件结构"
 release

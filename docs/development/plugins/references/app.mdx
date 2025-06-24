@@ -1,0 +1,201 @@
+# 应用详细数据
+
+Serein版本信息、类型
+
+## 版本
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using System;
+
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public static Version Version { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.version: Version
+```
+
+- 类型
+  - [`Version`](https://learn.microsoft.com/zh-cn/dotnet/api/system.version?view=net-8.0)
+
+</TabItem>
+
+</Tabs>
+
+:::note 示例
+
+`2.0.0.0`
+
+:::
+
+## 详细版本
+
+此值格式为 [程序集版本]+[Git提交哈希]
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public string FullVersion { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.fullVersion: string
+```
+
+- 类型
+  - `string`
+
+</TabItem>
+
+</Tabs>
+
+:::note 示例
+
+`2.0.0.0-alpha+1bfd185e1f28b86f44b4fd42463ddfa8f9e1de57`
+
+其中`1bfd18...de57`为Git提交哈希（此处对应的提交为[ci: Update](https://github.com/SereinDev/Serein/commit/1bfd185e1f28b86f44b4fd42463ddfa8f9e1de57)）
+
+:::
+
+## 类型
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public AppType Type { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.type: AppType
+```
+
+- 类型
+  - [`AppType`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/AppType.cs)
+
+</TabItem>
+
+</Tabs>
+
+## 程序集名称
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public string AssemblyName { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.assemblyName: string
+```
+
+- 类型
+  - `string`
+
+</TabItem>
+
+</Tabs>
+
+## 是否为发布配置编译
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public bool IsReleaseConfiguration { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.isReleaseConfiguration: boolean
+```
+
+- 类型
+  - `boolean`
+
+</TabItem>
+
+</Tabs>
+
+## 是否为单文件发布
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public partial class SereinApp
+{
+    public bool IsSingleFile { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.isSingleFile: boolean
+```
+
+- 类型
+  - `boolean`
+
+</TabItem>
+
+</Tabs>
