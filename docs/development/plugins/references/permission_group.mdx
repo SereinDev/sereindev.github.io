@@ -2,11 +2,11 @@
 
 ## 注册节点
 
-将节点注册到Serein的权限管理器中，方便用户填写权限配置
+将节点注册到 Serein 的权限管理器中，方便用户填写权限配置
 
-:::warning 不需要在节点内添加插件Id
+:::warning 不需要在节点内添加插件 Id
 
-比如一个插件Id为`id`，节点为`node`，那么注册时只需要传入`node`即可，最终注册的节点为`id.node`
+比如一个插件 Id 为`id`，节点为`node`，那么注册时只需要传入`node`即可，最终注册的节点为`id.node`
 
 :::
 
@@ -54,7 +54,7 @@ serein.permissions.register(node: string, description: string = null): void
 
 ## 注销节点
 
-将节点从Serein的权限管理器中删除
+将节点从 Serein 的权限管理器中删除
 
 <Tabs groupId="lang">
 
@@ -69,11 +69,10 @@ public partial class PermissionManager
 }
 ```
 
-
-| 参数   | 类型     | 说明   |
-| ------ | -------- | ------ |
-| `id`   | `string` | 插件Id |
-| `node` | `string` | 节点   |
+| 参数   | 类型     | 说明    |
+| ------ | -------- | ------- |
+| `id`   | `string` | 插件 Id |
+| `node` | `string` | 节点    |
 
 </TabItem>
 
@@ -109,7 +108,7 @@ public partial class GroupManager
 
 | 参数    | 类型     | 说明       |
 | ------- | -------- | ---------- |
-| `id`    | `string` | 权限组Id   |
+| `id`    | `string` | 权限组 Id  |
 | `group` | `Group`  | 权限组对象 |
 
 </TabItem>
@@ -122,7 +121,7 @@ serein.permissions.groups.add(id: string, group: Group): void
 
 | 参数    | 类型     | 说明       |
 | ------- | -------- | ---------- |
-| `id`    | `string` | 权限组Id   |
+| `id`    | `string` | 权限组 Id  |
 | `group` | `Group`  | 权限组对象 |
 
 </TabItem>
@@ -143,9 +142,9 @@ public partial class GroupManager
 }
 ```
 
-| 参数 | 类型     | 说明     |
-| ---- | -------- | -------- |
-| `id` | `string` | 权限组Id |
+| 参数 | 类型     | 说明      |
+| ---- | -------- | --------- |
+| `id` | `string` | 权限组 Id |
 
 </TabItem>
 
@@ -155,9 +154,9 @@ public partial class GroupManager
 serein.permissions.groups.remove(id: string): void
 ```
 
-| 参数 | 类型     | 说明     |
-| ---- | -------- | -------- |
-| `id` | `string` | 权限组Id |
+| 参数 | 类型     | 说明      |
+| ---- | -------- | --------- |
+| `id` | `string` | 权限组 Id |
 
 </TabItem>
 </Tabs>
@@ -226,6 +225,8 @@ serein.permissions.groups[id: string]: Group
 <TabItem value="cs" label="C#" >
 
 ```cs
+using System.Collections.Generic;
+
 namespace Serein.Core.Services.Permissions;
 
 public partial class GroupManager
@@ -239,7 +240,7 @@ public partial class GroupManager
 
 | 参数             | 类型   | 说明           |
 | ---------------- | ------ | -------------- |
-| `userId`         | `long` | 用户Id         |
+| `userId`         | `long` | 用户 Id        |
 | `ignoreWildcard` | `bool` | 是否忽略通配符 |
 
 </TabItem>
@@ -255,7 +256,7 @@ serein.permissions.groups.getAllPermissions(
 
 | 参数             | 类型      | 说明           |
 | ---------------- | --------- | -------------- |
-| `userId`         | `number`  | 用户Id         |
+| `userId`         | `number`  | 用户 Id        |
 | `ignoreWildcard` | `boolean` | 是否忽略通配符 |
 
 | 返回值类型                        | 说明                         |

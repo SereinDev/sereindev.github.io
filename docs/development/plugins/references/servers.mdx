@@ -24,7 +24,7 @@ serein.servers
 ```
 
 - 类型
-  - `{ [id: string]: Server }`
+  - `Record<string, Server>`
 
 </TabItem>
 
@@ -59,10 +59,10 @@ serein.servers.add(id: string, configuration: Configuration): Server
 
 </Tabs>
 
-| 参数            | 类型            | 说明     |
-| --------------- | --------------- | -------- |
-| `id`            | `string`        | 服务器Id |
-| `configuration` | `Configuration` | 配置     |
+| 参数            | 类型                                                                                                            | 说明     |
+| --------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
+| `id`            | `string`                                                                                                        | 服务器Id |
+| `configuration` | [`Configuration`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Server/Configuration.cs) | 配置     |
 
 ## 删除服务器配置
 
@@ -79,9 +79,9 @@ public partial class ServerManager
 }
 ```
 
-| 参数 | 类型     | 说明     |
-| ---- | -------- | -------- |
-| `id` | `string` | 服务器Id |
+| 参数 | 类型     | 说明      |
+| ---- | -------- | --------- |
+| `id` | `string` | 服务器 Id |
 
 - 类型
   - `bool`
@@ -95,9 +95,9 @@ public partial class ServerManager
 serein.servers.remove(id: string): boolean
 ```
 
-| 参数 | 类型     | 说明     |
-| ---- | -------- | -------- |
-| `id` | `string` | 服务器Id |
+| 参数 | 类型     | 说明      |
+| ---- | -------- | --------- |
+| `id` | `string` | 服务器 Id |
 
 - 类型
   - `boolean`
@@ -293,7 +293,7 @@ serein.servers[id].stop(): void
 
 - 若服务器已关闭则会报错，可用`try...catch`捕获
 - 实质上是向服务器发送关闭命令（默认为`stop`）
-- 当配置中的关服命令项为空时会尝试发送`^C` <sup>[仅Windows平台] [除[Serein.Cli](../../../tutorial/rookie/choose#cli)外]</sup>
+- 当配置中的关服命令项为空时会尝试发送`^C` <sup>[仅 Windows 平台] [除[Serein.Cli](../../../tutorial/rookie/choose#cli)外]</sup>
 
 ## 强制关闭服务器
 

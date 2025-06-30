@@ -50,6 +50,7 @@ export default {
                 'development/plugins/references/storages',
                 'development/plugins/references/timer',
                 'development/plugins/references/exports_imports',
+                'development/plugins/references/datas',
                 'development/plugins/references/others',
               ],
             },

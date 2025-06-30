@@ -39,42 +39,7 @@ serein.hardwareInfo: Object
 
 </Tabs>
 
-## 设置
-
-
-<Tabs groupId="lang">
-
-<TabItem value="cs" label="C#" >
-
-```cs
-var provider = serviceProvider.GetRequiredService<SettingProvider>();
-var setting = provider.Value; // Serein.Core.Models.Settings.Setting
-```
-
-</TabItem>
-
-<TabItem value="js" label="JavaScript" >
-
-```ts
-serein.setting: Object
-```
-
-- 类型
-  - `Object`
-    - 可参考 [`setting.d.ts`](https://github.com/SereinDev/HelperLib/blob/main/src/setting.d.ts)
-
-:::tip
-
-推荐搭配[HelpLib](../js/#开发助手)使用，方便获取类型声明
-
-:::
-
-</TabItem>
-
-</Tabs>
-
 ## 获取服务
-
 
 <Tabs groupId="lang">
 
@@ -91,7 +56,7 @@ serein.getService(type: string): Object
 ```
 
 | 参数   | 类型     | 说明     |
-| ------ | -------- | ------- |
+| ------ | -------- | -------- |
 | `type` | `string` | 类型名称 |
 
 - 类型
