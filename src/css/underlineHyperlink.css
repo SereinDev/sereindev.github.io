@@ -15,3 +15,11 @@ a.underline-links:not(.alert *):hover,
   background-position: left bottom;
   background-size: 100% 1.5px;
 }
+
+:is(.markdown a, a.theme-edit-this-page)[href^="http"]::after {
+  content: "↗";
+  font-size: 12px;
+  margin: 2px;
+  font-family: sans-serif;
+  text-decoration: none;
+}

@@ -1,20 +1,20 @@
 # 事件监听
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## 监听
 
 <Tabs groupId="lang">
 
 <TabItem value="cs" label="C#" >
 
-代码参考：[src/Serein.Core/Models/Plugins/Net/PluginBase.Events.cs](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Plugins/Net/PluginBase.Events.cs)
+代码参考：
+
+- <Badge>v2.1.x+</Badge>: [src/Serein.Core/**Services**/Plugins/Net/PluginBase.Events.cs](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Plugins/Net/PluginBase.Events.cs)
+- <Badge color="secondary">v2.0.x</Badge>: [src/Serein.Core/**Models**/Plugins/Net/PluginBase.Events.cs](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Plugins/Net/PluginBase.Events.cs)
 
 在插件类内重载虚方法即可
 
 ```cs title="示例"
-using Serein.Core.Models.Plugins.Net;
+using Serein.Core.Services.Plugins.Net;
 using System;
 using System.Threading.Tasks;
 
@@ -42,15 +42,22 @@ public class MainPlugin : PluginBase
 serein.setListener(event: string, callback: Function): void
 ```
 
-| 参数       | 类型       | 说明             |
-| ---------- | ---------- | ---------------- |
-| `event`    | `string`   | 事件名称（见下） |
-| `callback` | `Function` | 回调函数         |
+| 参数       | 类型                 | 说明                           |
+| ---------- | -------------------- | ------------------------------ |
+| `event`    | `string`             | 事件名称（见下；不区分大小写） |
+| `callback` | `Function` \| `null` | 回调函数                       |
 
 ```ts title="示例"
 serein.setListener('PluginsLoaded', () => {
     console.log(`I'm loaded!`);
 });
+
+serein.setListener('PluginsLoaded', async () => {
+    await doSomethingAsync();
+    console.log(`I'm loaded after doing something async!`);
+});
+
+serein.setListener('PluginsLoaded', null); // 移除监听
 ```
 
 </TabItem>
@@ -59,16 +66,16 @@ serein.setListener('PluginsLoaded', () => {
 
 ## 拦截
 
-对于可被拦截的事件，可以通过返回`false`来拦截事件，阻止其继续传递
+对于可被拦截的事件，可以通过返回 `false` 来拦截事件，阻止其继续传递
 
-例如，拦截`ServerStarting`将阻止服务器启动并阻止下一个事件`ServerStarted`的触发
+例如，拦截 `ServerStarting` 将阻止服务器启动并阻止下一个事件 `ServerStarted` 的触发
 
 <Tabs groupId="lang">
 
 <TabItem value="cs" label="C#" >
 
 ```cs
-using Serein.Core.Models.Plugins.Net;
+using Serein.Core.Services.Plugins.Net;
 using Serein.Core.Services.Servers;
 using System;
 using System.Threading.Tasks;
@@ -91,10 +98,24 @@ public partial class MainPlugin : PluginBase
 
 <TabItem value="js" label="JavaScript" >
 
+:::tip
+
+从 <Badge>v2.1.0</Badge> 开始，支持返回 `Promise`，以便在异步操作完成后再触发事件
+
+:::
+
 ```ts
+// 同步
 serein.setListener('ServerStarting', (_) => {
     console.log('Intercepted!');
     return false;
+});
+
+// 异步（v2.1.0+）
+serein.setListener('ServerStarting', async (_) => {
+    await doSomethingAsync();
+    console.log('Intercepted!');
+    return false; // 返回 false 拦截事件
 });
 ```
 
@@ -108,23 +129,24 @@ serein.setListener('ServerStarting', (_) => {
 
 ## 事件一览
 
-| 事件名称                 | 是否可被拦截 |
-| ------------------------ | :----------: |
-| `ServerStarting`         |      是      |
-| `ServerStarted`          |      否      |
-| `ServerStopping`         |      是      |
-| `ServerExited`           |      否      |
-| `ServerRawOutput`        |      是      |
-| `ServerOutput`           |      是      |
-| `ServerInput`            |      否      |
-| `GroupMessageReceived`   |      是      |
-| `PrivateMessageReceived` |      是      |
-| `WsDataReceived`         |      是      |
-| `PacketReceived`         |      是      |
-| `SereinClosed`           |      否      |
-| `SereinCrashed`          |      否      |
-| `PluginsLoaded`          |      否      |
-| `PluginsUnloading`       |      否      |
+| 事件名称                   | 是否可被拦截 |
+| -------------------------- | :----------: |
+| `ServerStarting`           |      ✅       |
+| `ServerStarted`            |      ❌       |
+| `ServerStopping`           |      ✅       |
+| `ServerExited`             |      ❌       |
+| `ServerRawOutput`          |      ✅       |
+| `ServerOutput`             |      ✅       |
+| `ServerInput`              |      ❌       |
+| `ChannelMessageReceived`   |      ✅       |
+| `GroupMessageReceived`     |      ✅       |
+| `PrivateMessageReceived`   |      ✅       |
+| `OnConnectionDataReceived` |      ✅       |
+| `PacketReceived`           |      ✅       |
+| `SereinClosed`             |      ❌       |
+| `SereinCrashed`            |      ❌       |
+| `PluginsLoaded`            |      ❌       |
+| `PluginsUnloading`         |      ❌       |
 
 ### `ServerStarting`
 
@@ -132,9 +154,9 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：是
 - 函数参数：
 
-| 参数     | 类型                                                                                                         | 说明       |
-| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+| 参数     | 类型                                                                                                 | 说明       |
+| -------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| `server` | [`Server`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/Server.cs) | 服务器对象 |
 
 ### `ServerStarted`
 
@@ -142,9 +164,9 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：否
 - 函数参数：
 
-| 参数     | 类型                                                                                                         | 说明       |
-| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+| 参数     | 类型                                                                                                 | 说明       |
+| -------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| `server` | [`Server`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/Server.cs) | 服务器对象 |
 
 ### `ServerStopping`
 
@@ -152,9 +174,9 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：是
 - 函数参数：
 
-| 参数     | 类型                                                                                                         | 说明       |
-| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
+| 参数     | 类型                                                                                                 | 说明       |
+| -------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| `server` | [`Server`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/Server.cs) | 服务器对象 |
 
 ### `ServerExited`
 
@@ -162,17 +184,17 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：否
 - 函数参数：
 
-| 参数       | 类型                                                                                                         | 说明       |
-| ---------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| `server`   | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
-| `exitCode` | `int`/`number`                                                                                               | 退出代码   |
-| `exitTime` | `DateTime`/`Date`                                                                                            | 退出时间   |
+| 参数       | 类型                                                                                                 | 说明       |
+| ---------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| `server`   | [`Server`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/Server.cs) | 服务器对象 |
+| `exitCode` | `int`/`number`                                                                                       | 退出代码   |
+| `exitTime` | `DateTime`/`Date`                                                                                    | 退出时间   |
 
 ### `ServerRawOutput`
 
-:::note 和`ServerOutput`的区别
+:::note 和 `ServerOutput` 的区别
 
-`ServerRawOutput`会在`ServerOutput`之前触发，且可能包含ANSI转义序列等特殊字符
+`ServerRawOutput` 会在 `ServerOutput` 之前触发，且可能包含 ANSI 转义序列等特殊字符
 
 :::
 
@@ -180,10 +202,10 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：是
 - 函数参数：
 
-| 参数     | 类型                                                                                                         | 说明       |
-| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
-| `line`   | `string`                                                                                                     | 输出行     |
+| 参数     | 类型                                                                                                 | 说明       |
+| -------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| `server` | [`Server`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/Server.cs) | 服务器对象 |
+| `line`   | `string`                                                                                             | 输出行     |
 
 ### `ServerOutput`
 
@@ -191,10 +213,10 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：是
 - 函数参数：
 
-| 参数     | 类型                                                                                                         | 说明       |
-| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
-| `line`   | `string`                                                                                                     | 输出行     |
+| 参数     | 类型                                                                                                 | 说明       |
+| -------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| `server` | [`Server`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/Server.cs) | 服务器对象 |
+| `line`   | `string`                                                                                             | 输出行     |
 
 ### `ServerInput`
 
@@ -202,10 +224,10 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：否
 - 函数参数：
 
-| 参数     | 类型                                                                                                         | 说明       |
-| -------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| `server` | [`ServerBase`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/ServerBase.cs) | 服务器对象 |
-| `line`   | `string`                                                                                                     | 输入行     |
+| 参数     | 类型                                                                                                 | 说明       |
+| -------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| `server` | [`Server`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Services/Servers/Server.cs) | 服务器对象 |
+| `line`   | `string`                                                                                             | 输入行     |
 
 ### `GroupMessageReceived`
 
@@ -213,9 +235,9 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：是
 - 函数参数：
 
-| 参数            | 类型                                                                                                                                       | 说明       |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| `messagePacket` | [`MessagePacket`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/OneBot/Packets/MessagePacket.cs) | 消息数据包 |
+| 参数      | 类型                                                                                                            | 说明       |
+| --------- | --------------------------------------------------------------------------------------------------------------- | ---------- |
+| `packets` | [`Packets`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/Packets.cs) | 消息数据包 |
 
 ### `PrivateMessageReceived`
 
@@ -223,19 +245,36 @@ serein.setListener('ServerStarting', (_) => {
 - 可被拦截：是
 - 函数参数：
 
-| 参数            | 类型                                                                                                                                       | 说明       |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| `messagePacket` | [`MessagePacket`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/OneBot/Packets/MessagePacket.cs) | 消息数据包 |
+| 参数      | 类型                                                                                                            | 说明       |
+| --------- | --------------------------------------------------------------------------------------------------------------- | ---------- |
+| `packets` | [`Packets`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/Packets.cs) | 消息数据包 |
 
-### `WsDataReceived`
+### `ChannelMessageReceived`
+
+- 最低版本：<Badge>v2.1.0</Badge>
+- 触发时机：收到频道消息
+- 可被拦截：是
+- 函数参数：
+
+| 参数      | 类型                                                                                                            | 说明       |
+| --------- | --------------------------------------------------------------------------------------------------------------- | ---------- |
+| `packets` | [`Packets`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/Packets.cs) | 消息数据包 |
+
+### `ConnectionDataReceived`
 
 :::note 触发顺序
 
-`WsDataReceived`>`PacketReceived`>`GroupMessageReceived`/`PrivateMessageReceived`
+1. `ConnectionDataReceived`
+2. `PacketReceived`
+3. 以下事件
+    - `GroupMessageReceived`
+    - `PrivateMessageReceived`
+    - `ChannelMessageReceived`
 
 :::
 
-- 触发时机：收到WebSocket连接的数据文本
+- 最低版本：<Badge>v2.1.0</Badge>
+- 触发时机：收到 WebSocket 连接的数据文本
 - 可被拦截：是
 - 函数参数：
 
@@ -245,19 +284,19 @@ serein.setListener('ServerStarting', (_) => {
 
 ### `PacketReceived`
 
-- 触发时机：收到WebSocket连接的数据包
+- 触发时机：收到 WebSocket 连接的数据包
 - 可被拦截：是
 - 函数参数：
 
-| 参数     | 类型                                                                                                        | 说明   |
-| -------- | ----------------------------------------------------------------------------------------------------------- | ------ |
-| `packet` | [`JsonObject`](https://learn.microsoft.com/zh-cn/dotnet/api/system.text.json.nodes.jsonobject?view=net-8.0) | 数据包 |
+| 参数     | 类型                                                                                                     | 说明   |
+| -------- | -------------------------------------------------------------------------------------------------------- | ------ |
+| `packet` | [`JsonNode`](https://learn.microsoft.com/zh-cn/dotnet/api/system.text.json.nodes.jsononode?view=net-8.0) | 数据包 |
 
 ### `SereinClosed`
 
 :::tip
 
-你可以通过此事件和`PluginsUnloading`事件来释放插件占用的资源，例如数据库连接、文件流等
+你可以通过此事件和 `PluginsUnloading` 事件来释放插件占用的资源，例如数据库连接、文件流等
 
 :::
 

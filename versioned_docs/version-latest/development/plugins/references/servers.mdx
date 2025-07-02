@@ -1,0 +1,367 @@
+# 服务器
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 所有服务器
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerManager
+{
+    public IReadOnlyDictionary<string, ServerBase> Servers
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers
+```
+
+- 类型
+  - `{ [id: string]: ServerBase }`
+
+</TabItem>
+
+</Tabs>
+
+## 添加服务器配置
+
+效果与[添加服务器](../../../tutorial/rookie/add_server)相同
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerManager
+{
+    public ServerBase Add(string id, Configuration configuration);
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers.add(id: string, configuration: Configuration): ServerBase
+```
+
+</TabItem>
+
+</Tabs>
+
+| 参数            | 类型            | 说明     |
+| --------------- | --------------- | -------- |
+| `id`            | `string`        | 服务器Id |
+| `configuration` | `Configuration` | 配置     |
+
+## 删除服务器配置
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerManager
+{
+    public bool Remove(string id);
+}
+```
+
+| 参数 | 类型     | 说明     |
+| ---- | -------- | -------- |
+| `id` | `string` | 服务器Id |
+
+- 类型
+  - `bool`
+    - 删除成功返回`true`，否则返回`false`
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers.remove(id: string): boolean
+```
+
+| 参数 | 类型     | 说明     |
+| ---- | -------- | -------- |
+| `id` | `string` | 服务器Id |
+
+- 类型
+  - `boolean`
+    - 删除成功返回`true`，否则返回`false`
+
+</TabItem>
+
+</Tabs>
+
+:::warning
+
+尝试删除正在运行的服务器时会抛出异常
+
+:::
+
+## 获取指定的服务器
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs title="示例"
+var server = serverManager.Servers["bds"];
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id]: ServerBase
+```
+
+```ts title="示例"
+const server = serein.servers['bds'];
+```
+
+</TabItem>
+
+</Tabs>
+
+## 服务器状态
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerBase
+{
+    public bool Status { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].status
+```
+
+- 类型
+  - `boolean`
+
+</TabItem>
+
+</Tabs>
+
+## 服务器进程ID
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerBase
+{
+    public int? Pid { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].pid
+```
+
+- 类型
+  - `number` | `null`
+    - 服务器不在运行时为`null`
+
+</TabItem>
+
+</Tabs>
+
+## 服务器信息
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Models.Server;
+
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerBase
+{
+    public IServerInfo Info { get; }
+}
+```
+
+- 类型
+  - [`IServerInfo`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Server/IServerInfo.cs)
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].info
+```
+
+- 类型
+  - [`ServerInfo`](https://github.com/SereinDev/HelperLib/blob/main/src/server.d.ts)
+
+</TabItem>
+
+</Tabs>
+
+## 开启服务器
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerBase
+{
+    public void Start();
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].start(): void
+```
+
+</TabItem>
+
+</Tabs>
+
+- 若服务器已在运行或启动失败（文件不存在、权限不足等）则会报错，可用`try...catch`捕获
+
+## 关闭服务器
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerBase
+{
+    public void Stop();
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].stop(): void
+```
+
+</TabItem>
+
+</Tabs>
+
+- 若服务器已关闭则会报错，可用`try...catch`捕获
+- 实质上是向服务器发送关闭命令（默认为`stop`）
+- 当配置中的关服命令项为空时会尝试发送`^C` <sup>[仅Windows平台] [除[Serein.Cli](../../../tutorial/rookie/choose#cli)外]</sup>
+
+## 强制关闭服务器
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerBase
+{
+    public void Terminate();
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].terminate(): void
+```
+
+</TabItem>
+
+</Tabs>
+
+- 若服务器已关闭或强制结束失败（系统原因）则会报错，可用`try...catch`捕获
+
+## 输入到服务器
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Utils;
+
+namespace Serein.Core.Services.Servers;
+
+public partial class ServerBase
+{
+    public void Input(string command);
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].input(line: string): void
+```
+
+| 参数   | 类型     | 说明   |
+| ------ | -------- | ------ |
+| `line` | `string` | 输入行 |
+
+```ts title="示例"
+serein.servers['bds'].input('help');
+```
+
+</TabItem>
+
+</Tabs>
+
+- 若服务器已关闭或输入失败（系统原因）则会报错，可用`try...catch`捕获

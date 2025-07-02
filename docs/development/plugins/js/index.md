@@ -1,24 +1,18 @@
 # JavaScript 插件开发
 
-## JS标准
+## JS 标准
 
 ECMAScript 2024 / ES6
 
 具体特性支持列表详见[Supported features - sebastienros/jint](https://github.com/sebastienros/jint?tab=readme-ov-file#supported-features)
 
-## 开发助手
-
-TypeScript 类型定义库
-
-详见[HelperLib](https://github.com/SereinDev/HelperLib)
-
 ## 优点
 
 - 一键热重载，快速编写插件
-- [导入NET几乎所有的命名空间以及其对象、类、方法和属性](net)
+- [导入 NET 几乎所有的命名空间以及其对象、类、方法和属性](net)
 
 :::tip
-配合一定C#基础食用更佳
+配合一定 C#基础食用更佳
 
 C#语法详见 [.NET API 浏览器](https://learn.microsoft.com/zh-cn/dotnet/api/)
 :::

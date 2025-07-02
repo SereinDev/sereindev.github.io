@@ -13,7 +13,7 @@ Content-Type: application/json
 
 | 参数名 | 说明     |
 | ------ | -------- |
-| `id`   | 服务器Id |
+| `id`   | 服务器 Id |
 
 ## 请求参数
 

@@ -40,9 +40,6 @@
         "management",
         "api"
     ],
-    "targetingSerein": [
-        "2.0"
-    ],
     "dependencies": [
         {
             "id": "dependency-1",
@@ -96,8 +93,8 @@
 
 - `type`
   - 类型：`string`
-    - `js` -> [JavaScript插件](./js/)
-    - `net` -> [.NET插件](./net/)
+    - `js` -> [JavaScript 插件](./js/)
+    - `net` -> [.NET 插件](./net/)
 
 ## 版本
 
@@ -157,14 +154,6 @@
     - `information` 信息
     - `management` 管理
     - `api` 应用程序接口
-
-## 目标Serein版本
-
-支持此插件的Serein版本
-
-- `targetingSerein`
-  - 类型：`string[]`
-    - `2.0`
 
 ## 依赖
 

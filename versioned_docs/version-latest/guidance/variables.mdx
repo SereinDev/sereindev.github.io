@@ -1,0 +1,176 @@
+# 变量
+
+插入时间、系统状态等动态信息
+
+:::note
+示例值**仅供参考**，请以实际值为准
+:::
+
+## 使用方法
+
+在命令中插入`{变量名}` 即可，不区分大小写
+
+:::tip 示例
+
+```txt
+[g]现在是{datetime}
+
+🔽
+
+[g]现在是现在是2024/1/1 00:00:00
+```
+
+:::
+
+## Serein
+
+|         名称         | 说明       | 示例                      |
+| :------------------: | ---------- | ------------------------- |
+|    `serein.type`     | 类型       | *Cli*                     |
+|   `serein.version`   | 版本号     | *2.0.0.0*                 |
+| `serein.fullversion` | 完整版本号 | *2.0.0.0-CompliedLocally* |
+
+## 服务器
+
+|           名称           | 说明            | 示例              |
+| :----------------------: | --------------- | ----------------- |
+|     `server.status`      | 状态            | *已启动 / 未启动* |
+|      `server.usage`      | 进程 CPU 使用率 |                   |
+|     `server.output`      | 输出行数        |                   |
+|      `server.input`      | 输入行数        |                   |
+|      `server.time`       | 运行时间        | *1:00:00*         |
+|     `server.version`     | 版本            | *1.21.0*          |
+|      `server.motd`       | 介绍            | *1.21.0*          |
+| `server.players.current` | 当前玩家数      |                   |
+|   `server.players.max`   | 最大玩家数      |                   |
+| `server.players.percent` | 玩家数占比      |                   |
+
+:::note
+
+- 数值均返回整数
+  - 玩家数占比、使用率∈[0,100]
+- 你可以在末尾加上`@{id}`（其中`{id}`替换为服务器 Id）获取指定的服务器变量
+  - 示例：`server.status@bds` -> Id 为`bds`的服务器的状态
+
+:::
+
+## 消息上下文
+
+### 消息
+
+|   名称   | 说明    | 示例      |
+| :------: | ------- | --------- |
+| `msg.id` | 消息 ID | `-114514` |
+
+### 发送者
+
+|        名称        | 说明                           | 示例                   |
+| :----------------: | ------------------------------ | ---------------------- |
+|    `sender.id`     | 发送者 QQ 号                   |                        |
+|    `sender.sex`    | 性别                           | *未知 / 男 / 女*       |
+|    `sender.age`    | 年龄                           |                        |
+| `sender.nickname`  | 昵称                           |                        |
+|   `sender.area`    | 地区                           |                        |
+|   `sender.card`    | 群名片                         |                        |
+|   `sender.level`   | 成员等级                       |                        |
+|   `sender.title`   | 专属头衔（群主授予）           |                        |
+|   `sender.role`    | 角色                           | *群主 / 管理员 / 成员* |
+| `sender.shownName` | 显示名称（群名片若空则为昵称） |                        |
+
+:::note
+
+- 根据 OneBot 的实现不同，部分值可能**存在差异**或为**空值**
+- 以下变量只能在群聊消息中使用
+  - `area`
+  - `level`
+  - `card`
+  - `title`
+  - `role`
+
+:::
+
+## 时间
+
+|          名称          | 说明              | 示例                             |
+| :--------------------: | ----------------- | -------------------------------- |
+|       `datetime`       | 日期与时间        | *2024/1/1 4:05:01*               |
+|    `datetime.date`     | 日期              | *2024/1/1*                       |
+|    `datetime.time`     | 时间              | *4:05:01*                        |
+|    `datetime.year`     | 年                | *{new Date().getFullYear()}*     |
+|    `datetime.month`    | 月                | *{new Date().getMonth()+1}*      |
+|     `datetime.day`     | 日                | *{new Date().getDate()}*         |
+|    `datetime.hour`     | 时                | *{new Date().getHours()}*        |
+|   `datetime.minute`    | 分                | *{new Date().getMinutes()}*      |
+|   `datetime.second`    | 秒                | *{new Date().getSeconds()}*      |
+| `datetime.millisecond` | 毫秒              | *{new Date().getMilliseconds()}* |
+| `datetime.microsecond` | 微秒              | *000*                            |
+| `datetime.nanosecond`  | 纳秒              | *100*                            |
+|     `datetime.iso`     | ISO 8601 格式时间 | *{new Date().toISOString()}*     |
+|  `datetime.dayofweek`  | 星期              | *Sunday*                         |
+
+<details>
+
+<summary>
+取值范围
+</summary>
+
+| 变量名        | 范围   | 备注              |
+| ------------- | ------ | ----------------- |
+| `year`        | 1~9999 |                   |
+| `month`       | 1~12   |                   |
+| `day`         | 1~31   |                   |
+| `hour`        | 0~23   |                   |
+| `second`      | 0~59   |                   |
+| `millisecond` | 0~999  |                   |
+| `microsecond` | 0~999  |                   |
+| `nanosecond`  | 0~900  | 总是为 100 的倍数 |
+
+</details>
+
+## 系统信息
+
+### 操作系统
+
+|     名称     | 说明 | 示例                          |
+| :----------: | ---- | ----------------------------- |
+|  `os.name`   | 名称 | *Microsoft Windows 10 家庭版* |
+| `os.version` | 版本 | *11.4.51419*                  |
+
+### 中央处理器 / CPU
+
+|          名称           | 说明         | 示例 |
+| :---------------------: | ------------ | ---- |
+|       `cpu.name`        | 名称         |      |
+|      `cpu.caption`      | 标题         |      |
+|    `cpu.description`    | 描述         |      |
+|   `cpu.manufacturer`    | 制造商       |      |
+|       `cpu.cores`       | 核心数       |      |
+| `cpu.logicalprocessors` | 逻辑处理器数 |      |
+|      `cpu.percent`      | 使用率       |      |
+
+:::note
+
+- 若检测不到CPU则返回空
+- 数值均返回整数
+  - 使用率∈[0,100]
+
+:::
+
+### 内存
+
+|       名称        | 说明               | 示例 |
+| :---------------: | ------------------ | ---- |
+|    `ram.total`    | 总物理内存（MB）   |      |
+|   `ram.totalgb`   | 总物理内存（GB）   |      |
+|  `ram.available`  | 可用物理内存（MB） |      |
+| `ram.availablegb` | 可用物理内存（GB） |      |
+|    `ram.used`     | 已用物理内存（MB） |      |
+|   `ram.usedgb`    | 已用物理内存（GB） |      |
+|   `ram.percent`   | 使用率             |      |
+
+:::note
+
+- 数值均返回整数
+  - 使用率∈[0,100]
+
+:::

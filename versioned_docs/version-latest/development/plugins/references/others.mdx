@@ -1,0 +1,103 @@
+# 其他
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 硬件信息
+
+:::note
+
+Serein 刚启动的一段时间内此值可能为`null`
+
+:::
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var provider = serviceProvider.GetRequiredService<HardwareInfoProvider>();
+var info = provider.Info; // Hardware.Info.HardwareInfo
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.hardwareInfo: Object
+```
+
+- 类型
+  - `Object`
+
+:::tip
+
+推荐搭配[HelpLib](../js/#开发助手)使用，方便获取类型声明
+
+:::
+
+</TabItem>
+
+</Tabs>
+
+## 设置
+
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var provider = serviceProvider.GetRequiredService<SettingProvider>();
+var setting = provider.Value; // Serein.Core.Models.Settings.Setting
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.setting: Object
+```
+
+- 类型
+  - `Object`
+
+:::tip
+
+推荐搭配[HelpLib](../js/#开发助手)使用，方便获取类型声明
+
+:::
+
+</TabItem>
+
+</Tabs>
+
+## 获取服务
+
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+详见[依赖服务注入](../net/injection)
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.getService(type: string): Object
+```
+
+| 参数   | 类型     | 说明     |
+| ------ | -------- | ------- |
+| `type` | `string` | 类型名称 |
+
+- 类型
+  - `Object`
+
+</TabItem>
+
+</Tabs>
