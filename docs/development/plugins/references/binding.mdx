@@ -1,0 +1,207 @@
+# 绑定
+
+## 检验游戏 Id
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Bindings;
+
+public partial class BindingManager
+{
+    public void ValidateGameId(string gameId);
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.bindings.validateGameId(gameId: string): void
+```
+
+</TabItem>
+
+</Tabs>
+
+| 参数     | 类型     | 说明    |
+| -------- | -------- | ------- |
+| `gameId` | `string` | 游戏 Id |
+
+- 若游戏 Id 为空或不符合正则匹配则会报错，可用`try...catch`捕获
+
+## 检查冲突
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Bindings;
+
+public partial class BindingManager
+{
+    public void CheckConflict(string userId, string gameId);
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.bindings.checkConflict(userId: string, gameId: string): void
+```
+
+</TabItem>
+
+</Tabs>
+
+| 参数     | 类型     | 说明    |
+| -------- | -------- | ------- |
+| `userId` | `string` | 用户 Id |
+| `gameId` | `string` | 游戏 Id |
+
+- 若绑定冲突则会报错，可用`try...catch`捕获
+
+## 所有绑定记录
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using System.Collections.Generic;
+using Serein.Core.Models.Bindings;
+
+namespace Serein.Core.Services.Bindings;
+
+public partial class BindingManager
+{
+    public IReadOnlyList<BindingRecord> Records { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.bindings.records
+```
+
+- 类型
+  - [BindingRecord]\[]
+
+</TabItem>
+
+</Tabs>
+
+## 添加绑定
+
+### 直接添加
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Models.Bindings;
+
+namespace Serein.Core.Services.Bindings;
+
+public partial class BindingManager
+{
+    public void Add(BindingRecord bindingRecord);
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.bindings.add(bindingRecord: BindingRecord): void
+```
+
+</TabItem>
+
+</Tabs>
+
+| 参数            | 类型            | 说明     |
+| --------------- | --------------- | -------- |
+| `bindingRecord` | [BindingRecord] | 绑定记录 |
+
+### 通过用户 Id 和游戏 Id 添加
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Bindings;
+
+public partial class BindingManager
+{
+    public void Add(string userId, string gameId, string? shownName = null);
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.bindings.add(userId: string, gameId: string, shownName?: string): void
+```
+
+</TabItem>
+
+</Tabs>
+
+| 参数        | 类型      | 说明                   |
+| ----------- | --------- | ---------------------- |
+| `userId`    | `string`  | 用户 Id                |
+| `gameId`    | `string`  | 游戏 Id                |
+| `shownName` | `string?` | 显示名称，默认为`null` |
+
+- 若绑定冲突、Id 格式不正确、已经绑定则会报错，可用`try...catch`捕获
+
+## 删除绑定
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Bindings;
+
+public partial class BindingManager
+{
+    public void Remove(string userId, string gameId);
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.bindings.remove(userId: string, gameId: string): void
+```
+
+</TabItem>
+
+</Tabs>
+
+| 参数     | 类型     | 说明    |
+| -------- | -------- | ------- |
+| `userId` | `string` | 用户 Id |
+| `gameId` | `string` | 游戏 Id |
+
+- 若未绑定此 Id 则会报错，可用`try...catch`捕获
+
+[BindingRecord]: https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Bindings/BindingRecord.cs

@@ -2,7 +2,7 @@
 
 [![dotnet](https://img.shields.io/badge/8.0-512BD4?style=for-the-badge&logo=.net)](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0)
 
-借助.NET的CLR可动态加载的特性实现插件的热插拔功能
+借助.NET 的 CLR 可动态加载的特性实现插件的热插拔功能
 
 :::tip
 
@@ -13,7 +13,7 @@
 ## 优点
 
 - 运行速度快
-- 可以添加项目引用或[NuGet](https://www.nuget.org/)包
+- 可以添加项目引用或 [NuGet](https://www.nuget.org/) 包
 
 ## 缺点
 

@@ -1,8 +1,5 @@
 # 导入&导出
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 :::tip
 
 你应该在插件加载时导出对象，在插件加载完毕的事件回调中导入对象
@@ -14,6 +11,13 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="lang">
 
 <TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Services.Plugins;
+
+var pluginManager = serviceProvider.GetRequiredService<PluginManager>();
+pluginManager.ExportedVariables[name] = value;
+```
 
 </TabItem>
 
@@ -30,9 +34,9 @@ serein.exports(name: string, value?: any): boolean
 
 | 返回值类型 | 说明                                           |
 | ---------- | ---------------------------------------------- |
-| `boolean`  | `name`不为空且导出时未发生内部错误时返回`true` |
+| `boolean`  | `name` 不为空且导出时未发生内部错误时返回 `true` |
 
-- 当指定的导出项为`undefined`或`null`时将删除原有的导出项
+- 当指定的导出项为 `undefined` 或 `null` 时将删除原有的导出项
 - 导出项可能被其他插件覆盖
 - 导出函数可能会带来一些意想不到的的后果
 
@@ -44,6 +48,13 @@ serein.exports(name: string, value?: any): boolean
 <Tabs groupId="lang">
 
 <TabItem value="cs" label="C#" >
+
+```cs
+using Serein.Core.Services.Plugins;
+
+var pluginManager = serviceProvider.GetRequiredService<PluginManager>();
+var obj = pluginManager.ExportedVariables[name];
+```
 
 </TabItem>
 
@@ -59,7 +70,7 @@ serein.imports(name: string): any
 
 | 返回值类型 | 说明                                    |
 | ---------- | --------------------------------------- |
-| `any`      | 当指定的导入项不存在时将返回`undefined` |
+| `any`      | 当指定的导入项不存在时将返回 `undefined` |
 
 </TabItem>
 </Tabs>

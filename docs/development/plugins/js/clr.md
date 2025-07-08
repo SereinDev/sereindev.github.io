@@ -1,4 +1,4 @@
-# 导入.NET程序集
+# 导入.NET 程序集
 
 - 部分较基础的命名空间默认已加载到上下文中
   - `System`
@@ -13,6 +13,14 @@ declare function importNamespace(name: string): ClrType;
 declare type ClrType = {
   [key: string]: ClrType | any;
 };
+```
+
+```ts
+const File = importNamespace('System.IO').File;
+File.WriteAllTexts(
+    'path/to/file/1.txt',
+    'hello world'
+    );
 ```
 
 ## 直接导入

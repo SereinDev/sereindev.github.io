@@ -10,25 +10,37 @@ GET /hardware/memory HTTP/1.1
 
 :::
 
-## 返回示例
+## 请求
+
+### 方法
+
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": [
-        {
-            "bankLabel": "BANK 0",
-            "capacity": 4294967296,
-            "formFactor": 0,
-            "manufacturer": "Samsung",
-            "maxVoltage": 0,
-            "minVoltage": 0,
-            "partNumber": "K4U6E3S4AA-MGCL     ",
-            "serialNumber": "",
-            "speed": 4267
-        }
-    ],
-    "time": "2024-10-13T22:27:01.0256592+08:00"
+  "data": [
+    {
+      "bankLabel": "******",
+      "capacity": 8589934592,
+      "formFactor": 0,
+      "manufacturer": "******",
+      "maxVoltage": 500,
+      "minVoltage": 500,
+      "partNumber": "******",
+      "serialNumber": "******",
+      "speed": 6400
+    }
+  ],
+  "errorMsg": null,
+  "details": [],
+  "time": "2025-07-03T15:55:22.3058948+08:00"
 }
 ```

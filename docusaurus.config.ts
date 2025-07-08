@@ -36,7 +36,8 @@ const config: Config = {
 
           versions: {
             current: {
-              label: '2.x',
+              label: '2.1.0',
+              noIndex: true,
             },
           },
           lastVersion: 'current',
@@ -55,13 +56,6 @@ const config: Config = {
     docs: {
       sidebar: {
         autoCollapseCategories: true,
-      },
-    },
-
-    imageZoom: {
-      options: {
-        margin: 50,
-        background: 'var(--ifm-background-surface-color)',
       },
     },
 
@@ -130,15 +124,15 @@ const config: Config = {
           items: [
             {
               label: '仓库',
-              to: 'https://github.com/SereinDev/Serein',
+              href: 'https://github.com/SereinDev/Serein',
             },
             {
               label: '讨论区',
-              to: 'https://github.com/orgs/SereinDev/discussions',
+              href: 'https://github.com/orgs/SereinDev/discussions',
             },
             {
               label: 'Codacy',
-              to: 'https://app.codacy.com/gh/SereinDev/Serein/dashboard',
+              href: 'https://app.codacy.com/gh/SereinDev/Serein/dashboard',
             },
           ],
         },
@@ -147,7 +141,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              to: 'https://github.com/SereinDev/Serein/releases/latest',
+              href: 'https://github.com/SereinDev/Serein/releases/latest',
             },
             {
               label: 'MineBBS',
@@ -170,14 +164,25 @@ const config: Config = {
         'json',
         'regex',
         'typescript',
+        'bash',
       ],
     } satisfies Preset.ThemeConfig,
 
     metadata: [
       {
         name: 'keywords',
-        content:
-          '面板, 服务器, 我的世界, Minecraft, BDS, Java, 基岩版, 开服, 简单, 易用',
+        content: [
+          '面板',
+          '服务器',
+          '我的世界',
+          'Minecraft',
+          'BDS',
+          'Java',
+          '基岩版',
+          '开服',
+          '简单',
+          '易用',
+        ].join(', '),
       },
     ],
   } satisfies ThemeConfig,

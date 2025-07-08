@@ -1,0 +1,38 @@
+# 硬件信息
+
+:::note
+
+Serein 刚启动的一段时间内此值可能为`null`
+
+:::
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var provider = serviceProvider.GetRequiredService<HardwareInfoProvider>();
+var info = provider.Info; // Hardware.Info.HardwareInfo
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.hardwareInfo: HardwareInfo
+```
+
+- 类型
+  - `HardwareInfo`
+    - 可参考 [`hardwareInfo.d.ts`](https://github.com/SereinDev/HelperLib/blob/main/src/hardwareInfo.d.ts)
+
+:::tip
+
+推荐搭配[HelpLib](../js/#开发助手)使用，方便获取类型声明
+
+:::
+
+</TabItem>
+
+</Tabs>

@@ -1,6 +1,6 @@
+import Link from '@docusaurus/Link';
 import { useState } from 'react';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
 
 const history: number[] = [];
 const tips: JSX.Element[] = [
@@ -14,7 +14,7 @@ const tips: JSX.Element[] = [
   <>Serein的插件系统可以扩展其功能。</>,
   <>Serein的所有代码加起来接近三万行。</>,
   <>Serein中许多操作都藏到了右键菜单里。</>,
-  <>Serein 2.0后使用.NET 8.0作为运行库。</>,
+  <>Serein v2.0后使用.NET 8.0作为运行库。</>,
   <>Serein发行版总下载量已经超过了五千次。</>,
   <>Serein的大部分配置文件都是JSON格式的。</>,
   <>Serein（可能）会在下个版本加入插件市场。</>,

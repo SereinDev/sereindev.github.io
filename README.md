@@ -1,7 +1,7 @@
 # Serein 文档
 
 <p align="center">
-<img src='static/logo.png' width="100"/>
+<img src='static/logo.png' width="100" alt="logo"/>
 <br>
 Serein的官方文档
 <br>
@@ -20,22 +20,22 @@ Serein的官方文档
 
 ### 要求
 
-NodeJS LTS
+NodeJS LTS & PNPM
 
 ### 初始化
 
 ```ps
-> npm i
+> pnpm i
 ```
 
 ### 预览
 
 ```ps
-> npm start
+> pnpm start
 ```
 
-### 生成
+### 构建
 
 ```ps
-> npm run build
+> pnpm run build
 ```

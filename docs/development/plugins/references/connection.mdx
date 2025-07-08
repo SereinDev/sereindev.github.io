@@ -1,8 +1,5 @@
 # 连接
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## 是否连接
 
 <Tabs groupId="lang">
@@ -12,9 +9,9 @@ import TabItem from '@theme/TabItem';
 ```cs
 namespace Serein.Core.Services.Network.Connection;
 
-public partial class WsConnectionManager
+public partial class ConnectionManager
 {
-    public bool Active { get; }
+    public bool IsActive { get; }
 }
 ```
 
@@ -23,11 +20,103 @@ public partial class WsConnectionManager
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.connection.active
+serein.connection.isActive
 ```
 
 - 类型
   - `boolean`
+
+</TabItem>
+
+</Tabs>
+
+## 接收数据包数
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Network.Connection;
+
+public partial class ConnectionManager
+{
+    public ulong Received { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.connection.received
+```
+
+- 类型
+  - `number`
+
+</TabItem>
+
+</Tabs>
+
+## 发送数据包数
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Network.Connection;
+
+public partial class ConnectionManager
+{
+    public ulong Sent { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.connection.sent
+```
+
+- 类型
+  - `number`
+
+</TabItem>
+
+</Tabs>
+
+## 启动时间
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using System;
+
+namespace Serein.Core.Services.Network.Connection;
+
+public partial class ConnectionManager
+{
+    public DateTime? StartedAt { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.connection.startedAt
+```
+
+- 类型
+  - `Date` | `null`
 
 </TabItem>
 
@@ -42,7 +131,7 @@ serein.connection.active
 ```cs
 namespace Serein.Core.Services.Network.Connection;
 
-public partial class WsConnectionManager
+public partial class ConnectionManager
 {
     public void Start();
 }
@@ -71,7 +160,7 @@ serein.connection.start(): void
 ```cs
 namespace Serein.Core.Services.Network.Connection;
 
-public partial class WsConnectionManager
+public partial class ConnectionManager
 {
     public void Stop();
 }
@@ -102,74 +191,29 @@ using System.Threading.Tasks;
 
 namespace Serein.Core.Services.Network.Connection;
 
-public partial class WsConnectionManager
+public partial class ConnectionManager
 {
     public Task SendDataAsync(string data);
 }
 ```
 
-| 参数   | 类型     | 说明       |
-| ------ | -------- | ---------- |
-| `text` | `string` | 发送的内容 |
-
 </TabItem>
 
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.connection.sendData(text: string): void
+serein.connection.sendDataAsync(data: string): Promise<void>
 ```
+
+</TabItem>
+
+</Tabs>
 
 | 参数   | 类型     | 说明       |
 | ------ | -------- | ---------- |
-| `text` | `string` | 发送的内容 |
+| `data` | `string` | 发送的内容 |
 
-</TabItem>
-
-</Tabs>
-
-## 发送私聊消息
-
-<Tabs groupId="lang">
-
-<TabItem value="cs" label="C#" >
-
-
-```cs
-using System.Threading.Tasks;
-
-namespace Serein.Core.Services.Network.Connection;
-
-public partial class WsConnectionManager
-{
-    public Task SendPrivateMsgAsync(long target, string message);
-    public Task SendPrivateMsgAsync(string target, string message);
-}
-```
-
-| 参数      | 类型     | 说明   |
-| --------- | -------- | ------ |
-| `target`      | `long` \| `string`| 用户Id |
-| `message` | `string` | 消息   |
-
-</TabItem>
-
-<TabItem value="js" label="JavaScript" >
-
-```ts
-serein.connection.sendPrivateMsg(id: number, message: string): void
-```
-
-| 参数      | 类型     | 说明   |
-| --------- | -------- | ------ |
-| `id`      | `number` | 用户Id |
-| `message` | `string` | 消息   |
-
-</TabItem>
-
-</Tabs>
-
-## 发送群聊消息
+## 发送消息
 
 <Tabs groupId="lang">
 
@@ -180,31 +224,37 @@ using System.Threading.Tasks;
 
 namespace Serein.Core.Services.Network.Connection;
 
-public partial class WsConnectionManager
+public partial class ConnectionManager
 {
-    public Task SendGroupMsgAsync(long target, string message);
-    public Task SendGroupMsgAsync(string target, string message);
+    public async Task SendMessageAsync(
+        TargetType type,
+        string target,
+        string text,
+        CommandArguments? commandArguments = null
+    );
 }
 ```
-
-| 参数      | 类型     | 说明   |
-| --------- | -------- | ------ |
-| `target`      | `long` \| `string`| 群聊Id |
-| `message` | `string` | 消息   |
 
 </TabItem>
 
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.connection.sendGroupMsg(id: number, message: string): void
+serein.connection.sendMessageAsync(
+    type: TargetType,
+    target: string,
+    text: string,
+    commandArguments?: CommandArguments
+): Promise<void>
 ```
-
-| 参数      | 类型     | 说明   |
-| --------- | -------- | ------ |
-| `id`      | `number` | 群聊Id |
-| `message` | `string` | 消息   |
 
 </TabItem>
 
 </Tabs>
+
+| 参数               | 类型                                                                                                                     | 说明                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `type`             | [`TargetType`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Network/Connection/TargetType.cs)    | 目标类型                |
+| `target`           | `string`                                                                                                                 | 目标 Id（频道、用户等） |
+| `text`             | `string`                                                                                                                 | 消息内容                |
+| `commandArguments` | [`CommandArguments?`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Commands/CommandArguments.cs) | 命令参数（可选）        |

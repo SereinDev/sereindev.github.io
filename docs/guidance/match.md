@@ -20,7 +20,7 @@
 - [fast-regexp - @adams549659584](https://adams549659584.github.io/fast-regexp/)  
 - [可视化和测试正则表达式 - pyrexp](https://pythonium.net/regex)  
 
-你可以在[命令](./command)中使用`$n`来获取第n个匹配项（n为正整数）
+你可以在[命令](./command)中使用`$n`来获取第 n 个匹配项（n 为正整数）
 
 ## 排除
 
@@ -39,11 +39,11 @@
 :::
 
 - `server`
-  - 服务器Id
+  - 服务器 Id
 - `group`
-  - 群聊Id
+  - 群聊 Id
 - `user`
-  - 用户Id
+  - 用户 Id
 
 ### 示例
 
@@ -51,7 +51,7 @@
 group=10001;group=10002
 ```
 
-将不会响应来自10001和10002两个群聊的消息
+将不会响应来自 10001 和 10002 两个群聊的消息
 
 ---
 
@@ -59,4 +59,4 @@ group=10001;group=10002
 server=survival2
 ```
 
-将不会响应来自Id为survival2的服务器的输入和输出
+将不会响应来自 Id 为 survival2 的服务器的输入和输出

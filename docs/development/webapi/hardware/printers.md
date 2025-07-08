@@ -4,25 +4,37 @@
 GET /hardware/printers HTTP/1.1
 ```
 
-## 返回示例
+## 请求
+
+### 方法
+
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": [
-        {
-            "caption": "Microsoft Print to PDF",
-            "default": false,
-            "description": "",
-            "horizontalResolution": 600,
-            "local": true,
-            "name": "Microsoft Print to PDF",
-            "network": false,
-            "shared": false,
-            "verticalResolution": 600
-        }
-    ],
-    "time": "2024-10-13T22:38:15.4395291+08:00"
+  "data": [
+    {
+      "caption": "Microsoft Print to PDF",
+      "default": true,
+      "description": "",
+      "horizontalResolution": 600,
+      "local": true,
+      "name": "Microsoft Print to PDF",
+      "network": false,
+      "shared": false,
+      "verticalResolution": 600
+    }
+  ],
+  "errorMsg": null,
+  "details": [],
+  "time": "2025-07-03T15:52:06.4278745+08:00"
 }
 ```

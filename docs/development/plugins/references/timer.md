@@ -2,9 +2,9 @@
 
 :::warning
 
-此节为[Js插件](../js/)独有
+此节为[Js 插件](../js/)独有
 
-Net插件可通过以下方法实现
+Net 插件可通过以下方法实现
 
 - `System.Timers.Timer`
 - `System.Threading.Timer`

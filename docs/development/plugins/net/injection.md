@@ -1,6 +1,6 @@
 # 依赖服务注入
 
-在构造函数`.ctor`中填入需要的参数，在执行构造函数时会自动填充，类似于[Microsoft.Extensions.DependencyInjection](https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.dependencyinjection?view=net-8.0)中的[`IServiceCollection`](https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=net-8.0)
+在构造函数 `.ctor` 中填入需要服务对象，在执行构造函数时会自动填充，类似于[Microsoft.Extensions.DependencyInjection](https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.dependencyinjection?view=net-8.0)中的[`IServiceCollection`](https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=net-8.0)
 
 :::note
 

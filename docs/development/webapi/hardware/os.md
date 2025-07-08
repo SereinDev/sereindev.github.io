@@ -4,17 +4,29 @@
 GET /hardware/os HTTP/1.1
 ```
 
-## 返回示例
+## 请求
+
+### 方法
+
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": {
-        "name": "Microsoft Windows 10",
-        "versionString": "10.0.19045",
-        "version": "10.0.19045"
-    },
-    "time": "2024-10-13T22:19:04.2509658+08:00"
+  "data": {
+    "name": "Microsoft Windows 11 家庭中文版",
+    "versionString": "10.0.26100",
+    "version": "10.0.26100"
+  },
+  "errorMsg": null,
+  "details": [],
+  "time": "2025-07-03T15:52:36.4332785+08:00"
 }
 ```

@@ -1,139 +1,45 @@
-# 获取所有终结点
+# 获取 Serein 信息
 
 ```http
 GET / HTTP/1.1
 ```
 
-## 返回内容
+## 请求
 
-| 字段 | 类型                | 说明                 |
-| ---- | ------------------- | -------------------- |
-| -    | ApiEndpointRecord[] | 终结点列表（见示例） |
+### 方法
 
-## 返回示例
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 内容
+
+| 字段                     | 类型    | 说明                                 |
+| ------------------------ | ------- | ------------------------------------ |
+| `assemblyName`           | string  | 程序集名称                           |
+| `version`                | string  | 版本                                 |
+| `fullVersion`            | string  | 详细版本                             |
+| `type`                   | number  | [类型](../../tutorial/rookie/choose) |
+| `isReleaseConfiguration` | boolean | 是否为发布配置                       |
+| `isSingleFile`           | boolean | 是否为单文件发布                     |
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": [
-        {
-            "route": "/connection",
-            "method": "GET"
-        },
-        {
-            "route": "/connection/open",
-            "method": "GET"
-        },
-        {
-            "route": "/connection/close",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/memoryStatus",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/batteries",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/bios",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/system",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/cpus",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/memory",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/drives",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/keyboards",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/motherboards",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/monitors",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/mouses",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/os",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/printers",
-            "method": "GET"
-        },
-        {
-            "route": "/hardware/soundDevices",
-            "method": "GET"
-        },
-        {
-            "route": "/metadata",
-            "method": "GET"
-        },
-        {
-            "route": "/",
-            "method": "GET"
-        },
-        {
-            "route": "/servers",
-            "method": "GET"
-        },
-        {
-            "route": "/servers/{id}",
-            "method": "POST"
-        },
-        {
-            "route": "/servers/{id}",
-            "method": "DELETE"
-        },
-        {
-            "route": "/servers/{id}",
-            "method": "GET"
-        },
-        {
-            "route": "/servers/{id}/start",
-            "method": "GET"
-        },
-        {
-            "route": "/servers/{id}/stop",
-            "method": "GET"
-        },
-        {
-            "route": "/servers/{id}/terminate",
-            "method": "GET"
-        },
-        {
-            "route": "/servers/{id}/input",
-            "method": "GET"
-        },
-        {
-            "route": "/servers/{id}/input",
-            "method": "POST"
-        },
-        {
-            "route": "/setting",
-            "method": "GET"
-        }
-    ],
-    "time": "2024-10-24T19:47:13.883246+08:00"
+  "errorMsg": null,
+  "data": {
+    "assemblyName": "Serein.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "2.1.0.0",
+    "fullVersion": "2.1.0+a6f38b12502d8c52b5423d7e0f5e8ec2c554caa3",
+    "type": 3,
+    "isReleaseConfiguration": false,
+    "isSingleFile": false
+  },
+  "time": "2025-07-02T15:42:50.1661194+08:00"
 }
 ```

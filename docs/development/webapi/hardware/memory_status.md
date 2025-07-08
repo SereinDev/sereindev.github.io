@@ -1,7 +1,7 @@
 # 内存状态
 
 ```http
-GET /hardware/memoryStatus HTTP/1.1
+GET /hardware/memory-status HTTP/1.1
 ```
 
 :::note
@@ -10,21 +10,33 @@ GET /hardware/memoryStatus HTTP/1.1
 
 :::
 
-## 返回示例
+## 请求
+
+### 方法
+
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": {
-        "totalPhysical": 8155979776,
-        "availablePhysical": 1709805568,
-        "totalPageFile": 23997460480,
-        "availablePageFile": 7518126080,
-        "totalVirtual": 140737488224256,
-        "availableVirtual": 138256505991168,
-        "availableExtendedVirtual": 0
-    },
-    "time": "2024-10-13T22:26:23.657056+08:00"
+  "data": {
+    "totalPhysical": 29860155392,
+    "availablePhysical": 21384384512,
+    "totalPageFile": 50261250048,
+    "availablePageFile": 31179538432,
+    "totalVirtual": 140737488224256,
+    "availableVirtual": 138255905923072,
+    "availableExtendedVirtual": 0
+  },
+  "errorMsg": null,
+  "details": [],
+  "time": "2025-07-03T15:56:04.713423+08:00"
 }
 ```

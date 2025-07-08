@@ -1,0 +1,174 @@
+# 数据
+
+## 值
+
+### 匹配
+
+:::tip
+
+推荐搭配 [HelpLib](../js/#开发助手) 使用，方便获取类型声明
+
+:::
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using System.Collections.ObjectModel;
+
+var matchProvider = serviceProvider.GetRequiredService<MatchProvider>();
+var matches = matchProvider.Value;
+// ObservableCollection<Serein.Core.Models.Commands.Match>
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.matches.value: Match[]
+```
+
+- 类型
+  - <code><a href='https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Commands/Match.cs' target='_blank' className='underline-links'>Match</a>[]</code>
+
+</TabItem>
+
+</Tabs>
+
+### 定时任务
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using System.Collections.ObjectModel;
+
+var scheduleProvider = serviceProvider.GetRequiredService<ScheduleProvider>();
+var schedules = scheduleProvider.Value;
+// ObservableCollection<Serein.Core.Models.Commands.Schedule>
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+```ts
+serein.schedules.value: Schedule[]
+```
+
+- 类型
+  - <code><a href='https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Commands/Schedule.cs' target='_blank' className='underline-links'>Schedule</a>[]</code>
+
+</TabItem>
+
+</Tabs>
+
+### 设置
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var settingProvider = serviceProvider.GetRequiredService<SettingProvider>();
+var setting = settingProvider.Value; // Serein.Core.Models.Settings.Setting
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.settings.value: DataProvider<Setting>
+```
+
+- 类型
+  - DataProvider\<[`Setting`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Settings/Setting.cs)>
+    - 可参考 [`setting.d.ts`](https://github.com/SereinDev/HelperLib/blob/main/src/setting.d.ts)
+
+</TabItem>
+
+</Tabs>
+
+## 保存
+
+:::tip
+
+以保存设置为例，其余同理
+
+:::
+
+### 延时保存
+
+<Badge color="warning">⭐推荐</Badge>
+
+可用于减少保存频率，避免频繁写入磁盘
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var settingProvider = serviceProvider.GetRequiredService<SettingProvider>();
+settingProvider.SaveAsyncWithDebounce();
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.settings.saveAsyncWithDebounce(): Promise<void>
+```
+
+</TabItem>
+
+</Tabs>
+
+### 立即保存
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var settingProvider = serviceProvider.GetRequiredService<SettingProvider>();
+settingProvider.Save();
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.settings.save(): void
+```
+
+</TabItem>
+
+</Tabs>
+
+## 读取
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+var settingProvider = serviceProvider.GetRequiredService<SettingProvider>();
+settingProvider.Read();
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.settings.read(): Setting
+```
+
+</TabItem>
+
+</Tabs>

@@ -4,24 +4,36 @@
 GET /hardware/bios HTTP/1.1
 ```
 
-## 返回示例
+## 请求
+
+### 方法
+
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": [
-        {
-            "caption": "19.101.140",
-            "description": "19.101.140",
-            "manufacturer": "Microsoft Corporation",
-            "name": "19.101.140",
-            "releaseDate": "20240411000000.000000+000",
-            "serialNumber": "************",
-            "softwareElementID": "19.101.140",
-            "version": "MSFT   - 2"
-        }
-    ],
-    "time": "2024-10-13T22:23:52.3680743+08:00"
+  "data": [
+    {
+      "caption": "******",
+      "description": "******",
+      "manufacturer": "******",
+      "name": "******",
+      "releaseDate": "******",
+      "serialNumber": "******",
+      "softwareElementID": "******",
+      "version": "******"
+    }
+  ],
+  "errorMsg": null,
+  "details": [],
+  "time": "2025-07-03T15:49:54.5137026+08:00"
 }
 ```

@@ -1,8 +1,5 @@
 # 服务器
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## 所有服务器
 
 <Tabs groupId="lang">
@@ -14,7 +11,7 @@ namespace Serein.Core.Services.Servers;
 
 public partial class ServerManager
 {
-    public IReadOnlyDictionary<string, ServerBase> Servers
+    public IReadOnlyDictionary<string, Server> Servers
 }
 ```
 
@@ -27,7 +24,7 @@ serein.servers
 ```
 
 - 类型
-  - `{ [id: string]: ServerBase }`
+  - `Record<string, Server>`
 
 </TabItem>
 
@@ -46,7 +43,7 @@ namespace Serein.Core.Services.Servers;
 
 public partial class ServerManager
 {
-    public ServerBase Add(string id, Configuration configuration);
+    public Server Add(string id, Configuration configuration);
 }
 ```
 
@@ -55,17 +52,17 @@ public partial class ServerManager
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.servers.add(id: string, configuration: Configuration): ServerBase
+serein.servers.add(id: string, configuration: Configuration): Server
 ```
 
 </TabItem>
 
 </Tabs>
 
-| 参数            | 类型            | 说明     |
-| --------------- | --------------- | -------- |
-| `id`            | `string`        | 服务器Id |
-| `configuration` | `Configuration` | 配置     |
+| 参数            | 类型                                                                                                            | 说明     |
+| --------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
+| `id`            | `string`                                                                                                        | 服务器Id |
+| `configuration` | [`Configuration`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Server/Configuration.cs) | 配置     |
 
 ## 删除服务器配置
 
@@ -78,43 +75,27 @@ namespace Serein.Core.Services.Servers;
 
 public partial class ServerManager
 {
-    public bool Remove(string id);
+    public void Remove(string id);
 }
 ```
-
-| 参数 | 类型     | 说明     |
-| ---- | -------- | -------- |
-| `id` | `string` | 服务器Id |
-
-- 类型
-  - `bool`
-    - 删除成功返回`true`，否则返回`false`
 
 </TabItem>
 
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.servers.remove(id: string): boolean
+serein.servers.remove(id: string): void
 ```
-
-| 参数 | 类型     | 说明     |
-| ---- | -------- | -------- |
-| `id` | `string` | 服务器Id |
-
-- 类型
-  - `boolean`
-    - 删除成功返回`true`，否则返回`false`
 
 </TabItem>
 
 </Tabs>
 
-:::warning
+| 参数 | 类型     | 说明      |
+| ---- | -------- | --------- |
+| `id` | `string` | 服务器 Id |
 
-尝试删除正在运行的服务器时会抛出异常
-
-:::
+- 若服务器不存在或正在运行则会报错，可用`try...catch`捕获
 
 ## 获取指定的服务器
 
@@ -131,7 +112,7 @@ var server = serverManager.Servers["bds"];
 <TabItem value="js" label="JavaScript" >
 
 ```ts
-serein.servers[id]: ServerBase
+serein.servers[id]: Server
 ```
 
 ```ts title="示例"
@@ -151,7 +132,7 @@ const server = serein.servers['bds'];
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class ServerBase
+public partial class Server
 {
     public bool Status { get; }
 }
@@ -172,6 +153,36 @@ serein.servers[id].status
 
 </Tabs>
 
+## 服务器重启状态
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Servers;
+
+public partial class Server
+{
+    public RestartStatus RestartStatus { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.servers[id].restartStatus
+```
+
+- 类型
+  - [`RestartStatus`](https://github.com/SereinDev/Serein/blob/main/src/Serein.Core/Models/Server/RestartStatus.cs)
+
+</TabItem>
+
+</Tabs>
+
 ## 服务器进程ID
 
 <Tabs groupId="lang">
@@ -181,7 +192,7 @@ serein.servers[id].status
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class ServerBase
+public partial class Server
 {
     public int? Pid { get; }
 }
@@ -214,7 +225,7 @@ using Serein.Core.Models.Server;
 
 namespace Serein.Core.Services.Servers;
 
-public partial class ServerBase
+public partial class Server
 {
     public IServerInfo Info { get; }
 }
@@ -247,7 +258,7 @@ serein.servers[id].info
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class ServerBase
+public partial class Server
 {
     public void Start();
 }
@@ -276,7 +287,7 @@ serein.servers[id].start(): void
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class ServerBase
+public partial class Server
 {
     public void Stop();
 }
@@ -296,7 +307,7 @@ serein.servers[id].stop(): void
 
 - 若服务器已关闭则会报错，可用`try...catch`捕获
 - 实质上是向服务器发送关闭命令（默认为`stop`）
-- 当配置中的关服命令项为空时会尝试发送`^C` <sup>[仅Windows平台] [除[Serein.Cli](../../../tutorial/rookie/choose#cli)外]</sup>
+- 当配置中的关服命令项为空时会尝试发送`^C` <sup>[仅 Windows 平台] [除[Serein.Cli](../../../tutorial/rookie/choose#cli)外]</sup>
 
 ## 强制关闭服务器
 
@@ -307,7 +318,7 @@ serein.servers[id].stop(): void
 ```cs
 namespace Serein.Core.Services.Servers;
 
-public partial class ServerBase
+public partial class Server
 {
     public void Terminate();
 }
@@ -334,11 +345,9 @@ serein.servers[id].terminate(): void
 <TabItem value="cs" label="C#" >
 
 ```cs
-using Serein.Core.Utils;
-
 namespace Serein.Core.Services.Servers;
 
-public partial class ServerBase
+public partial class Server
 {
     public void Input(string command);
 }
@@ -364,4 +373,4 @@ serein.servers['bds'].input('help');
 
 </Tabs>
 
-- 若服务器已关闭或输入失败（系统原因）则会报错，可用`try...catch`捕获
+- 若输入失败（系统原因）则会报错，可用`try...catch`捕获

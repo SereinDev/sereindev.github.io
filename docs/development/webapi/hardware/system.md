@@ -4,24 +4,36 @@
 GET /hardware/system HTTP/1.1
 ```
 
-## 返回示例
+## 请求
+
+### 方法
+
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": [
-        {
-            "caption": "计算机系统产品",
-            "description": "计算机系统产品",
-            "identifyingNumber": "************",
-            "name": "Surface Pro 7",
-            "skuNumber": "",
-            "uuid": "************************************",
-            "vendor": "Microsoft Corporation",
-            "version": "*****************************************"
-        }
-    ],
-    "time": "2024-10-13T22:21:05.2061371+08:00"
+  "data": [
+    {
+      "caption": "******",
+      "description": "******",
+      "identifyingNumber": "******",
+      "name": "******",
+      "skuNumber": "******",
+      "uuid": "******",
+      "vendor": "******",
+      "version": "******"
+    }
+  ],
+  "errorMsg": null,
+  "details": [],
+  "time": "2025-07-03T15:50:29.3105116+08:00"
 }
 ```

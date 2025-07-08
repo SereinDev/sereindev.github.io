@@ -4,30 +4,42 @@
 GET /hardware/monitors HTTP/1.1
 ```
 
-## 返回示例
+## 请求
+
+### 方法
+
+`GET`
+
+## 响应
+
+### 状态码
+
+`200`
+
+### 响应示例
 
 ```json
 {
-    "code": 200,
-    "errorMsg": null,
-    "data": [
-        {
-            "caption": "Surface Panel Filter",
-            "description": "Surface Panel Filter",
-            "monitorManufacturer": "Surface",
-            "monitorType": "Surface Panel Filter",
-            "name": "Surface Panel Filter",
-            "pixelsPerXLogicalInch": 192,
-            "pixelsPerYLogicalInch": 192,
-            "active": true,
-            "manufacturerName": "LGD",
-            "productCodeID": "**************",
-            "serialNumberID": "****************",
-            "userFriendlyName": "",
-            "weekOfManufacture": 0,
-            "yearOfManufacture": 2019
-        }
-    ],
-    "time": "2024-10-13T22:35:31.6136841+08:00"
+  "data": [
+    {
+      "caption": "******",
+      "description": "******",
+      "monitorManufacturer": "******",
+      "monitorType": "******",
+      "name": "******",
+      "pixelsPerXLogicalInch": 192,
+      "pixelsPerYLogicalInch": 192,
+      "active": true,
+      "manufacturerName": "******",
+      "productCodeID": "******",
+      "serialNumberID": "0",
+      "userFriendlyName": "",
+      "weekOfManufacture": 0,
+      "yearOfManufacture": 2023
+    }
+  ],
+  "errorMsg": null,
+  "details": [],
+  "time": "2025-07-03T15:54:44.456018+08:00"
 }
 ```
