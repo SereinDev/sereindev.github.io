@@ -203,3 +203,68 @@ serein.app.isSingleFile: boolean
 </TabItem>
 
 </Tabs>
+
+## .NET 运行时版本
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public sealed partial class SereinApp
+{
+    public int ProcessId { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.processId: number
+```
+
+- 类型
+  - number
+
+</TabItem>
+
+</Tabs>
+
+## .NET 运行库版本
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core;
+
+public sealed partial class SereinApp
+{
+    public Version ClrVersion { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.app.clrVersion: Version
+```
+
+```ts title="示例"
+serein.app.clrVersion.toString() // "8.0.17"
+```
+
+- 类型
+  - [`Version`](https://learn.microsoft.com/zh-cn/dotnet/api/system.version?view=net-8.0)
+
+</TabItem>
+
+</Tabs>
+

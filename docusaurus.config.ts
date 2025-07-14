@@ -5,7 +5,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Serein',
-  tagline: '一个简约、多功能、高度自定义的服务器管理面板软件',
+  tagline: '一款支持多服务器统一管理、群服互通、网页远程控制、插件扩展等功能，专为游戏服务器设计的自动化管理工具',
   favicon: 'logo.png',
 
   url: 'https://sereindev.github.io',

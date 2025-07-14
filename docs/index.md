@@ -4,7 +4,7 @@
 
 ![Serein](https://socialify.git.ci/SereinDev/Serein/image?font=KoHo&forks=1&issues=1&language=1&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIABAMAAAAGVsnJAAAABGdBTUEAALGPC%2FxhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAJFBMVEUAAABLzDoklCEAAAA8tSxCxTEYTREHNQMIPQMBIwACLgH%2F%2F%2F9EIbNrAAAAAXRSTlMAQObYZgAAAAFiS0dECx%2FXxMAAAAAHdElNRQfoBAUCJBr7k6kPAAACqElEQVR42u3cQRXCMBBF0ViohVqIBSxgAQtYqAUsoJJNt5yZHqalhPvWk8W%2FAtJasunLzRtr1QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAvSgaNDW9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAeoDqgcP9IAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMCNA%2FDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwPoDqewAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADA%2FgBR88G1swUAAAAAAAAAAAAAAAAAAAD8IcClOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA3DXZlCwaeAs6HAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AYB7siXZY%2B3dgB70XAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhL0AiB0RKxum4ykAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjQtMDQtMDVUMDI6MzY6MjQrMDA6MDCBxqVlAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI0LTA0LTA1VDAyOjM2OjI0KzAwOjAw8Jsd2QAAAABJRU5ErkJggg%3D%3D&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark#dark)
 
-**Serein**，一款多功能、多拓展的极简多服务器管理软件
+**Serein**，一款专为游戏服务器设计的自动化管理工具，支持多服务器统一管理、群服互通、网页远程控制、插件扩展等功能
 
 ---
 
@@ -15,51 +15,67 @@
 
 :::
 
-## 特点
+## 为什么选择 Serein？
 
-✨**多功能** 包括但不限于匹配、定时任务、连接机器人、插件，方便日常使用
+💡 **3 分钟上手** - 简洁的界面设计，无需复杂配置即可开始使用
 
-🎨**多样性** 有[多种类型](./tutorial/rookie/choose)的软件可供选择，满足不同用户需求
+⚡ **全自动化** - 一次配置，永久生效，告别重复操作
 
-🧩**高扩展性** 你可以编写你自己的[插件](./guidance/plugins)或使用 [Api](./development/webapi/) 扩展 Serein 的多方面的功能
+🌐 **跨平台连接** - 无缝连接 QQ、Discord 等社交平台，随时随地管理服务器
 
-🛠**开源透明** 所有源代码都在 [GitHub](https://github.com/SereinDev) 上开源
+🔧 **零代码扩展** - 丰富的插件生态，满足个性化需求
 
-⌚**长期维护** 此项目会一直保持更新维护状态，坚决不咕~~🕊🕊🕊~~
+🛠 **开源透明** 所有源代码都在 [GitHub](https://github.com/SereinDev) 上开源，告别后门漏洞
 
-## 功能
+⌚ **长期维护** 此项目会一直保持更新维护状态，坚决不咕~~🕊🕊🕊~~
 
-### [多服务器管理](./guidance/servers)
+## 核心功能一览
+
+### 📊 多服务器管理
 
 ![服务器管理](./guidance/servers.png#light)
 
 ![服务器管理](./guidance/servers_dark.png#dark)
 
-提供便捷的多服务器管理，不论是单个服务器还是群组服都能轻松驾驭
+- **统一管理** - 一个界面管理多个服务器，支持 Java 版、基岩版、泰拉瑞亚服等
+- **性能监控** - 实时查看 CPU占用和在线玩家数据
 
-### [匹配响应](./guidance/match)
+### 🤖 智能自动化
 
 ![匹配](./guidance/match.png#light)
 
 ![匹配](./guidance/match_dark.png#dark)
 
-使用正则表达式检测服务器的输入、输出和群聊、私聊消息，并通过简单易懂的[命令](./guidance/command)做出响应，可以实现自动回复、群服消息互通 *（游戏内消息转发到群聊、群聊消息转发到游戏）* 等功能
-
-### [定时任务](./guidance/schedule)
-
 ![定时任务](./guidance/schedule.png#light)
 
 ![定时任务](./guidance/schedule_dark.png#dark)
 
-使用标准的 Cron 表达式设定[命令](./guidance/command)触发的时间，快捷实现定时备份[^1]、公告栏滚动等功能
+- **智能响应** - 基于正则表达式的事件触发，实现群服消息互通、自动回复等
+- **定时任务** - 自动重启、定时公告、定期备份，服务器 7×24 小时稳定运行
 
-### [插件](./guidance/plugins)
+### 🌍 社群连接桥梁
+
+![匹配](./guidance/chat.jpg)
+
+- **多平台支持** - 支持多种协议连接 QQ、Discord 等主流社交平台
+- **实时管理** - 手机上就能查看服务器状态、管理玩家、执行指令
+
+### 🛜 网页控制台远程管理
+
+![网页控制台](./guidance/web_light.png#light)
+
+![网页控制台](./guidance/web_dark.png#dark)
+
+- **现代化界面** - 简洁美观的网页设计，支持明暗主题切换，自适应屏幕大小调整布局
+- **远程访问** - 随时随地通过浏览器访问服务器控制台，无需安装额外软件
+
+### 🧩 无限扩展可能
 
 ![插件](./guidance/plugins.png)
 
-- 同时支持 JavaScript 和 .NET 插件，即使是代码小白也能轻松上手
-- 提供超全的 API 接口，只有你想不到，没有你做不到
-- 内置高仿 Java 服的权限组功能，用户可以快速修改群成员的权限
+- **双语言插件** - 支持 JavaScript 和 .NET 插件开发
+- **丰富 API** - 完整的[接口文档](./development/)，轻松实现自定义功能
+- **内置权限组** 高仿 Java 服的权限组功能，用户可以快速修改群成员的权限
 
 ---
 
@@ -67,6 +83,4 @@
 
 我们期待你能自行探索 Serein 的更多丰富功能，创造出更精彩的故事和辉煌。
 
-还在等什么呢？快[上手试试](./tutorial/rookie/get_started)吧:D
-
-[^1]: 可能需要服务器备份插件支持
+还在等什么呢？快 [上手试试](./tutorial/rookie/get_started) 吧:D

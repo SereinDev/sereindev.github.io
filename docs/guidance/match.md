@@ -40,6 +40,8 @@
 
 - `server`
   - 服务器 Id
+- `channel`
+  - 频道 Id
 - `group`
   - 群聊 Id
 - `user`

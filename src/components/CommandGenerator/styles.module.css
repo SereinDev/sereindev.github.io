@@ -1,0 +1,298 @@
+#container {
+  padding: 20px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.formSection {
+  margin-bottom: 30px;
+}
+
+.inputGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.inputGroup > div {
+  display: flex;
+  flex-direction: column;
+}
+.inputGroup > div > label {
+  margin-bottom: 4px;
+}
+
+.field {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-weight: 600;
+  color: var(--ifm-color-content-secondary);
+  font-size: 14px;
+}
+
+.select,
+.input {
+  padding: 8px 12px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  transition: border-color 0.2s ease;
+}
+
+.select:focus,
+.input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+}
+
+.select:hover,
+.input:hover {
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.generateButton,
+.resetButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.generateButton {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.generateButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.resetButton {
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+}
+
+.resetButton:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.outputSection {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  padding-top: 20px;
+}
+
+.output {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 15px;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  min-height: 100px;
+}
+
+.output code {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ifm-color-content);
+}
+
+.parameterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.parameterItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.parameterItem label {
+  font-weight: 600;
+  color: var(--ifm-color-content-secondary);
+  font-size: 14px;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ifm-color-content);
+  font-weight: normal;
+}
+
+.checkbox {
+  margin: 0;
+  accent-color: var(--ifm-color-primary);
+  cursor: pointer;
+}
+
+.checkboxLabel:hover {
+  color: var(--ifm-color-content-secondary);
+}
+
+.triStateCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.triStateCheckbox .checkboxLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ifm-color-content);
+  font-weight: normal;
+  margin: 0;
+}
+
+.stateIndicator {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content-secondary);
+  margin-left: auto;
+  min-width: 50px;
+  text-align: center;
+}
+
+.checkbox {
+  margin: 0;
+  accent-color: var(--ifm-color-primary);
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+/* false 状态的特殊样式 */
+.checkboxFalse {
+  filter: hue-rotate(180deg) saturate(0.8);
+}
+
+/* 当 checkbox 处于 indeterminate 状态时的样式 */
+.checkbox:indeterminate {
+  accent-color: var(--ifm-color-warning);
+}
+
+.triStateCheckbox:hover .checkboxLabel {
+  color: var(--ifm-color-content-secondary);
+}
+
+.triStateCheckbox:hover .stateIndicator {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+/* 输入框错误状态的样式 */
+.inputError {
+  border-color: var(--ifm-color-danger) !important;
+  box-shadow: 0 0 0 2px var(--ifm-color-danger-lightest) !important;
+}
+
+.inputError:focus {
+  border-color: var(--ifm-color-danger) !important;
+  box-shadow: 0 0 0 2px var(--ifm-color-danger-lightest) !important;
+}
+
+.errorMessage {
+  color: var(--ifm-color-danger);
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.typeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.typeOption {
+  display: flex;
+  align-items: center;
+}
+
+.simpleCheckboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--ifm-color-content-secondary);
+  font-weight: normal;
+}
+
+.simpleCheckboxLabel.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.simpleCheckboxLabel.disabled input {
+  cursor: not-allowed;
+}
+
+.noShortText {
+  font-size: 12px;
+  color: var(--ifm-color-content-secondary);
+  font-style: italic;
+}
+
+.shortPreview {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  font-size: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .field {
+    margin-bottom: 12px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .generateButton,
+  .resetButton {
+    width: 100%;
+  }
+}

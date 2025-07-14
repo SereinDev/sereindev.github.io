@@ -24,26 +24,32 @@
 
 ## Serein
 
-|         名称         | 说明       | 示例                      |
-| :------------------: | ---------- | ------------------------- |
-|    `serein.type`     | 类型       | *Cli*                     |
-|   `serein.version`   | 版本号     | *2.0.0.0*                 |
-| `serein.fullversion` | 完整版本号 | *2.0.0.0-CompliedLocally* |
+|         名称         | 说明       | 示例                                             |
+| :------------------: | ---------- | ------------------------------------------------ |
+|    `serein.type`     | 类型       | *Cli*                                            |
+|   `serein.version`   | 版本号     | *2.1.0.0*                                        |
+| `serein.fullversion` | 完整版本号 | *2.1.0-04f019e7bc0811da4831c55f7723bbecbd344289* |
+|  `serein.assembly`   | 程序集名称 | *Serein.Cli*                                     |
+|     `serein.pid`     | 进程 Id    | *1234*                                           |
+| `serein.clrversion`  | .NET 版本  | *8.0.14*                                         |
 
 ## 服务器
 
-|           名称           | 说明            | 示例              |
-| :----------------------: | --------------- | ----------------- |
-|     `server.status`      | 状态            | *已启动 / 未启动* |
-|      `server.usage`      | 进程 CPU 使用率 |                   |
-|     `server.output`      | 输出行数        |                   |
-|      `server.input`      | 输入行数        |                   |
-|      `server.time`       | 运行时间        | *1:00:00*         |
-|     `server.version`     | 版本            | *1.21.0*          |
-|      `server.motd`       | 介绍            | *1.21.0*          |
-| `server.players.current` | 当前玩家数      |                   |
-|   `server.players.max`   | 最大玩家数      |                   |
-| `server.players.percent` | 玩家数占比      |                   |
+|           名称           | 说明                   | 示例                 |
+| :----------------------: | ---------------------- | -------------------- |
+|      `server.name`       | 名称                   |                      |
+|       `server.id`        | Id                     |                      |
+|     `server.status`      | 状态                   | *已启动 / 未启动*    |
+|      `server.usage`      | 进程 CPU 使用率        |                      |
+|     `server.output`      | 输出行数               |                      |
+|      `server.input`      | 输入行数               |                      |
+|      `server.time`       | 运行时间               | *1:00:00*            |
+|     `server.version`     | 版本                   | *1.21.0*             |
+|      `server.motd`       | 介绍                   | *A Minecraft server* |
+| `server.players.current` | 当前玩家数             |                      |
+|   `server.players.max`   | 最大玩家数             |                      |
+| `server.players.percent` | 玩家数占比             |                      |
+|  `server.players.list`   | 玩家列表（仅 Java 版） | *Steve, Alex*        |
 
 :::note
 
@@ -66,20 +72,22 @@
 
 |        名称        | 说明                           | 示例                   |
 | :----------------: | ------------------------------ | ---------------------- |
-|    `sender.id`     | 发送者 QQ 号                   |                        |
+|    `sender.id`     | 发送者 Id                      |                        |
 |    `sender.sex`    | 性别                           | *未知 / 男 / 女*       |
 |    `sender.age`    | 年龄                           |                        |
 | `sender.nickname`  | 昵称                           |                        |
 |   `sender.area`    | 地区                           |                        |
 |   `sender.card`    | 群名片                         |                        |
 |   `sender.level`   | 成员等级                       |                        |
+|  `sender.avatar`   | 头像链接                       |                        |
 |   `sender.title`   | 专属头衔（群主授予）           |                        |
 |   `sender.role`    | 角色                           | *群主 / 管理员 / 成员* |
 | `sender.shownName` | 显示名称（群名片若空则为昵称） |                        |
+|  `sender.gameid`   | 绑定的第一个游戏 Id            | *Serein*               |
 
 :::note
 
-- 根据 OneBot 的实现不同，部分值可能**存在差异**或为**空值**
+- 根据 OneBot 的实现 和 Satori 应用 的不同，部分值可能**存在差异**或为**空值**
 - 以下变量只能在群聊消息中使用
   - `area`
   - `level`
@@ -89,24 +97,32 @@
 
 :::
 
+## 绑定
+
+|        名称        | 说明                    | 示例        |
+| :----------------: | ----------------------- | ----------- |
+| `user.id@{gameId}` | 通过游戏 ID 获取用户 ID | *123456789* |
+
 ## 时间
 
-|          名称          | 说明              | 示例                             |
-| :--------------------: | ----------------- | -------------------------------- |
-|       `datetime`       | 日期与时间        | *2024/1/1 4:05:01*               |
-|    `datetime.date`     | 日期              | *2024/1/1*                       |
-|    `datetime.time`     | 时间              | *4:05:01*                        |
-|    `datetime.year`     | 年                | *{new Date().getFullYear()}*     |
-|    `datetime.month`    | 月                | *{new Date().getMonth()+1}*      |
-|     `datetime.day`     | 日                | *{new Date().getDate()}*         |
-|    `datetime.hour`     | 时                | *{new Date().getHours()}*        |
-|   `datetime.minute`    | 分                | *{new Date().getMinutes()}*      |
-|   `datetime.second`    | 秒                | *{new Date().getSeconds()}*      |
-| `datetime.millisecond` | 毫秒              | *{new Date().getMilliseconds()}* |
-| `datetime.microsecond` | 微秒              | *000*                            |
-| `datetime.nanosecond`  | 纳秒              | *100*                            |
-|     `datetime.iso`     | ISO 8601 格式时间 | *{new Date().toISOString()}*     |
-|  `datetime.dayofweek`  | 星期              | *Sunday*                         |
+|          名称          | 说明                | 示例                             |
+| :--------------------: | ------------------- | -------------------------------- |
+|       `datetime`       | 日期与时间          | *2024/1/1 4:05:01*               |
+|    `datetime.date`     | 日期                | *2024/1/1*                       |
+|    `datetime.time`     | 时间                | *4:05:01*                        |
+|    `datetime.year`     | 年                  | *{new Date().getFullYear()}*     |
+|    `datetime.month`    | 月                  | *{new Date().getMonth()+1}*      |
+|     `datetime.day`     | 日                  | *{new Date().getDate()}*         |
+|    `datetime.hour`     | 时                  | *{new Date().getHours()}*        |
+|   `datetime.minute`    | 分                  | *{new Date().getMinutes()}*      |
+|   `datetime.second`    | 秒                  | *{new Date().getSeconds()}*      |
+| `datetime.millisecond` | 毫秒                | *{new Date().getMilliseconds()}* |
+| `datetime.microsecond` | 微秒                | *000*                            |
+| `datetime.nanosecond`  | 纳秒                | *100*                            |
+|     `datetime.iso`     | [ISO 8601] 格式时间 | *{new Date().toISOString()}*     |
+|  `datetime.dayofweek`  | 星期                | *Sunday*                         |
+
+[ISO 8601]: https://www.iso.org/iso-8601-date-and-time-format.html
 
 <details>
 

@@ -1,6 +1,11 @@
 {
-  "globs": ["**.md"],
-  "ignores": ["node_modules/**"],
+  "globs": [
+    "**.md",
+    "**.mdx"
+  ],
+  "ignores": [
+    "node_modules/**"
+  ],
   "config": {
     "no-inline-html": false,
     "line-length": false,

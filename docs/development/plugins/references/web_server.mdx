@@ -1,0 +1,99 @@
+# 网页服务器
+
+## 当前状态
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+using EmbedIO;
+
+namespace Serein.Core.Services.Network.Web;
+
+public sealed partial class WebServer
+{
+    public WebServerState State { get; }
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.webServer.state: WebServerState
+```
+
+- 类型
+  - `WebServerState`
+
+```ts
+declare enum WebServerState {
+    Created = 0,
+
+    Loading = 1,
+
+    Listening = 2,
+
+    Stopped = 3,
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+## 启动
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Network.Web;
+
+public sealed partial class WebServer
+{
+    public void Start();
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.webServer.start(): void
+```
+
+</TabItem>
+
+</Tabs>
+
+## 停止
+
+<Tabs groupId="lang">
+
+<TabItem value="cs" label="C#" >
+
+```cs
+namespace Serein.Core.Services.Network.Web;
+
+public sealed partial class WebServer
+{
+    public void Stop();
+}
+```
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript" >
+
+```ts
+serein.webServer.stop(): void
+```
+
+</TabItem>
+
+</Tabs>
