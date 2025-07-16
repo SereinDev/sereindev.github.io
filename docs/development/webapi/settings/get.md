@@ -65,16 +65,16 @@ GET /setting HTTP/1.1
       "enableSentry": true,
       "theme": 1,
       "cliCommandHeader": "//",
-      "pluginEventMaxWaitingTime": 20,
-      "jsGlobalAssemblies": [
+      "maximumWaitTimeForPluginEvents": 500,
+      "jsDefaultAssemblies": [
         "System"
       ],
-      "jsPatternToSkipLoadingSingleFile": [
+      "jsFilesToExcludeFromLoading": [
         ".module.js"
       ],
-      "disableBinderWhenServerClosed": false,
-      "regexForCheckingGameId": "^[a-zA-Z0-9_\\s\\-]{3,16}$",
-      "pattenForEnableMatchingMuiltLines": []
+      "disableBindingManagerWhenAllServersStopped": true,
+      "gameIdValidationPattern": "^[a-zA-Z0-9_\\s\\-]{3,16}$",
+      "multiLineMatchingPatterns": []
     },
     "reactions": {
       "ServerStart": [
@@ -114,6 +114,6 @@ GET /setting HTTP/1.1
   },
   "errorMsg": null,
   "details": [],
-  "time": "2025-07-03T16:32:01.738366+08:00"
+  "time": "2025-07-16T22:09:21.2737354+08:00"
 }
 ```
