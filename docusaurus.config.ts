@@ -5,7 +5,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Serein',
-  tagline: '一款支持多服务器统一管理、群服互通、网页远程控制、插件扩展等功能，专为游戏服务器设计的自动化管理工具',
+  tagline:
+    '一款支持多服务器统一管理、群服互通、网页远程控制、插件扩展等功能，专为游戏服务器设计的自动化管理工具',
   favicon: 'logo.png',
 
   url: 'https://sereindev.github.io',
@@ -37,7 +38,6 @@ const config: Config = {
           versions: {
             current: {
               label: '2.1.0',
-              noIndex: true,
             },
           },
           lastVersion: 'current',
@@ -68,9 +68,9 @@ const config: Config = {
     },
 
     algolia: {
-      appId: '9JV37DHKB8',
-      apiKey: '5e34f354e8d57d9a7e97e77ef0e21a8c',
-      indexName: 'sereindevio',
+      appId: 'VKICGVYQDT',
+      apiKey: '56c7260bfa6530fc4fcfffab941a8e18',
+      indexName: 'sereindocs',
       contextualSearch: true,
     },
 
